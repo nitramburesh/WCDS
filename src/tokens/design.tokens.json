@@ -1,0 +1,60 @@
+{
+  "color": {
+    "primary": {
+      "100": { "$value": "#fde6f4", "$type": "color" },
+      "200": { "$value": "#fbcfe8", "$type": "color" },
+      "300": { "$value": "#f7b6dd", "$type": "color" },
+      "400": { "$value": "#f093c8", "$type": "color" },
+      "500": { "$value": "#e46fb3", "$type": "color" },
+      "600": { "$value": "#d0529f", "$type": "color" },
+      "700": { "$value": "#b63c87", "$type": "color" },
+      "800": { "$value": "#942c6c", "$type": "color" },
+      "900": { "$value": "#6e1c4d", "$type": "color" }
+    },
+    "secondary": {
+      "100": { "$value": "#e0f9f7", "$type": "color" },
+      "200": { "$value": "#b3efea", "$type": "color" },
+      "300": { "$value": "#86e4dd", "$type": "color" },
+      "400": { "$value": "#59d9d0", "$type": "color" },
+      "500": { "$value": "#3ac7bd", "$type": "color" },
+      "600": { "$value": "#2ba9a0", "$type": "color" },
+      "700": { "$value": "#218984", "$type": "color" },
+      "800": { "$value": "#196c68", "$type": "color" },
+      "900": { "$value": "#0f4a47", "$type": "color" }
+    },
+    "neutral": {
+      "100": { "$value": "#f9fafb", "$type": "color" },
+      "200": { "$value": "#f3f4f6", "$type": "color" },
+      "300": { "$value": "#e5e7eb", "$type": "color" },
+      "400": { "$value": "#d1d5db", "$type": "color" },
+      "500": { "$value": "#9ca3af", "$type": "color" },
+      "600": { "$value": "#6b7280", "$type": "color" },
+      "700": { "$value": "#4b5563", "$type": "color" },
+      "800": { "$value": "#374151", "$type": "color" },
+      "900": { "$value": "#1f2937", "$type": "color" }
+    }
+  },
+  "text": {
+    "default": {
+      "$value": "{color.neutral.900}",
+      "$type": "color"
+    },
+    "subtle": {
+      "$value": "{color.neutral.600}",
+      "$type": "color"
+    }
+  },
+  "background": {},
+  "border": {
+    "default": {
+      "$value": "{color.neutral.500}",
+      "$type": "color"
+    }
+  },
+  "icon": {
+    "default": {
+      "$value": "{color.neutral.900}",
+      "$type": "color"
+    }
+  }
+}

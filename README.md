@@ -6,7 +6,7 @@ WCDS aka Web Component Design System is a package that thrives to solve problems
 
 `pnpm install` - install dependencies
 
-`pnpm dev` - run StoryBook and start developing
+`pnpm dev` - prepare design tokens, run StoryBook and start developing
 
 ## Techstack
 
