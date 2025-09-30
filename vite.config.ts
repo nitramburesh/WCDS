@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 import path from "path";
 import { fileURLToPath } from "url";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
+import dts from "vite-plugin-dts";
 
 const dirname =
   typeof __dirname !== "undefined"
@@ -10,6 +11,7 @@ const dirname =
     : path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  plugins: [dts({ insertTypesEntry: true })],
   build: {
     lib: {
       entry: "./src/index.ts",
