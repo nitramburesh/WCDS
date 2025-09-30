@@ -1,9 +1,9 @@
 {
   "name": "wcds",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Web component design system",
-  "main": "./dist/wcds.js.mjs",
-  "module": "./dist/wcds.js.mjs",
+  "main": "./dist/wcds.js",
+  "module": "./dist/wcds.js",
   "type": "module",
   "types": "dist/index.d.ts",
   "exports": {

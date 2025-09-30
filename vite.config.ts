@@ -15,7 +15,7 @@ export default defineConfig({
       entry: "./src/index.ts",
       name: "wcds",
       formats: ["es"],
-      fileName: "wcds.js",
+      fileName: "wcds",
     },
     rollupOptions: {
       external: ["lit"],
