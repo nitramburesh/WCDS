@@ -5,3 +5,13 @@
 This is a design system built with web components, built with the goal of
 providing a consistent and reusable set of components that can be used across
 different projects using different frameworks or languages.
+
+## Tokens
+
+Tokens exist in `/src/tokens/design.tokens.json` file. These are then processed by `/src/tokens/prepare-tokens.js` script. Prepare tokens then generates content into `/src/tokens/generated/` folder. These files include 1) types in `d.ts.` file, 2) CSS variables in `tokens.css` file and 3) typed TS object in `tokens.ts` file.
+
+To prepare (generate) tokens, run:
+
+```bash
+pnpm run prepare
+```

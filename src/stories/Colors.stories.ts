@@ -1,9 +1,10 @@
 import { html } from "lit";
 import type { Meta } from "@storybook/web-components-vite";
-import "../components/icon";
-import "../components/color";
 import { tokens } from "../tokens/generated/tokens";
 import { repeat } from "lit/directives/repeat.js";
+
+import "../components/color";
+import "../components/icon";
 
 const meta: Meta = {
   title: "Theme/Colors",

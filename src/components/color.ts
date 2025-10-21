@@ -25,3 +25,9 @@ export class WCDSColor extends LitElement {
     </div> `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "wcds-color": WCDSColor;
+  }
+}

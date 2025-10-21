@@ -14,8 +14,8 @@ const meta: Meta<CustomArguments> = {
   title: "Components/Button",
   component: "wcds-button",
   render: ({ label, iconLeft, iconRight }) => html`<wcds-button
-    iconLeft=${iconLeft ? "default" : null}
-    iconRight=${iconRight ? "default" : null}
+    iconLeft=${iconLeft ? "close" : null}
+    iconRight=${iconRight ? "close" : null}
   >
     ${label}
   </wcds-button>`,

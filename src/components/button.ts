@@ -1,13 +1,15 @@
 import { LitElement, css, html } from "lit";
-import { customElement } from "lit/decorators.js";
-import { type Name } from "../types";
+import { customElement, property } from "lit/decorators.js";
+import { type Icon } from "../types";
+
 import "./icon";
 import "../index.css";
 
 @customElement("wcds-button")
 export class WCDSButton extends LitElement {
-  iconLeft?: Name;
-  iconRight?: Name;
+  @property({ type: String })
+  iconLeft?: Icon;
+  iconRight?: Icon;
 
   static get properties() {
     return {
@@ -22,14 +24,16 @@ export class WCDSButton extends LitElement {
   render() {
     console.log(this.iconLeft);
     return html`
-      <button class="wcds-button">
-        ${this.iconLeft &&
-        html`<wcds-icon name="${this.iconLeft}" slot="icon-left" />`}
+      <button>
+        <span>
+          ${this.iconLeft &&
+          html`<wcds-icon .icon=${this.iconLeft} slot="icon-left" />`}
 
-        <slot></slot>
+          <slot></slot>
 
-        ${this.iconRight &&
-        html`<wcds-icon name="${this.iconRight}" slot="icon-right" />`}
+          ${this.iconRight &&
+          html`<wcds-icon .icon=${this.iconRight} slot="icon-right" />`}
+        </span>
       </button>
     `;
   }
@@ -38,6 +42,13 @@ export class WCDSButton extends LitElement {
     ::slotted() {
       font-size: 3.2em;
       line-height: 1.1;
+    }
+
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     button {
