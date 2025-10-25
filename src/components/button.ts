@@ -10,9 +10,6 @@ import "../index.css";
 
 @customElement("wcds-button")
 export class WCDSButton extends LitElement {
-  createRenderRoot() {
-    return this;
-  }
   static styles = [unsafeCSS(globalStyles)];
 
   @property({ type: String })
