@@ -12,6 +12,7 @@
       "import": "./dist/wcds.js",
       "require": "./dist/wcds.js"
     },
+    "./dist/wcds.css": "./dist/wcds.css",
     "./package.json": "./package.json"
   },
   "files": [
