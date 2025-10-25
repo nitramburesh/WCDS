@@ -1,3 +1,5 @@
+<!-- @format -->
+
 # WCDS
 
 WCDS aka Web Component Design System is a package that thrives to solve problems for multi-framework teams. Providing components as web components, it strips the burden of framework specifities, allowing developers to focus on solving more important problems that just building components over and over again.
@@ -7,6 +9,10 @@ WCDS aka Web Component Design System is a package that thrives to solve problems
 `pnpm install` - install dependencies
 
 `pnpm dev` - prepare design tokens, run StoryBook and start developing
+
+`npm version <version-number>` - bump package version
+
+`npm publish` - publish new version of the package
 
 ## Techstack
 
