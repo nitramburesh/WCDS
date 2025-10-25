@@ -1,9 +1,12 @@
+/** @format */
+
 /// <reference types="vitest/config" />
 import { defineConfig } from "vite";
 import path from "path";
 import { fileURLToPath } from "url";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
 import dts from "vite-plugin-dts";
+import tailwindcss from "@tailwindcss/vite";
 
 const dirname =
   typeof __dirname !== "undefined"
@@ -11,7 +14,7 @@ const dirname =
     : path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  plugins: [dts({ insertTypesEntry: true })],
+  plugins: [dts({ insertTypesEntry: true }), tailwindcss()],
   build: {
     lib: {
       entry: "./src/index.ts",

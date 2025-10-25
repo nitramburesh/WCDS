@@ -1,3 +1,5 @@
+/** @format */
+
 import { LitElement, html, type TemplateResult } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { styleMap } from "lit/directives/style-map.js";
@@ -90,5 +92,10 @@ export class WCDSIcon extends LitElement {
     return html`<span class="wcds-icon" style=${styleMap(this.styles)}>
       ${ICONS[this.icon]}
     </span>`;
+  }
+}
+declare global {
+  interface HTMLElementTagNameMap {
+    "wcds-icon": WCDSIcon;
   }
 }

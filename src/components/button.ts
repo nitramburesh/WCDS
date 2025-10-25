@@ -1,31 +1,27 @@
-import { LitElement, css, html } from "lit";
+/** @format */
+
+import { LitElement, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { type Icon } from "../types";
+import globalStyles from "../index.css?inline";
 
 import "./icon";
 import "../index.css";
 
 @customElement("wcds-button")
 export class WCDSButton extends LitElement {
+  static styles = [unsafeCSS(globalStyles)];
+
   @property({ type: String })
   iconLeft?: Icon;
+
+  @property({ type: String })
   iconRight?: Icon;
 
-  static get properties() {
-    return {
-      iconLeft: { type: String },
-      iconRight: { type: String },
-    };
-  }
-  constructor() {
-    super();
-  }
-
   render() {
-    console.log(this.iconLeft);
     return html`
-      <button>
-        <span>
+      <button class="btn uppercase btn-primary">
+        <span class="flex gap-2 items-center">
           ${this.iconLeft &&
           html`<wcds-icon .icon=${this.iconLeft} slot="icon-left" />`}
 
@@ -37,56 +33,6 @@ export class WCDSButton extends LitElement {
       </button>
     `;
   }
-
-  static styles = css`
-    ::slotted() {
-      font-size: 3.2em;
-      line-height: 1.1;
-    }
-
-    span {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    button {
-      border-radius: 32px;
-      border: 1px solid transparent;
-      padding: 0.6em 1.2em;
-      font-size: 1em;
-      font-weight: 500;
-      font-family: inherit;
-      background-color: #1a1a1a;
-      color: #ffffff;
-      cursor: pointer;
-      transition: border-color 0.25s;
-      display: flex;
-      gap: 0.5em;
-      align-items: center;
-      justify-content: center;
-      height: 3em;
-      text-transform: uppercase;
-    }
-
-    button:hover {
-      border-color: #646cff;
-    }
-    button:focus,
-    button:focus-visible {
-      outline: 4px auto -webkit-focus-ring-color;
-    }
-
-    @media (prefers-color-scheme: light) {
-      a:hover {
-        color: #747bff;
-      }
-      button {
-        background-color: #f9f9f9;
-      }
-    }
-  `;
 }
 
 declare global {

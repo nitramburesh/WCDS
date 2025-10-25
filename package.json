@@ -36,8 +36,12 @@
     "url": "https://github.com/nitramburesh/WCDS/issues"
   },
   "homepage": "https://github.com/nitramburesh/WCDS#readme",
+  "packageManager": "pnpm@10.19.0+sha512.c9fc7236e92adf5c8af42fd5bf1612df99c2ceb62f27047032f4720b33f8eacdde311865e91c411f2774f618d82f320808ecb51718bfa82c060c4ba7c76a32b8",
   "dependencies": {
-    "lit": "^3.3.0"
+    "@tailwindcss/vite": "^4.1.16",
+    "daisyui": "^5.3.8",
+    "lit": "^3.3.0",
+    "tailwindcss": "^4.1.16"
   },
   "peerDependencies": {
     "lit": "^3.0.0"

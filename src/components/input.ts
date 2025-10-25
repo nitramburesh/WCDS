@@ -1,35 +1,31 @@
-import { LitElement, html } from "lit";
+/** @format */
+
+import { LitElement, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
-import { styleMap } from "lit/directives/style-map.js";
 import { type Icon } from "../types";
+import globalStyles from "../index.css?inline";
 
 @customElement("wcds-input")
 export class WCDSInput extends LitElement {
   @property({ type: String }) icon!: Icon;
   @property({ type: Number }) size: number = 1.6;
   @property({ type: String }) color: string = "currentColor";
-  @property({ type: String }) placeholder!: string;
   @property({ type: String }) label!: string;
 
-  get styles() {
-    return {
-      display: "flex",
-      alignItems: "center",
-      minWidth: "200px",
-      justifyContent: "center",
-      width: `${this.size}rem`,
-      height: `${this.size}rem`,
-      color: this.color,
-    };
-  }
+  static styles = [unsafeCSS(globalStyles)];
 
   render() {
     return html`
-    <label for="wcds-input">
-      ${this.label}
-      <input id="wcds-input" style="${styleMap(this.styles)}" placeholder="${
-      this.placeholder
-    }"></input>
+    <label for="wcds-input" class="input floating-label">
+      <span>${this.label}</span>
+      ${this.icon && html`<wcds-icon .icon=${this.icon} slot="icon-left" />`}
+      <input  id="wcds-input" placeholder="${this.label}"></input>
     </label>`;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    "wcds-input": WCDSInput;
   }
 }

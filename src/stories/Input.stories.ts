@@ -1,3 +1,5 @@
+/** @format */
+
 import { html } from "lit";
 import type { Meta } from "@storybook/web-components-vite";
 
