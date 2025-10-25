@@ -10,6 +10,9 @@ import "../index.css";
 
 @customElement("wcds-button")
 export class WCDSButton extends LitElement {
+  createRenderRoot() {
+    return this;
+  }
   static styles = [unsafeCSS(globalStyles)];
 
   @property({ type: String })
@@ -20,7 +23,7 @@ export class WCDSButton extends LitElement {
 
   render() {
     return html`
-      <button data-theme="caramellatte" class="btn uppercase btn-primary">
+      <button class="btn uppercase btn-primary">
         <span class="flex gap-2 items-center">
           ${this.iconLeft &&
           html`<wcds-icon .icon=${this.iconLeft} slot="icon-left" />`}
