@@ -20,7 +20,7 @@ export class WCDSButton extends LitElement {
 
   render() {
     return html`
-      <button class="btn uppercase btn-primary">
+      <button data-theme="caramellatte" class="btn uppercase btn-primary">
         <span class="flex gap-2 items-center">
           ${this.iconLeft &&
           html`<wcds-icon .icon=${this.iconLeft} slot="icon-left" />`}
