@@ -25,7 +25,8 @@
     "dev": "pnpm prepare && storybook dev -p 6060",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "pack": "build && npm pack"
   },
   "repository": {
     "type": "git",

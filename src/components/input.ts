@@ -8,11 +8,12 @@ import globalStyles from "../index.css?inline";
 @customElement("wcds-input")
 export class WCDSInput extends LitElement {
   @property({ type: String }) icon!: Icon;
-  @property({ type: Number }) size: number = 1.6;
-  @property({ type: String }) color: string = "currentColor";
+  @property({ type: Number }) size = 1.6;
+  @property({ type: String }) color = "currentColor";
   @property({ type: String }) label!: string;
-  @property({ type: String }) type: string = "text";
-  @property({ type: String }) value: string = "";
+  @property({ type: String }) type = "text";
+  @property({ type: Boolean, reflect: true }) disabled = false;
+  @property({ type: String }) value = "";
 
   static styles = [unsafeCSS(globalStyles)];
 
@@ -36,6 +37,7 @@ export class WCDSInput extends LitElement {
         @input=${this.onInput} 
         .value=${this.value} 
         type=${this.type}
+        ?disabled=${this.disabled}
         id="wcds-input" 
         placeholder="${this.label}">
       </input>
