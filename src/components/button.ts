@@ -18,9 +18,19 @@ export class WCDSButton extends LitElement {
   @property({ type: String })
   iconRight?: Icon;
 
+  private handleClick(event: MouseEvent) {
+    this.dispatchEvent(
+      new CustomEvent("wcds-click", {
+        detail: event,
+        bubbles: true,
+        composed: true,
+      }),
+    );
+  }
+
   render() {
     return html`
-      <button class="btn uppercase btn-primary">
+      <button @click=${this.handleClick} class="btn uppercase btn-primary">
         <span class="flex gap-2 items-center">
           ${this.iconLeft &&
           html`<wcds-icon .icon=${this.iconLeft} slot="icon-left" />`}
