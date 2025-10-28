@@ -6,7 +6,6 @@ import { type Icon } from "../types";
 import globalStyles from "../index.css?inline";
 
 import "./icon";
-import "../index.css";
 
 type ButtonType = "button" | "submit" | "reset";
 type ButtonVariant = "primary" | "secondary";
@@ -18,10 +17,10 @@ export class WCDSButton extends LitElement {
   @property({ type: String }) label = "";
   @property({ type: String }) size: ButtonSize = "md";
   @property({ type: Boolean }) disabled = false;
-  @property({ type: String, reflect: true }) variant: ButtonVariant = "primary";
+  @property({ type: String }) variant: ButtonVariant = "primary";
   @property({ type: String }) type: ButtonType = "button";
   @property({ type: String }) iconLeft?: Icon;
-  @property({ type: String, reflect: true }) iconRight?: Icon;
+  @property({ type: String }) iconRight?: Icon;
 
   private handleClick(event: MouseEvent) {
     this.dispatchEvent(
@@ -37,7 +36,7 @@ export class WCDSButton extends LitElement {
     return html`
       <button
         @click=${this.handleClick}
-        class="btn uppercase btn-${this.variant}"
+        class="btn uppercase btn-primary"
         type=${this.type}
         ?disabled=${this.disabled}
       >

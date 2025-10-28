@@ -2,6 +2,7 @@
 
 import type { Preview } from "@storybook/web-components-vite";
 import "../src/tokens/generated/tokens.css";
+import "../src/index.css";
 
 const preview: Preview = {
   parameters: {

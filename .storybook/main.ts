@@ -1,3 +1,5 @@
+/** @format */
+
 import type { StorybookConfig } from "@storybook/web-components-vite";
 
 const config: StorybookConfig = {
