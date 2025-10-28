@@ -42,14 +42,25 @@ export class WCDSButton extends LitElement {
     }
   }
 
+  getVariantClass() {
+    switch (this.variant) {
+      case "primary":
+        return "btn-primary";
+      case "secondary":
+        return "btn-secondary";
+      default:
+        return "btn-primary";
+    }
+  }
+
   render() {
     try {
       this.validateAttributes();
-      const variantClass = "btn-" + this.variant;
+
       return html`
         <button
           @click=${this.handleClick}
-          class="btn uppercase ${variantClass}"
+          class="btn uppercase ${this.getVariantClass()}"
           type=${this.type}
           ?disabled=${this.disabled}
         >
