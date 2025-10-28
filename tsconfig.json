@@ -38,7 +38,10 @@
   },
   "include": [
     "src/**/*.ts",
-    "../vite.config.ts"
+    "../vite.config.ts",
+    "src/components/index.js",
+    "src/index.js",
+    "src/components/index.js"
   ],
   "exclude": [
     "src/**/*.stories.ts"

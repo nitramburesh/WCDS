@@ -1,5 +1,5 @@
 /** @format */
 
-export * from "./button";
-export * from "./input";
-export * from "./icon";
+export * from "./button.js";
+export * from "./input.js";
+export * from "./icon.js";
