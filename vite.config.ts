@@ -14,10 +14,19 @@ const dirname =
     : path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  plugins: [dts({ insertTypesEntry: true }), tailwindcss()],
+  plugins: [
+    dts({
+      entryRoot: "src",
+      outDir: "dist",
+      include: ["src/**/*.ts"],
+      tsconfigPath: "tsconfig.build.json",
+      insertTypesEntry: true,
+    }),
+    tailwindcss(),
+  ],
   build: {
     lib: {
-      entry: "./src/index.ts",
+      entry: "src/index.ts",
       name: "wcds",
       formats: ["es"],
       fileName: "wcds",
