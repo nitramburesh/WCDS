@@ -39,7 +39,7 @@ export class WCDSButton extends LitElement {
         @click=${this.handleClick}
         class="btn uppercase btn-${this.variant}"
         type=${this.type}
-        disabled=${this.disabled}
+        ?disabled=${this.disabled}
       >
         <span class="flex gap-2 items-center">
           ${this.iconLeft &&

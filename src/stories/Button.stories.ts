@@ -1,3 +1,5 @@
+/** @format */
+
 import { html } from "lit";
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 
@@ -16,9 +18,8 @@ const meta: Meta<CustomArguments> = {
   render: ({ label, iconLeft, iconRight }) => html`<wcds-button
     iconLeft=${iconLeft ? "close" : null}
     iconRight=${iconRight ? "close" : null}
-  >
-    ${label}
-  </wcds-button>`,
+    .label=${label}
+  ></wcds-button>`,
 };
 
 export default meta;
