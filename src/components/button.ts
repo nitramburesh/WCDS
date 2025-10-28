@@ -18,10 +18,10 @@ export class WCDSButton extends LitElement {
   @property({ type: String }) label = "";
   @property({ type: String }) size: ButtonSize = "md";
   @property({ type: Boolean }) disabled = false;
-  @property({ type: String }) variant: ButtonVariant = "primary";
+  @property({ type: String, reflect: true }) variant: ButtonVariant = "primary";
   @property({ type: String }) type: ButtonType = "button";
   @property({ type: String }) iconLeft?: Icon;
-  @property({ type: String }) iconRight?: Icon;
+  @property({ type: String, reflect: true }) iconRight?: Icon;
 
   private handleClick(event: MouseEvent) {
     this.dispatchEvent(
