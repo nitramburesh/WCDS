@@ -4,8 +4,8 @@ import { LitElement, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { type Icon } from "../types";
 import globalStyles from "../index.css?inline";
-
-import "./icon";
+import "./icon.js";
+import { isInvalidString, throwError } from "../utils/validators.js";
 
 type ButtonType = "button" | "submit" | "reset";
 type ButtonVariant = "primary" | "secondary";
@@ -14,13 +14,14 @@ type ButtonSize = "sm" | "md" | "lg";
 export class WCDSButton extends LitElement {
   static styles = [unsafeCSS(globalStyles)];
 
-  @property({ type: String }) label = "";
+  @property({ type: String, reflect: true }) id!: string;
+  @property({ type: String }) label!: string;
   @property({ type: String }) size: ButtonSize = "md";
-  @property({ type: Boolean }) disabled = false;
   @property({ type: String }) variant: ButtonVariant = "primary";
-  @property({ type: String }) type: ButtonType = "button";
+  @property({ type: String, reflect: true }) type: ButtonType = "button";
   @property({ type: String }) iconLeft?: Icon;
   @property({ type: String }) iconRight?: Icon;
+  @property({ type: Boolean, reflect: true }) disabled = false;
 
   private handleClick(event: MouseEvent) {
     this.dispatchEvent(
@@ -32,23 +33,42 @@ export class WCDSButton extends LitElement {
     );
   }
 
+  validateAttributes() {
+    if (isInvalidString(this.id)) {
+      throwError("id");
+    }
+    if (isInvalidString(this.label)) {
+      throwError("label");
+    }
+  }
+
   render() {
-    return html`
-      <button
-        @click=${this.handleClick}
-        class="btn uppercase btn-primary"
-        type=${this.type}
-        ?disabled=${this.disabled}
-      >
-        <span class="flex gap-2 items-center">
-          ${this.iconLeft &&
-          html`<wcds-icon .icon=${this.iconLeft} slot="icon-left" />`}
-          ${this.label}
-          ${this.iconRight &&
-          html`<wcds-icon .icon=${this.iconRight} slot="icon-right" />`}
-        </span>
-      </button>
-    `;
+    try {
+      this.validateAttributes();
+      const variantClass = "btn-" + this.variant;
+      return html`
+        <button
+          @click=${this.handleClick}
+          class="btn uppercase ${variantClass}"
+          type=${this.type}
+          ?disabled=${this.disabled}
+        >
+          <span class="flex gap-2 items-center">
+            ${this.iconLeft &&
+            html`<wcds-icon .icon=${this.iconLeft} slot="icon-left" />`}
+            ${this.label}
+            ${this.iconRight &&
+            html`<wcds-icon .icon=${this.iconRight} slot="icon-right" />`}
+          </span>
+        </button>
+      `;
+    } catch (error) {
+      console.error(error);
+
+      return html`<div class="error-box">
+        Error: ${(error as Error).message}
+      </div>`;
+    }
   }
 }
 
