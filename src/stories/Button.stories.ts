@@ -18,7 +18,9 @@ const meta: Meta<CustomArguments> = {
   render: ({ label, iconLeft, iconRight }) => html`<wcds-button
     iconLeft=${iconLeft ? "close" : null}
     iconRight=${iconRight ? "close" : null}
-    .label=${label}
+    label=${label}
+    id="button-1"
+    variant="primary"
   ></wcds-button>`,
 };
 

@@ -13,7 +13,8 @@ const meta: Meta = {
 export const Input = () => {
   return html`<wcds-input
     placeholder="Enter text"
-    label="Input Label"
+    label="Input"
+    id="input-1"
   ></wcds-input>`;
 };
 export default meta;
