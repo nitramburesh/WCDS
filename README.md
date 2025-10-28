@@ -10,9 +10,20 @@ WCDS aka Web Component Design System is a package that thrives to solve problems
 
 `pnpm dev` - prepare design tokens, run StoryBook and start developing
 
-`npm version <version-number>` - bump package version
+## Package management
 
-`npm publish` - publish new version of the package
+1. commmit and push changes
+2. bump npm package version
+
+   - `npm version <new-version-number>`
+
+3. pack latest package version
+
+   - `pnpm pack`
+
+4. publish npm package
+
+   - `npm publish`
 
 ## Techstack
 
