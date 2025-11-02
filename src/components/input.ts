@@ -16,7 +16,7 @@ export class WCDSInput extends LitElement {
   @property({ type: String }) type = "text";
   @property({ type: String }) value = "";
   @property({ type: Boolean, reflect: true }) disabled = false;
-  @property({ type: String }) error?: string;
+  @property({ type: String, reflect: true }) error?: string;
   @property({ type: Boolean }) required: boolean = false;
 
   validateAttributes() {
@@ -32,7 +32,6 @@ export class WCDSInput extends LitElement {
 
   private onInput(event: Event) {
     const target = event.target as HTMLInputElement;
-    this.error = "";
     this.value = target.value;
     this.dispatchEvent(
       new CustomEvent("input", {
@@ -41,6 +40,7 @@ export class WCDSInput extends LitElement {
         composed: true,
       }),
     );
+    if (this.error) this.dispatchEvent(new CustomEvent("clear-error"));
   }
 
   getErrorStyles() {
