@@ -50,7 +50,7 @@ export class WCDSInput extends LitElement {
     try {
       this.validateAttributes();
       return html`
-        <div class="flex flex-col gap-1">
+        <div class="flex flex-col gap-1 w-full">
           <label
             for="wcds-input"
             class="input floating-label ${this.getErrorStyles()}"
