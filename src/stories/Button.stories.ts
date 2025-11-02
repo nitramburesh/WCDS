@@ -3,7 +3,6 @@
 import { html } from "lit";
 import type { Meta, StoryObj } from "@storybook/web-components-vite";
 
-import "../components/icon";
 import "../components/button";
 
 type CustomArguments = {

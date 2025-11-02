@@ -10,12 +10,14 @@ import { isInvalidString, throwError } from "../utils/validators";
 export class WCDSInput extends LitElement {
   @property({ type: String, reflect: true }) id!: string;
   @property({ type: String }) label!: string;
+
   @property({ type: String }) icon: Icon | null = null;
   @property({ type: String }) color = "currentColor";
   @property({ type: String }) type = "text";
   @property({ type: String }) value = "";
   @property({ type: Boolean, reflect: true }) disabled = false;
-  @property({ type: Number }) size = 1.6;
+  @property({ type: String }) error?: string;
+  @property({ type: Boolean }) required: boolean = false;
 
   validateAttributes() {
     if (isInvalidString(this.id)) {
@@ -32,28 +34,42 @@ export class WCDSInput extends LitElement {
     const target = event.target as HTMLInputElement;
     this.value = target.value;
     this.dispatchEvent(
-      new Event("input", {
+      new CustomEvent("input", {
+        detail: { value: this.value },
         bubbles: true,
         composed: true,
       }),
     );
   }
 
+  getErrorStyles() {
+    return this.error ? "input-error" : "";
+  }
   render() {
     try {
       this.validateAttributes();
-      return html` <label for="wcds-input" class="input floating-label">
-        <span>${this.label}</span>
-        ${this.icon && html`<wcds-icon .icon=${this.icon} slot="icon-left" />`}
-        <input
-          @input=${this.onInput}
-          .value=${this.value}
-          type=${this.type}
-          ?disabled=${this.disabled}
-          id=${this.id}
-          placeholder="${this.label}"
-        />
-      </label>`;
+      return html`
+        <div class="flex flex-col">
+          <label
+            for="wcds-input"
+            class="input floating-label ${this.getErrorStyles()}"
+          >
+            <span>${this.label}</span>
+            ${this.icon &&
+            html`<wcds-icon .icon=${this.icon} slot="icon-left" />`}
+            <input
+              required=${this.required ? true : false}
+              @input=${this.onInput}
+              .value=${this.value}
+              type=${this.type}
+              ?disabled=${this.disabled}
+              id=${this.id}
+              placeholder="${this.label}"
+            />
+          </label>
+          <span class="text-error">${this.error}</span>
+        </div>
+      `;
     } catch (error) {
       console.error(error);
 
