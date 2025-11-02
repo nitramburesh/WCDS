@@ -32,6 +32,7 @@ export class WCDSInput extends LitElement {
 
   private onInput(event: Event) {
     const target = event.target as HTMLInputElement;
+    this.error = "";
     this.value = target.value;
     this.dispatchEvent(
       new CustomEvent("input", {
@@ -49,7 +50,7 @@ export class WCDSInput extends LitElement {
     try {
       this.validateAttributes();
       return html`
-        <div class="flex flex-col">
+        <div class="flex flex-col w-full">
           <label
             for="wcds-input"
             class="input floating-label ${this.getErrorStyles()}"
