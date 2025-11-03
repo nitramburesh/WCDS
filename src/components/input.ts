@@ -4,16 +4,20 @@ import { LitElement, html, unsafeCSS } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { type Icon } from "../types";
 import globalStyles from "../index.css?inline";
-import { isInvalidString, throwError } from "../utils/validators";
+import {
+  isInvalidString,
+  throwCustomError,
+  throwInvalidAttributeError,
+} from "../utils/validators";
 
 @customElement("wcds-input")
 export class WCDSInput extends LitElement {
   @property({ type: String, reflect: true }) id!: string;
-  @property({ type: String }) label!: string;
 
   @property({ type: String }) icon: Icon | null = null;
-  @property({ type: String }) color = "currentColor";
+  @property({ type: String }) label?: string;
   @property({ type: String }) type = "text";
+  @property({ type: String, reflect: true }) accept?: string;
   @property({ type: String }) value = "";
   @property({ type: Boolean, reflect: true }) disabled = false;
   @property({ type: String, reflect: true }) error?: string;
@@ -21,10 +25,10 @@ export class WCDSInput extends LitElement {
 
   validateAttributes() {
     if (isInvalidString(this.id)) {
-      throwError("id");
+      throwInvalidAttributeError("id");
     }
-    if (isInvalidString(this.label)) {
-      throwError("label");
+    if (this.type === "file") {
+      throwCustomError("For file input use wcds-file-input component.");
     }
   }
 
@@ -43,8 +47,11 @@ export class WCDSInput extends LitElement {
     if (this.error) this.dispatchEvent(new CustomEvent("clear-error"));
   }
 
-  getErrorStyles() {
+  getErrorClass() {
     return this.error ? "input-error" : "";
+  }
+  getTypeClass() {
+    return this.type === "file" ? "file-input" : "input";
   }
   render() {
     try {
@@ -53,12 +60,13 @@ export class WCDSInput extends LitElement {
         <div class="flex flex-col gap-1 w-full">
           <label
             for="wcds-input"
-            class="input floating-label ${this.getErrorStyles()}"
+            class="input floating-label ${this.getErrorClass()}"
           >
             <span>${this.label}</span>
             ${this.icon &&
             html`<wcds-icon .icon=${this.icon} slot="icon-left" />`}
             <input
+              accept=${this.accept}
               required=${this.required ? true : false}
               @input=${this.onInput}
               .value=${this.value}

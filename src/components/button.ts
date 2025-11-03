@@ -5,7 +5,10 @@ import { customElement, property } from "lit/decorators.js";
 import { type Icon } from "../types";
 import globalStyles from "../index.css?inline";
 import "./icon.js";
-import { isInvalidString, throwError } from "../utils/validators.js";
+import {
+  isInvalidString,
+  throwInvalidAttributeError,
+} from "../utils/validators.js";
 
 type ButtonType = "button" | "submit" | "reset";
 type ButtonVariant = "primary" | "secondary";
@@ -35,10 +38,10 @@ export class WCDSButton extends LitElement {
 
   validateAttributes() {
     if (isInvalidString(this.id)) {
-      throwError("id");
+      throwInvalidAttributeError("id");
     }
     if (isInvalidString(this.label)) {
-      throwError("label");
+      throwInvalidAttributeError("label");
     }
   }
 

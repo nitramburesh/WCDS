@@ -1,14 +1,17 @@
 /** @format */
 
-export const throwError = (attribute: string) => {
+export const throwInvalidAttributeError = (attribute: string) => {
   throw new Error(`The ${attribute} attribute must be a valid attribute.`);
 };
 
-export const isInvalidString = (value: unknown): boolean =>
+export const throwCustomError = (message: string) => {
+  throw new Error(message);
+};
+
+export const isInvalidString = (value: unknown) =>
   typeof value !== "string" || value === "";
 
-export const isInvalidNumber = (value: unknown): boolean =>
+export const isInvalidNumber = (value: unknown) =>
   typeof value !== "number" || isNaN(value);
 
-export const isInvalidBoolean = (value: unknown): boolean =>
-  typeof value !== "boolean";
+export const isInvalidBoolean = (value: unknown) => typeof value !== "boolean";
