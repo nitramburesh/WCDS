@@ -1,6 +1,6 @@
 {
   "name": "wcds",
-  "version": "0.2.23",
+  "version": "0.2.24",
   "description": "Web component design system",
   "main": "./dist/wcds.js",
   "module": "./dist/wcds.js",
