@@ -1,0 +1,16 @@
+{
+  "text": {
+    "color": {
+      "default": { "$value": "{color.neutral.900}", "$type": "color" },
+      "subtle": { "$value": "{color.neutral.600}", "$type": "color" },
+      "on": {
+        "primary": { "$value": "{color.neutral.200}", "$type": "color" },
+        "secondary": { "$value": "{color.neutral.200}", "$type": "color" },
+        "success": { "$value": "{color.success.content}", "$type": "color" },
+        "error": { "$value": "{color.error.content}", "$type": "color" },
+        "warning": { "$value": "{color.warning.content}", "$type": "color" },
+        "info": { "$value": "{color.info.content}", "$type": "color" }
+      }
+    }
+  }
+}

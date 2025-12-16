@@ -1,0 +1,11 @@
+{
+  "background": {
+    "color": {
+      "default": { "$value": "{color.neutral.100}", "$type": "color" },
+      "success": { "$value": "{color.success.background}", "$type": "color" },
+      "error": { "$value": "{color.error.background}", "$type": "color" },
+      "warning": { "$value": "{color.warning.background}", "$type": "color" },
+      "info": { "$value": "{color.info.background}", "$type": "color" }
+    }
+  }
+}

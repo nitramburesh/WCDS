@@ -1,0 +1,199 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+export default tokens;
+
+declare interface DesignToken {
+  $value?: any;
+  $type?: string;
+  $description?: string;
+  name?: string;
+  themeable?: boolean;
+  attributes?: Record<string, unknown>;
+  [key: string]: any;
+}
+
+declare const tokens: {
+  button: {
+    size: {
+      sm: {
+        padding: DesignToken;
+        radius: DesignToken;
+        fontSize: DesignToken;
+      };
+      md: {
+        padding: DesignToken;
+        radius: DesignToken;
+        fontSize: DesignToken;
+      };
+      lg: {
+        padding: DesignToken;
+        radius: DesignToken;
+        fontSize: DesignToken;
+      };
+    };
+    variant: {
+      primary: {
+        default: {
+          bg: DesignToken;
+          fg: DesignToken;
+        };
+        hover: {
+          bg: DesignToken;
+          fg: DesignToken;
+        };
+        borderColor: DesignToken;
+      };
+      secondary: {
+        default: {
+          bg: DesignToken;
+          fg: DesignToken;
+        };
+        hover: {
+          bg: DesignToken;
+          fg: DesignToken;
+        };
+        borderColor: DesignToken;
+      };
+      ghost: {
+        default: {
+          bg: DesignToken;
+          fg: DesignToken;
+        };
+        hover: {
+          bg: DesignToken;
+          fg: DesignToken;
+        };
+        borderColor: DesignToken;
+      };
+    };
+  };
+  icon: {
+    color: {
+      primary: DesignToken;
+      secondary: DesignToken;
+      success: DesignToken;
+      error: DesignToken;
+      warning: DesignToken;
+    };
+    size: {
+      sm: DesignToken;
+      md: DesignToken;
+      lg: DesignToken;
+      xl: DesignToken;
+    };
+  };
+  color: {
+    primary: {
+      "100": DesignToken;
+      "200": DesignToken;
+      "300": DesignToken;
+      "400": DesignToken;
+      "500": DesignToken;
+      "600": DesignToken;
+      "700": DesignToken;
+      "800": DesignToken;
+      "900": DesignToken;
+    };
+    secondary: {
+      "100": DesignToken;
+      "200": DesignToken;
+      "300": DesignToken;
+      "400": DesignToken;
+      "500": DesignToken;
+      "600": DesignToken;
+      "700": DesignToken;
+      "800": DesignToken;
+      "900": DesignToken;
+    };
+    neutral: {
+      "100": DesignToken;
+      "200": DesignToken;
+      "300": DesignToken;
+      "400": DesignToken;
+      "500": DesignToken;
+      "600": DesignToken;
+      "700": DesignToken;
+      "800": DesignToken;
+      "900": DesignToken;
+    };
+    success: {
+      background: DesignToken;
+      content: DesignToken;
+    };
+    error: {
+      background: DesignToken;
+      content: DesignToken;
+    };
+    warning: {
+      background: DesignToken;
+      content: DesignToken;
+    };
+    info: {
+      background: DesignToken;
+      content: DesignToken;
+    };
+  };
+  radius: {
+    none: DesignToken;
+    sm: DesignToken;
+    md: DesignToken;
+    lg: DesignToken;
+    xl: DesignToken;
+    full: DesignToken;
+  };
+  size: {
+    "0": DesignToken;
+    "1": DesignToken;
+    "2": DesignToken;
+    "3": DesignToken;
+    "4": DesignToken;
+    "5": DesignToken;
+    "6": DesignToken;
+    "7": DesignToken;
+    "8": DesignToken;
+    "9": DesignToken;
+    "10": DesignToken;
+  };
+  background: {
+    color: {
+      default: DesignToken;
+      success: DesignToken;
+      error: DesignToken;
+      warning: DesignToken;
+      info: DesignToken;
+    };
+  };
+  border: {
+    radius: {
+      default: DesignToken;
+      full: DesignToken;
+    };
+    color: {
+      primary: DesignToken;
+      secondary: DesignToken;
+    };
+  };
+  spacing: {
+    xs: DesignToken;
+    sm: DesignToken;
+    md: DesignToken;
+    lg: DesignToken;
+    xl: DesignToken;
+  };
+  text: {
+    color: {
+      default: DesignToken;
+      subtle: DesignToken;
+      on: {
+        primary: DesignToken;
+        secondary: DesignToken;
+        success: DesignToken;
+        error: DesignToken;
+        warning: DesignToken;
+        info: DesignToken;
+      };
+    };
+  };
+};

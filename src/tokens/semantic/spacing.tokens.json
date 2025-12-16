@@ -1,0 +1,9 @@
+{
+  "spacing": {
+    "xs": { "$value": "{size.2}", "$type": "dimension" },
+    "sm": { "$value": "{size.3}", "$type": "dimension" },
+    "md": { "$value": "{size.4}", "$type": "dimension" },
+    "lg": { "$value": "{size.6}", "$type": "dimension" },
+    "xl": { "$value": "{size.8}", "$type": "dimension" }
+  }
+}

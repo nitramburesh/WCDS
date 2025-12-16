@@ -1,0 +1,53 @@
+{
+  "color": {
+    "primary": {
+      "100": { "$value": "oklch(90.798% 0.05972 75.995)", "$type": "color" },
+      "200": { "$value": "oklch(86.493% 0.09014 75.975)", "$type": "color" },
+      "300": { "$value": "oklch(82.27% 0.11657 75.252)", "$type": "color" },
+      "400": { "$value": "oklch(78.157% 0.13909 72.258)", "$type": "color" },
+      "500": { "$value": "oklch(74.352% 0.15464 68.811)", "$type": "color" },
+      "600": { "$value": "oklch(66.918% 0.143 67.302)", "$type": "color" },
+      "700": { "$value": "oklch(57.642% 0.12203 67.54)", "$type": "color" },
+      "800": { "$value": "oklch(48.306% 0.10085 68.391)", "$type": "color" },
+      "900": { "$value": "oklch(38.502% 0.07804 69.529)", "$type": "color" }
+    },
+    "secondary": {
+      "100": { "$value": "oklch(92.667% 0.05011 193.23)", "$type": "color" },
+      "200": { "$value": "oklch(89.203% 0.07596 191.75)", "$type": "color" },
+      "300": { "$value": "oklch(85.764% 0.09769 190.62)", "$type": "color" },
+      "400": { "$value": "oklch(82.692% 0.11426 190.26)", "$type": "color" },
+      "500": { "$value": "oklch(79.912% 0.12595 189.79)", "$type": "color" },
+      "600": { "$value": "oklch(73.476% 0.12024 189.36)", "$type": "color" },
+      "700": { "$value": "oklch(63.669% 0.10373 189.09)", "$type": "color" },
+      "800": { "$value": "oklch(53.504% 0.08625 189.7)", "$type": "color" },
+      "900": { "$value": "oklch(42.795% 0.068 189.35)", "$type": "color" }
+    },
+    "neutral": {
+      "100": { "$value": "oklch(96.001% 0.00625 255.48)", "$type": "color" },
+      "200": { "$value": "oklch(87.663% 0.01869 258.36)", "$type": "color" },
+      "300": { "$value": "oklch(78.907% 0.03445 261.01)", "$type": "color" },
+      "400": { "$value": "oklch(70.211% 0.04863 260.62)", "$type": "color" },
+      "500": { "$value": "oklch(61.296% 0.06575 259.98)", "$type": "color" },
+      "600": { "$value": "oklch(52.788% 0.06675 259.4)", "$type": "color" },
+      "700": { "$value": "oklch(44.298% 0.05509 259.35)", "$type": "color" },
+      "800": { "$value": "oklch(35.4% 0.04064 259.83)", "$type": "color" },
+      "900": { "$value": "oklch(25.873% 0.02719 259.98)", "$type": "color" }
+    },
+    "success": {
+      "background": { "$value": "oklch(85% 0.1 140)", "$type": "color" },
+      "content": { "$value": "oklch(40% 0.2 140)", "$type": "color" }
+    },
+    "error": {
+      "background": { "$value": "oklch(85% 0.15 25)", "$type": "color" },
+      "content": { "$value": "oklch(40% 0.25 25)", "$type": "color" }
+    },
+    "warning": {
+      "background": { "$value": "oklch(90% 0.15 90)", "$type": "color" },
+      "content": { "$value": "oklch(45% 0.25 90)", "$type": "color" }
+    },
+    "info": {
+      "background": { "$value": "oklch(90% 0.1 250)", "$type": "color" },
+      "content": { "$value": "oklch(40% 0.2 250)", "$type": "color" }
+    }
+  }
+}

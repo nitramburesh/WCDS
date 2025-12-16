@@ -1,40 +1,15 @@
-<!-- @format -->
+# Basic Style Dictionary
 
-# WCDS
+This example code is bare-bones to show you what this framework can do. If you have the style-dictionary module installed globally, you can `cd` into this directory and run:
 
-WCDS aka Web Component Design System is a package that thrives to solve problems for multi-framework teams. Providing components as web components, it strips the burden of framework specifities, allowing developers to focus on solving more important problems that just building components over and over again.
+```bash
+npx style-dictionary build
+```
 
-## Working on project
+Otherwise, install Style Dictionary locally for this project first, `cd` into this directory and run:
 
-`pnpm install` - install dependencies
+```bash
+npm init -y && npm install style-dictionary
+```
 
-`pnpm dev` - prepare design tokens, run StoryBook and start developing
-
-## Package management
-
-1. commmit and push changes
-2. bump npm package version
-
-   - `npm version <new-version-number>`
-
-3. pack latest package version
-
-   - `pnpm pack`
-
-4. publish npm package
-
-   - `npm publish`
-
-## Techstack
-
-### Lit
-
-Components are built using Lit framework in order to be web components and reusable wherever.
-
-### Vite
-
-This project utilizes Vite as tooling.
-
-### StoryBook
-
-StoryBook helps to visualize components for development, presentation and testing purposes.
+and then run the above command.

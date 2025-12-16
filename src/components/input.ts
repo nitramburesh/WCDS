@@ -1,9 +1,8 @@
 /** @format */
 
-import { LitElement, html, unsafeCSS } from "lit";
+import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { type Icon } from "../types";
-import globalStyles from "../index.css?inline";
 import {
   isInvalidString,
   throwCustomError,
@@ -32,8 +31,6 @@ export class WCDSInput extends LitElement {
     }
   }
 
-  static styles = [unsafeCSS(globalStyles)];
-
   private onInput(event: Event) {
     const target = event.target as HTMLInputElement;
     this.value = target.value;
@@ -42,7 +39,7 @@ export class WCDSInput extends LitElement {
         detail: { value: this.value },
         bubbles: true,
         composed: true,
-      }),
+      })
     );
     if (this.error) this.dispatchEvent(new CustomEvent("clear-error"));
   }

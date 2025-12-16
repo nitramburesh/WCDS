@@ -1,0 +1,12 @@
+{
+  "border": {
+    "radius": {
+      "default": { "$value": "{radius.md}", "$type": "dimension" },
+      "full": { "$value": "{radius.full}", "$type": "dimension" }
+    },
+    "color": {
+      "primary": { "$value": "{color.neutral.900}", "$type": "color" },
+      "secondary": { "$value": "{color.neutral.900}", "$type": "color" }
+    }
+  }
+}

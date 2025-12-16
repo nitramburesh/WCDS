@@ -1,0 +1,17 @@
+{
+  "icon": {
+    "color": {
+      "primary": { "$value": "{color.primary.900}", "$type": "color" },
+      "secondary": { "$value": "{color.secondary.700}", "$type": "color" },
+      "success": { "$value": "{color.success.content}", "$type": "color" },
+      "error": { "$value": "{color.error.content}", "$type": "color" },
+      "warning": { "$value": "{color.warning.content}", "$type": "color" }
+    },
+    "size": {
+      "sm": { "$value": "{size.4}", "$type": "dimension" },
+      "md": { "$value": "{size.6}", "$type": "dimension" },
+      "lg": { "$value": "{size.8}", "$type": "dimension" },
+      "xl": { "$value": "{size.10}", "$type": "dimension" }
+    }
+  }
+}

@@ -1,8 +1,7 @@
 /** @format */
 
-import { LitElement, html, unsafeCSS } from "lit";
+import { LitElement, html } from "lit";
 import { customElement, state, property } from "lit/decorators.js";
-import globalStyles from "../index.css?inline";
 import {
   isInvalidString,
   throwInvalidAttributeError,
@@ -28,8 +27,6 @@ export class WCDSFileInput extends LitElement {
     }
   }
 
-  static styles = [unsafeCSS(globalStyles)];
-
   private onInput(event: Event) {
     const target = event.target as HTMLInputElement;
     this.selectedFile = target.files ? target.files[0] : null;
@@ -38,7 +35,7 @@ export class WCDSFileInput extends LitElement {
         detail: { value: this.selectedFile },
         bubbles: true,
         composed: true,
-      }),
+      })
     );
   }
 

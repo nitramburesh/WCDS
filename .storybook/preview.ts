@@ -1,12 +1,15 @@
 /** @format */
 
 import type { Preview } from "@storybook/web-components-vite";
-import "../src/tokens/generated/tokens.css";
-import "../src/index.css";
+import { setCustomElementsManifest } from "@storybook/web-components-vite";
+import customElements from "../custom-elements.json";
+
+setCustomElementsManifest(customElements);
 
 const preview: Preview = {
   parameters: {
     controls: {
+      expanded: true,
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/i,

@@ -1,6 +1,6 @@
 import { html } from "lit";
 import type { Meta } from "@storybook/web-components-vite";
-import { tokens } from "../tokens/generated/tokens";
+import * as tokens from "../tokens/generated/design-tokens.js";
 import { repeat } from "lit/directives/repeat.js";
 
 import "../components/color";
@@ -13,7 +13,7 @@ const meta: Meta = {
 export default meta;
 
 export const Palette = () => {
-  const tokenArray = Object.entries(tokens.color);
+  const tokenArray = Object.entries(tokens.default.color);
   const colorGroups = tokenArray.map(([tokenGroup, values]) => {
     const valuesArray = Object.entries(values);
     return html` <div>

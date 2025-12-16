@@ -1,24 +1,21 @@
 /** @format */
 
-import { LitElement, html, unsafeCSS } from "lit";
+import { LitElement, html, css } from "lit";
+import { classMap } from "lit/directives/class-map.js";
 import { customElement, property } from "lit/decorators.js";
 import { type Icon } from "../types";
-import globalStyles from "../index.css?inline";
 import "./icon.js";
-import {
-  isInvalidString,
-  throwInvalidAttributeError,
-} from "../utils/validators.js";
+import "../../src/tokens/generated/design-tokens.css";
 
 type ButtonType = "button" | "submit" | "reset";
-type ButtonVariant = "primary" | "secondary";
+type ButtonVariant = "primary" | "secondary" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
+
+/**
+ * @tagname wcds-button
+ */
 @customElement("wcds-button")
 export class WCDSButton extends LitElement {
-  static styles = [unsafeCSS(globalStyles)];
-
-  @property({ type: String, reflect: true }) id!: string;
-  @property({ type: String }) label!: string;
   @property({ type: String }) size: ButtonSize = "md";
   @property({ type: String }) variant: ButtonVariant = "primary";
   @property({ type: String, reflect: true }) type: ButtonType = "button";
@@ -32,57 +29,95 @@ export class WCDSButton extends LitElement {
         detail: event,
         bubbles: true,
         composed: true,
-      }),
+      })
     );
   }
 
-  validateAttributes() {
-    if (isInvalidString(this.id)) {
-      throwInvalidAttributeError("id");
+  static styles = css`
+    :host {
+      display: inline-block;
     }
-    if (isInvalidString(this.label)) {
-      throwInvalidAttributeError("label");
-    }
-  }
 
-  getVariantClass() {
-    switch (this.variant) {
-      case "primary":
-        return "btn-primary";
-      case "secondary":
-        return "btn-secondary";
-      default:
-        return "btn-primary";
+    .btn {
+      --wcds-button-padding: var(--wcds-button-size-md-padding);
+      --wcds-button-radius: var(--wcds-button-size-md-radius);
+      --wcds-button-font-size: var(--wcds-button-size-md-font-size);
+      --wcds-button-bg: var(--wcds-button-variant-primary-default-bg);
+      --wcds-button-fg: var(--wcds-button-variant-primary-default-fg);
+      --wcds-button-border-color: var(
+        --wcds-button-variant-primary-border-color
+      );
+      padding: var(--wcds-button-padding);
+      border-radius: var(--wcds-button-radius);
+      font-size: var(--wcds-button-font-size);
+
+      background-color: var(--wcds-button-bg);
+      color: var(--wcds-button-fg);
+      border: 1px solid var(--wcds-button-border-color);
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--wcds-spacing-xs);
+      box-sizing: border-box;
     }
-  }
+
+    .btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    .btn:hover {
+      scale: 1.1;
+      filter: brightness(1.5);
+    }
+
+    .btn--primary {
+      --wcds-button-bg: var(--wcds-button-variant-primary-default-bg);
+      --wcds-button-fg: var(--wcds-button-variant-primary-default-fg);
+      --wcds-button-border-color: var(
+        --wcds-button-variant-primary-border-color
+      );
+    }
+
+    .btn--secondary {
+      --wcds-button-bg: var(--wcds-button-variant-secondary-default-bg);
+      --wcds-button-fg: var(--wcds-button-variant-secondary-default-fg);
+      --wcds-button-border-color: var(
+        --wcds-button-variant-secondary-border-color
+      );
+    }
+
+    .btn--ghost {
+      --wcds-button-bg: var(--wcds-button-variant-ghost-default-bg);
+      --wcds-button-fg: var(--wcds-button-variant-ghost-default-fg);
+      --wcds-button-border-color: var(--wcds-button-variant-ghost-border-color);
+    }
+  `;
 
   render() {
-    try {
-      this.validateAttributes();
-
-      return html`
-        <button
-          @click=${this.handleClick}
-          class="btn uppercase ${this.getVariantClass()}"
-          type=${this.type}
-          ?disabled=${this.disabled}
-        >
-          <span class="flex gap-2 items-center">
-            ${this.iconLeft &&
-            html`<wcds-icon .icon=${this.iconLeft} slot="icon-left" />`}
-            ${this.label}
-            ${this.iconRight &&
-            html`<wcds-icon .icon=${this.iconRight} slot="icon-right" />`}
-          </span>
-        </button>
-      `;
-    } catch (error) {
-      console.error(error);
-
-      return html`<div class="error-box">
-        Error: ${(error as Error).message}
-      </div>`;
-    }
+    const classes = {
+      btn: true,
+      [`btn--${this.variant}`]: true,
+      [`btn--${this.size}`]: true,
+    };
+    return html`
+      <button
+        @click=${this.handleClick}
+        class=${classMap(classes)}
+        type=${this.type}
+        ?disabled=${this.disabled}
+      >
+        <span class="">
+          ${this.iconLeft &&
+          html`<wcds-icon .icon=${this.iconLeft} slot="icon-left" />`}
+          <slot></slot>
+          ${this.iconRight &&
+          html`<wcds-icon .icon=${this.iconRight} slot="icon-right" />`}
+        </span>
+      </button>
+    `;
   }
 }
 
