@@ -1,15 +1,10 @@
 /** @format */
 
 import { LitElement, html, css } from "lit";
-import { classMap } from "lit/directives/class-map.js";
 import { customElement, property } from "lit/decorators.js";
-import { type Icon } from "../types";
+import type { Icon, ButtonType, ButtonVariant, ButtonSize } from "../types";
 import "./icon.js";
 import "../../src/tokens/generated/design-tokens.css";
-
-type ButtonType = "button" | "submit" | "reset";
-type ButtonVariant = "primary" | "secondary" | "ghost";
-type ButtonSize = "sm" | "md" | "lg";
 
 /**
  * @tagname wcds-button
@@ -19,8 +14,8 @@ type ButtonSize = "sm" | "md" | "lg";
  * @cssproperty --wcds-button-padding - Padding inside the button.
  * @cssproperty --wcds-button-radius - Border radius of the button.
  * @cssproperty --wcds-button-font-size - Font size of the button label.
- * @cssproperty --wcds-button-bg - Background color of the button.
- * @cssproperty --wcds-button-fg - Text color of the button.
+ * @cssproperty --wcds-button-bg-color - Background color of the button.
+ * @cssproperty --wcds-button-fg-color - Text color of the button.
  * @cssproperty --wcds-button-border-color - Border color of the button.
  */
 @customElement("wcds-button")
@@ -48,8 +43,8 @@ export class WCDSButton extends LitElement {
       padding: var(--wcds-button-padding);
       border-radius: var(--wcds-button-radius);
       font-size: var(--wcds-button-font-size);
-      background-color: var(--wcds-button-bg);
-      color: var(--wcds-button-fg);
+      background-color: var(--wcds-button-bg-color);
+      color: var(--wcds-button-fg-color);
       border: 1px solid var(--wcds-button-border-color);
       gap: var(--wcds-spacing-xs);
       cursor: pointer;
@@ -80,24 +75,24 @@ export class WCDSButton extends LitElement {
       --wcds-button-padding: var(--wcds-button-size-md-padding);
       --wcds-button-radius: var(--wcds-button-size-md-radius);
       --wcds-button-font-size: var(--wcds-button-size-md-font-size);
-      --wcds-button-bg: var(--wcds-button-variant-primary-default-bg);
-      --wcds-button-fg: var(--wcds-button-variant-primary-default-fg);
+      --wcds-button-bg-color: var(--wcds-button-variant-primary-default-bg);
+      --wcds-button-fg-color: var(--wcds-button-variant-primary-default-fg);
       --wcds-button-border-color: var(
         --wcds-button-variant-primary-border-color
       );
     }
 
     :host([variant="secondary"]) {
-      --wcds-button-bg: var(--wcds-button-variant-secondary-default-bg);
-      --wcds-button-fg: var(--wcds-button-variant-secondary-default-fg);
+      --wcds-button-bg-color: var(--wcds-button-variant-secondary-default-bg);
+      --wcds-button-fg-color: var(--wcds-button-variant-secondary-default-fg);
       --wcds-button-border-color: var(
         --wcds-button-variant-secondary-border-color
       );
     }
 
     :host([variant="ghost"]) {
-      --wcds-button-bg: var(--wcds-button-variant-ghost-default-bg);
-      --wcds-button-fg: var(--wcds-button-variant-ghost-default-fg);
+      --wcds-button-bg-color: var(--wcds-button-variant-ghost-default-bg);
+      --wcds-button-fg-color: var(--wcds-button-variant-ghost-default-fg);
       --wcds-button-border-color: var(--wcds-button-variant-ghost-border-color);
     }
 

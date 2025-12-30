@@ -64,15 +64,21 @@
             },
             {
               "description": "Background color of the button.",
-              "name": "--wcds-button-bg"
+              "name": "--wcds-button-bg-color"
             },
             {
               "description": "Text color of the button.",
-              "name": "--wcds-button-fg"
+              "name": "--wcds-button-fg-color"
             },
             {
               "description": "Border color of the button.",
               "name": "--wcds-button-border-color"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The button's label or content.",
+              "name": ""
             }
           ],
           "members": [
@@ -139,7 +145,7 @@
               "kind": "field",
               "name": "styles",
               "static": true,
-              "default": "css` :host { display: inline-block; } .btn { --wcds-button-padding: var(--wcds-button-size-md-padding); --wcds-button-radius: var(--wcds-button-size-md-radius); --wcds-button-font-size: var(--wcds-button-size-md-font-size); --wcds-button-bg: var(--wcds-button-variant-primary-default-bg); --wcds-button-fg: var(--wcds-button-variant-primary-default-fg); --wcds-button-border-color: var( --wcds-button-variant-primary-border-color ); padding: var(--wcds-button-padding); border-radius: var(--wcds-button-radius); font-size: var(--wcds-button-font-size); background-color: var(--wcds-button-bg); color: var(--wcds-button-fg); border: 1px solid var(--wcds-button-border-color); gap: var(--wcds-spacing-xs); cursor: pointer; transition: all 0.2s ease-in-out; display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; text-transform: uppercase; } .btn:disabled { cursor: not-allowed; opacity: 0.6; } .btn:hover { scale: 1.02; filter: brightness(1.3); box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2); } button:active { transform: scale(0.96); } .btn--primary { --wcds-button-bg: var(--wcds-button-variant-primary-default-bg); --wcds-button-fg: var(--wcds-button-variant-primary-default-fg); --wcds-button-border-color: var( --wcds-button-variant-primary-border-color ); } .btn--secondary { --wcds-button-bg: var(--wcds-button-variant-secondary-default-bg); --wcds-button-fg: var(--wcds-button-variant-secondary-default-fg); --wcds-button-border-color: var( --wcds-button-variant-secondary-border-color ); } .btn--ghost { --wcds-button-bg: var(--wcds-button-variant-ghost-default-bg); --wcds-button-fg: var(--wcds-button-variant-ghost-default-fg); --wcds-button-border-color: var(--wcds-button-variant-ghost-border-color); } .btn--sm { --wcds-button-padding: var(--wcds-button-size-sm-padding); --wcds-button-radius: var(--wcds-button-size-sm-radius); --wcds-button-font-size: var(--wcds-button-size-sm-font-size); } .btn--md{ --wcds-button-padding: var(--wcds-button-size-md-padding); --wcds-button-radius: var(--wcds-button-size-md-radius); --wcds-button-font-size: var(--wcds-button-size-md-font-size); } .btn--lg { --wcds-button-padding: var(--wcds-button-size-lg-padding); --wcds-button-radius: var(--wcds-button-size-lg-radius); --wcds-button-font-size: var(--wcds-button-size-lg-font-size); } `"
+              "default": "css` button { display: inline-block; padding: var(--wcds-button-padding); border-radius: var(--wcds-button-radius); font-size: var(--wcds-button-font-size); background-color: var(--wcds-button-bg); color: var(--wcds-button-fg); border: 1px solid var(--wcds-button-border-color); gap: var(--wcds-spacing-xs); cursor: pointer; transition: all 0.2s ease-in-out; display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; text-transform: uppercase; } button:disabled { cursor: not-allowed; opacity: 0.6; } button:not([disabled]):hover { scale: 1.02; filter: brightness(1.3); box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2); } button:not([disabled]):active { transform: scale(0.96); } :host { --wcds-button-padding: var(--wcds-button-size-md-padding); --wcds-button-radius: var(--wcds-button-size-md-radius); --wcds-button-font-size: var(--wcds-button-size-md-font-size); --wcds-button-bg-color: var(--wcds-button-variant-primary-default-bg); --wcds-button-fg-color: var(--wcds-button-variant-primary-default-fg); --wcds-button-border-color: var( --wcds-button-variant-primary-border-color ); } :host([variant=\"secondary\"]) { --wcds-button-bg-color: var(--wcds-button-variant-secondary-default-bg); --wcds-button-fg-color: var(--wcds-button-variant-secondary-default-fg); --wcds-button-border-color: var( --wcds-button-variant-secondary-border-color ); } :host([variant=\"ghost\"]) { --wcds-button-bg-color: var(--wcds-button-variant-ghost-default-bg); --wcds-button-fg-color: var(--wcds-button-variant-ghost-default-fg); --wcds-button-border-color: var(--wcds-button-variant-ghost-border-color); } :host([size=\"sm\"]) { --wcds-button-padding: var(--wcds-button-size-sm-padding); --wcds-button-radius: var(--wcds-button-size-sm-radius); --wcds-button-font-size: var(--wcds-button-size-sm-font-size); } :host([size=\"lg\"]) { --wcds-button-padding: var(--wcds-button-size-lg-padding); --wcds-button-radius: var(--wcds-button-size-lg-radius); --wcds-button-font-size: var(--wcds-button-size-lg-font-size); } `"
             },
             {
               "kind": "method",
@@ -554,9 +560,9 @@
           "kind": "variable",
           "name": "meta",
           "type": {
-            "text": "Meta<WCDSButton>"
+            "text": "Meta<StoryArgs>"
           },
-          "default": "{ title: \"Components/WCDSButton\", component: \"wcds-button\", args: { ...args, content: 'BUTTON', }, argTypes, parameters: { actions: { handles: events, }, }, }"
+          "default": "{ title: \"Components/WCDSButton\", component: \"wcds-button\", args: { ...args, slot: 'BUTTON', }, argTypes: argTypes as any, parameters: { actions: { handles: events, }, }, }"
         },
         {
           "kind": "variable",
@@ -564,7 +570,7 @@
           "type": {
             "text": "Story"
           },
-          "default": "{ render: (args) => template(args), }"
+          "default": "{ render: (args)=> template(args, html`${args.slot}`), }"
         }
       ],
       "exports": [

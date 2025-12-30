@@ -5,22 +5,18 @@ import { getWcStorybookHelpers } from "wc-storybook-helpers";
 
 import { WCDSButton } from "../components/button";
 import { html } from "lit";
-
-
+import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from "../constants";
 
 const { events, args, argTypes, template } =
   getWcStorybookHelpers("wcds-button");
 
-type StoryArgs = WCDSButton & typeof args 
+type StoryArgs = WCDSButton & typeof args;
 
-const meta: Meta<StoryArgs> = {
+const meta: Meta<WCDSButton> = {
   title: "Components/WCDSButton",
   component: "wcds-button",
-  args: {
-    ...args, 
-    slot: 'BUTTON',
-  },
-  argTypes: argTypes as any,
+  args,
+  argTypes,
   parameters: {
     actions: {
       handles: events,
@@ -32,7 +28,22 @@ export default meta;
 type Story = StoryObj<StoryArgs>;
 
 export const Default: Story = {
-  render: (args)=> template(args, html`${args.slot}`),
+  render: (args) => template(args),
+  args: {
+    "default-slot": "Button",
+  },
+  argTypes: {
+    size: {
+      control: { type: "select" },
+      options: BUTTON_SIZE,
+    },
+    variant: {
+      control: { type: "select" },
+      options: BUTTON_VARIANT,
+    },
+    type: {
+      control: { type: "select" },
+      options: BUTTON_TYPE,
+    },
+  },
 };
-
-
