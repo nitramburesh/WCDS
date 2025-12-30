@@ -5,7 +5,7 @@ import { getWcStorybookHelpers } from "wc-storybook-helpers";
 
 import { WCDSButton } from "../components/button";
 import { html } from "lit";
-import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT } from "../constants";
+import { BUTTON_SIZE, BUTTON_TYPE, BUTTON_VARIANT, ICONS } from "../constants";
 
 const { events, args, argTypes, template } =
   getWcStorybookHelpers("wcds-button");
@@ -45,5 +45,7 @@ export const Default: Story = {
       control: { type: "select" },
       options: BUTTON_TYPE,
     },
+    iconLeft: { control: { type: "select" }, options: ICONS },
+    iconRight: { control: { type: "select" }, options: ICONS },
   },
 };
