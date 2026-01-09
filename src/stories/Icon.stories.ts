@@ -1,6 +1,6 @@
 import { html } from "lit";
 import type { Meta } from "@storybook/web-components-vite";
-import { ICONS } from "../types";
+import { ICONS } from "../constants";
 
 import "../components/icon";
 

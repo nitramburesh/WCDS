@@ -1,14 +1,1 @@
-@import "tailwindcss";
-@plugin "daisyui"{
-  themes: light --default, dark --prefersdark, caramellatte;
-}
-@plugin "daisyui/theme"{
-  name: "caramellatte";
-  default: true;
-  prefersdark: false;
-  color-scheme: light;
-
-  --color-primary: var(--wcds-color-primary-900);
-  --color-secondary: var(--wcds-color-secondary-900);
-}
-@import "./tokens/generated/tokens.css"
+@import "./tokens/generated/design-tokens.css"

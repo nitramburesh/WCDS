@@ -2,7 +2,7 @@
 
 import type { Preview } from "@storybook/web-components-vite";
 import { setCustomElementsManifest } from "@storybook/web-components-vite";
-import customElements from "../custom-elements.json";
+import customElements from "../dist/custom-elements.json";
 
 setCustomElementsManifest(customElements);
 

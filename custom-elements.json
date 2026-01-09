@@ -4,6 +4,78 @@
   "modules": [
     {
       "kind": "javascript-module",
+      "path": "src/constants.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "ICONS",
+          "type": {
+            "text": "[\n  \"arrow-left\",\n  \"arrow-right\",\n  \"check\",\n  \"close\",\n  \"menu\",\n  \"search\",\n]"
+          },
+          "default": "[ \"arrow-left\", \"arrow-right\", \"check\", \"close\", \"menu\", \"search\", ]"
+        },
+        {
+          "kind": "variable",
+          "name": "BUTTON_SIZE",
+          "type": {
+            "text": "[\"sm\", \"md\", \"lg\"]"
+          },
+          "default": "[\"sm\", \"md\", \"lg\"]"
+        },
+        {
+          "kind": "variable",
+          "name": "BUTTON_VARIANT",
+          "type": {
+            "text": "[\"primary\", \"secondary\", \"ghost\"]"
+          },
+          "default": "[\"primary\", \"secondary\", \"ghost\"]"
+        },
+        {
+          "kind": "variable",
+          "name": "BUTTON_TYPE",
+          "type": {
+            "text": "[\"button\", \"submit\", \"reset\"]"
+          },
+          "default": "[\"button\", \"submit\", \"reset\"]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "ICONS",
+          "declaration": {
+            "name": "ICONS",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "BUTTON_SIZE",
+          "declaration": {
+            "name": "BUTTON_SIZE",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "BUTTON_VARIANT",
+          "declaration": {
+            "name": "BUTTON_VARIANT",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "BUTTON_TYPE",
+          "declaration": {
+            "name": "BUTTON_TYPE",
+            "module": "src/constants.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/index.ts",
       "declarations": [],
       "exports": [
@@ -20,26 +92,8 @@
     {
       "kind": "javascript-module",
       "path": "src/types.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "ICONS",
-          "type": {
-            "text": "[\n  \"arrow-left\",\n  \"arrow-right\",\n  \"check\",\n  \"close\",\n  \"menu\",\n  \"search\",\n]"
-          },
-          "default": "[ \"arrow-left\", \"arrow-right\", \"check\", \"close\", \"menu\", \"search\", ]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ICONS",
-          "declaration": {
-            "name": "ICONS",
-            "module": "src/types.ts"
-          }
-        }
-      ]
+      "declarations": [],
+      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -88,7 +142,9 @@
               "type": {
                 "text": "ButtonSize"
               },
-              "default": "\"md\""
+              "default": "\"md\"",
+              "attribute": "size",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -96,7 +152,9 @@
               "type": {
                 "text": "ButtonVariant"
               },
-              "default": "\"primary\""
+              "default": "\"primary\"",
+              "attribute": "variant",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -104,21 +162,25 @@
               "type": {
                 "text": "ButtonType"
               },
-              "default": "\"button\""
+              "default": "\"button\"",
+              "attribute": "type",
+              "reflects": true
             },
             {
               "kind": "field",
               "name": "iconLeft",
               "type": {
                 "text": "Icon | undefined"
-              }
+              },
+              "attribute": "iconLeft"
             },
             {
               "kind": "field",
               "name": "iconRight",
               "type": {
                 "text": "Icon | undefined"
-              }
+              },
+              "attribute": "iconRight"
             },
             {
               "kind": "field",
@@ -126,7 +188,9 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false"
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
             },
             {
               "kind": "method",
@@ -140,16 +204,6 @@
                   }
                 }
               ]
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "static": true,
-              "default": "css` button { display: inline-block; padding: var(--wcds-button-padding); border-radius: var(--wcds-button-radius); font-size: var(--wcds-button-font-size); background-color: var(--wcds-button-bg); color: var(--wcds-button-fg); border: 1px solid var(--wcds-button-border-color); gap: var(--wcds-spacing-xs); cursor: pointer; transition: all 0.2s ease-in-out; display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; text-transform: uppercase; } button:disabled { cursor: not-allowed; opacity: 0.6; } button:not([disabled]):hover { scale: 1.02; filter: brightness(1.3); box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2); } button:not([disabled]):active { transform: scale(0.96); } :host { --wcds-button-padding: var(--wcds-button-size-md-padding); --wcds-button-radius: var(--wcds-button-size-md-radius); --wcds-button-font-size: var(--wcds-button-size-md-font-size); --wcds-button-bg-color: var(--wcds-button-variant-primary-default-bg); --wcds-button-fg-color: var(--wcds-button-variant-primary-default-fg); --wcds-button-border-color: var( --wcds-button-variant-primary-border-color ); } :host([variant=\"secondary\"]) { --wcds-button-bg-color: var(--wcds-button-variant-secondary-default-bg); --wcds-button-fg-color: var(--wcds-button-variant-secondary-default-fg); --wcds-button-border-color: var( --wcds-button-variant-secondary-border-color ); } :host([variant=\"ghost\"]) { --wcds-button-bg-color: var(--wcds-button-variant-ghost-default-bg); --wcds-button-fg-color: var(--wcds-button-variant-ghost-default-fg); --wcds-button-border-color: var(--wcds-button-variant-ghost-border-color); } :host([size=\"sm\"]) { --wcds-button-padding: var(--wcds-button-size-sm-padding); --wcds-button-radius: var(--wcds-button-size-sm-radius); --wcds-button-font-size: var(--wcds-button-size-sm-font-size); } :host([size=\"lg\"]) { --wcds-button-padding: var(--wcds-button-size-lg-padding); --wcds-button-radius: var(--wcds-button-size-lg-radius); --wcds-button-font-size: var(--wcds-button-size-lg-font-size); } `"
-            },
-            {
-              "kind": "method",
-              "name": "render"
             }
           ],
           "events": [
@@ -159,6 +213,54 @@
                 "text": "CustomEvent"
               },
               "description": "Emitted when the button is clicked."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "size",
+              "type": {
+                "text": "ButtonSize"
+              },
+              "default": "\"md\"",
+              "fieldName": "size"
+            },
+            {
+              "name": "variant",
+              "type": {
+                "text": "ButtonVariant"
+              },
+              "default": "\"primary\"",
+              "fieldName": "variant"
+            },
+            {
+              "name": "type",
+              "type": {
+                "text": "ButtonType"
+              },
+              "default": "\"button\"",
+              "fieldName": "type"
+            },
+            {
+              "name": "iconLeft",
+              "type": {
+                "text": "Icon | undefined"
+              },
+              "fieldName": "iconLeft"
+            },
+            {
+              "name": "iconRight",
+              "type": {
+                "text": "Icon | undefined"
+              },
+              "fieldName": "iconRight"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
             }
           ],
           "superclass": {
@@ -174,6 +276,14 @@
         {
           "kind": "js",
           "name": "WCDSButton",
+          "declaration": {
+            "name": "WCDSButton",
+            "module": "src/components/button.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-button",
           "declaration": {
             "name": "WCDSButton",
             "module": "src/components/button.ts"
@@ -195,24 +305,39 @@
               "name": "color",
               "type": {
                 "text": "string"
-              }
+              },
+              "attribute": "color"
             },
             {
               "kind": "field",
               "name": "name",
               "type": {
                 "text": "string"
-              }
+              },
+              "attribute": "name"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "color",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "color"
             },
             {
-              "kind": "method",
-              "name": "render"
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "name"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
+          "tagName": "wcds-color",
           "customElement": true
         }
       ],
@@ -220,6 +345,14 @@
         {
           "kind": "js",
           "name": "WCDSColor",
+          "declaration": {
+            "name": "WCDSColor",
+            "module": "src/components/color.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-color",
           "declaration": {
             "name": "WCDSColor",
             "module": "src/components/color.ts"
@@ -241,14 +374,18 @@
               "name": "id",
               "type": {
                 "text": "string"
-              }
+              },
+              "attribute": "id",
+              "reflects": true
             },
             {
               "kind": "field",
               "name": "accept",
               "type": {
                 "text": "string"
-              }
+              },
+              "attribute": "accept",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -256,7 +393,9 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false"
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -264,7 +403,8 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false"
+              "default": "false",
+              "attribute": "required"
             },
             {
               "kind": "field",
@@ -290,10 +430,6 @@
                   }
                 }
               ]
-            },
-            {
-              "kind": "method",
-              "name": "render"
             }
           ],
           "events": [
@@ -304,10 +440,43 @@
               }
             }
           ],
+          "attributes": [
+            {
+              "name": "id",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "id"
+            },
+            {
+              "name": "accept",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "accept"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "required"
+            }
+          ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
+          "tagName": "wcds-file-input",
           "customElement": true
         }
       ],
@@ -315,6 +484,14 @@
         {
           "kind": "js",
           "name": "WCDSFileInput",
+          "declaration": {
+            "name": "WCDSFileInput",
+            "module": "src/components/file-input.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-file-input",
           "declaration": {
             "name": "WCDSFileInput",
             "module": "src/components/file-input.ts"
@@ -336,7 +513,8 @@
               "name": "icon",
               "type": {
                 "text": "Icon"
-              }
+              },
+              "attribute": "icon"
             },
             {
               "kind": "field",
@@ -344,22 +522,32 @@
               "type": {
                 "text": "number"
               },
-              "default": "1.5"
+              "default": "1.5",
+              "attribute": "size"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "type": {
+                "text": "Icon"
+              },
+              "fieldName": "icon"
             },
             {
-              "kind": "field",
-              "name": "styles",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "render"
+              "name": "size",
+              "type": {
+                "text": "number"
+              },
+              "default": "1.5",
+              "fieldName": "size"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
+          "tagName": "wcds-icon",
           "customElement": true
         }
       ],
@@ -367,6 +555,14 @@
         {
           "kind": "js",
           "name": "WCDSIcon",
+          "declaration": {
+            "name": "WCDSIcon",
+            "module": "src/components/icon.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-icon",
           "declaration": {
             "name": "WCDSIcon",
             "module": "src/components/icon.ts"
@@ -427,7 +623,9 @@
               "name": "id",
               "type": {
                 "text": "string"
-              }
+              },
+              "attribute": "id",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -435,14 +633,16 @@
               "type": {
                 "text": "Icon | null"
               },
-              "default": "null"
+              "default": "null",
+              "attribute": "icon"
             },
             {
               "kind": "field",
               "name": "label",
               "type": {
                 "text": "string | undefined"
-              }
+              },
+              "attribute": "label"
             },
             {
               "kind": "field",
@@ -450,14 +650,17 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"text\""
+              "default": "\"text\"",
+              "attribute": "type"
             },
             {
               "kind": "field",
               "name": "accept",
               "type": {
                 "text": "string | undefined"
-              }
+              },
+              "attribute": "accept",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -465,7 +668,8 @@
               "type": {
                 "text": "string"
               },
-              "default": "\"\""
+              "default": "\"\"",
+              "attribute": "value"
             },
             {
               "kind": "field",
@@ -473,14 +677,18 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false"
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
             },
             {
               "kind": "field",
               "name": "error",
               "type": {
                 "text": "string | undefined"
-              }
+              },
+              "attribute": "error",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -488,7 +696,8 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false"
+              "default": "false",
+              "attribute": "required"
             },
             {
               "kind": "method",
@@ -514,10 +723,6 @@
             {
               "kind": "method",
               "name": "getTypeClass"
-            },
-            {
-              "kind": "method",
-              "name": "render"
             }
           ],
           "events": [
@@ -534,10 +739,81 @@
               }
             }
           ],
+          "attributes": [
+            {
+              "name": "id",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "id"
+            },
+            {
+              "name": "icon",
+              "type": {
+                "text": "Icon | null"
+              },
+              "default": "null",
+              "fieldName": "icon"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "label"
+            },
+            {
+              "name": "type",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"text\"",
+              "fieldName": "type"
+            },
+            {
+              "name": "accept",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "accept"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\"",
+              "fieldName": "value"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "error",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "error"
+            },
+            {
+              "name": "required",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "required"
+            }
+          ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
+          "tagName": "wcds-input",
           "customElement": true
         }
       ],
@@ -549,202 +825,16 @@
             "name": "WCDSInput",
             "module": "src/components/input.ts"
           }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/stories/Button.stories.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "meta",
-          "type": {
-            "text": "Meta<StoryArgs>"
-          },
-          "default": "{ title: \"Components/WCDSButton\", component: \"wcds-button\", args: { ...args, slot: 'BUTTON', }, argTypes: argTypes as any, parameters: { actions: { handles: events, }, }, }"
         },
         {
-          "kind": "variable",
-          "name": "Default",
-          "type": {
-            "text": "Story"
-          },
-          "default": "{ render: (args)=> template(args, html`${args.slot}`), }"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
+          "kind": "custom-element-definition",
+          "name": "wcds-input",
           "declaration": {
-            "name": "meta",
-            "module": "src/stories/Button.stories.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Default",
-          "declaration": {
-            "name": "Default",
-            "module": "src/stories/Button.stories.ts"
+            "name": "WCDSInput",
+            "module": "src/components/input.ts"
           }
         }
       ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/stories/Colors.stories.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "meta",
-          "type": {
-            "text": "Meta"
-          },
-          "default": "{ title: \"Theme/Colors\", component: \"wcds-color\", }"
-        },
-        {
-          "kind": "function",
-          "name": "Palette"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "meta",
-            "module": "src/stories/Colors.stories.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Palette",
-          "declaration": {
-            "name": "Palette",
-            "module": "src/stories/Colors.stories.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/stories/FileInput.stories.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "meta",
-          "type": {
-            "text": "Meta"
-          },
-          "default": "{ title: \"Components/File-Input\", component: \"wcds-file-input\", }"
-        },
-        {
-          "kind": "function",
-          "name": "FileInput"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "FileInput",
-          "declaration": {
-            "name": "FileInput",
-            "module": "src/stories/FileInput.stories.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "meta",
-            "module": "src/stories/FileInput.stories.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/stories/Icon.stories.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "meta",
-          "type": {
-            "text": "Meta"
-          },
-          "default": "{ title: \"Components/Icon\", component: \"wcds-icon\", }"
-        },
-        {
-          "kind": "function",
-          "name": "Icons"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "meta",
-            "module": "src/stories/Icon.stories.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Icons",
-          "declaration": {
-            "name": "Icons",
-            "module": "src/stories/Icon.stories.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/stories/Input.stories.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "meta",
-          "type": {
-            "text": "Meta<CustomArguments>"
-          },
-          "default": "{ title: \"Components/Input\", component: \"wcds-input\", render: ({ label, icon, type, accept }) => html` <wcds-input id=\"input-1\" label=${label} icon=${icon ? \"close\" : null} type=${type} accept=${accept} ></wcds-input> `, }"
-        },
-        {
-          "kind": "variable",
-          "name": "Default",
-          "type": {
-            "text": "Story"
-          },
-          "default": "{ args: { label: \"Input\", icon: false, type: \"text\", accept: \"\", }, }"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "meta",
-            "module": "src/stories/Input.stories.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Default",
-          "declaration": {
-            "name": "Default",
-            "module": "src/stories/Input.stories.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/tokens/build-tokens.js",
-      "declarations": [],
-      "exports": []
     },
     {
       "kind": "javascript-module",
@@ -850,20 +940,6 @@
           "declaration": {
             "name": "isInvalidBoolean",
             "module": "src/utils/validators.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/tokens/generated/design-tokens.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "module": "src/tokens/generated/design-tokens.js"
           }
         }
       ]
