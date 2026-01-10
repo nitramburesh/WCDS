@@ -3,7 +3,7 @@
 import { LitElement, html, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import type { Icon, ButtonType, ButtonVariant, ButtonSize } from "../types";
-import "./icon.js";
+import "./icon";
 import "../../src/tokens/generated/design-tokens.css";
 
 /**
