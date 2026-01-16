@@ -6,6 +6,7 @@ import type { Size, Icon } from '../types';
 import { getRandomComponentId, isInvalidString, throwInvalidAttributeError } from '../utils/';
 import './icon';
 import '../../src/tokens/generated/design-tokens.css';
+import { ICONS } from '../constants';
 
 /**
  * @tagname wcds-input
@@ -42,10 +43,12 @@ export class WCDSInput extends LitElement {
   @property({ type: Boolean, reflect: true })
   disabled = false;
 
-  // @property({ type: String, reflect: true })
-  // error?: string;
   @property({ type: String, reflect: true })
-  error: string = 'error message';
+  error?: string;
+
+  private hasIcon() {
+    return this.icon !== undefined && !isInvalidString(this.icon) && ICONS.includes(this.icon);
+  }
 
   private onInput(event: Event) {
     const target = event.target as HTMLInputElement;
@@ -64,6 +67,10 @@ export class WCDSInput extends LitElement {
 
   protected updated(changedProperties: Map<string, any>) {
     super.updated(changedProperties);
+
+    if (changedProperties.has('icon')) {
+      this.toggleAttribute('has-valid-icon', this.hasIcon());
+    }
 
     if (changedProperties.has('error')) {
       const input = this.shadowRoot?.querySelector('input');
@@ -94,6 +101,7 @@ export class WCDSInput extends LitElement {
         var(--wcds-input-border-color-default);
       box-shadow: none;
       transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+      width: 100%;
     }
 
     input:focus {
@@ -109,25 +117,23 @@ export class WCDSInput extends LitElement {
 
     :host([size='sm']) {
       --wcds-input-padding: var(--wcds-input-text-size-sm-padding);
+      --wcds-icon-size: var(--wcds-icon-size-sm);
+    }
+
+    :host([size='lg']) {
+      --wcds-input-padding: var(--wcds-input-text-size-lg-padding);
+      --wcds-icon-size: var(--wcds-icon-size-lg);
     }
 
     :host([size='sm']) wcds-icon {
       --wcds-icon-size: var(--wcds-icon-size-sm);
     }
 
-    :host([size='sm'][icon]) input {
-      padding-left: calc(2 * var(--wcds-input-padding) + var(--wcds-icon-size-sm));
-    }
-
-    :host([size='lg']) {
-      --wcds-input-padding: var(--wcds-input-text-size-lg-padding);
-    }
-
     :host([size='lg']) wcds-icon {
-      left: calc(1.5 * var(--wcds-input-padding));
+      --wcds-icon-size: var(--wcds-icon-size-lg);
     }
 
-    :host([icon]) input {
+    :host([icon][has-valid-icon]) input {
       padding-left: calc(2 * var(--wcds-input-padding) + var(--wcds-icon-size));
     }
 
@@ -140,6 +146,14 @@ export class WCDSInput extends LitElement {
       display: flex;
       flex-direction: column;
       gap: var(--wcds-spacing-xs);
+      width: 100%;
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 100%;
     }
 
     .error-text {
@@ -157,20 +171,24 @@ export class WCDSInput extends LitElement {
   `;
 
   render() {
+    console.log(this.hasIcon());
     try {
       return html`
         <div class="field">
-          ${this.icon ? html`<span class="icon"><wcds-icon .icon=${this.icon} /></span>` : null}
-
-          <input
-            @input=${this.onInput}
-            .value=${this.value}
-            ?disabled=${this.disabled}
-            .id=${this.id}
-            .placeholder=${this.placeholder ?? ' '}
-            aria-invalid=${this.error ? 'true' : 'false'}
-            type="text"
-          />
+          <span class="input-wrapper">
+            ${this.hasIcon() && this.icon
+              ? html`<span class="icon"><wcds-icon .icon=${this.icon} /></span>`
+              : null}
+            <input
+              @input=${this.onInput}
+              .value=${this.value}
+              ?disabled=${this.disabled}
+              .id=${this.id}
+              .placeholder=${this.placeholder ?? ' '}
+              aria-invalid=${this.error ? 'true' : 'false'}
+              type="text"
+            />
+          </span>
 
           <label for=${this.id}>${this.label}</label>
 

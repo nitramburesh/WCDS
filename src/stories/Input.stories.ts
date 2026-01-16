@@ -31,13 +31,11 @@ export const Playground: Story = {
   render: (args) => template(args),
   args: {
     id: 'wcds-input-1',
-    label: 'Enter text',
-    placeholder: 'Search help articles or tickets',
-    size: 'lg',
-    // icon: 'search',
+    label: 'Insert text',
+    placeholder: 'Insert text...',
   },
   argTypes: {
-    icon: { control: { type: 'select' }, options: ICONS },
+    icon: { control: { type: 'select', default: '' }, options: ICONS },
     size: { control: { type: 'select' }, options: SIZE },
   },
 };
