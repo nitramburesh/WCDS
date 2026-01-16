@@ -1,15 +1,8 @@
-# Basic Style Dictionary
+# WCDS - web component design system
 
-This example code is bare-bones to show you what this framework can do. If you have the style-dictionary module installed globally, you can `cd` into this directory and run:
+## Commands
 
-```bash
-npx style-dictionary build
-```
+### `pnpm prepare`
 
-Otherwise, install Style Dictionary locally for this project first, `cd` into this directory and run:
-
-```bash
-npm init -y && npm install style-dictionary
-```
-
-and then run the above command.
+- Generates design tokens for component library,
+- it is neccessary to run this command after every change to design tokens under `src/tokens/`

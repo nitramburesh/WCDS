@@ -72,16 +72,39 @@ declare const tokens: {
   icon: {
     color: {
       primary: DesignToken;
-      secondary: DesignToken;
-      success: DesignToken;
+      neutral: DesignToken;
+      subtle: DesignToken;
       error: DesignToken;
-      warning: DesignToken;
+      success: DesignToken;
     };
     size: {
       sm: DesignToken;
       md: DesignToken;
       lg: DesignToken;
       xl: DesignToken;
+    };
+  };
+  "input-text": {
+    size: {
+      sm: {
+        padding: DesignToken;
+        fontSize: DesignToken;
+      };
+      md: {
+        padding: DesignToken;
+        fontSize: DesignToken;
+      };
+      lg: {
+        padding: DesignToken;
+        fontSize: DesignToken;
+      };
+    };
+    border: {
+      color: {
+        default: DesignToken;
+        focus: DesignToken;
+      };
+      radius: DesignToken;
     };
   };
   color: {

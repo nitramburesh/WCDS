@@ -1,0 +1,25 @@
+{
+  "input-text": {
+    "size": {
+      "sm": {
+        "padding": { "$value": "{spacing.xs}", "$type": "dimension" },
+        "fontSize": { "$value": "{size.3}", "$type": "dimension" }
+      },
+      "md": {
+        "padding": { "$value": "{spacing.sm}", "$type": "dimension" },
+        "fontSize": { "$value": "{size.4}", "$type": "dimension" }
+      },
+      "lg": {
+        "padding": { "$value": "{spacing.md}", "$type": "dimension" },
+        "fontSize": { "$value": "{size.5}", "$type": "dimension" }
+      }
+    },
+    "border": {
+      "color": {
+        "default": { "$value": "{color.neutral.300}", "$type": "color" },
+        "focus": { "$value": "{color.primary.900}", "$type": "color" }
+      },
+      "radius": { "$value": "{radius.full}", "$type": "dimension" }
+    }
+  }
+}

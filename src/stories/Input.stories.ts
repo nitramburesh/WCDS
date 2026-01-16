@@ -1,41 +1,38 @@
 /** @format */
 
-import { html } from "lit";
-import type { Meta, StoryObj } from "@storybook/web-components-vite";
+import type { Meta, StoryObj } from '@storybook/web-components-vite';
 
-import "../components/input";
+import type { WCDSInput } from '../components/input';
+import '../components/input';
+import { getWcStorybookHelpers } from 'wc-storybook-helpers';
 
-type CustomArguments = {
-  label: string;
-  icon: boolean;
-  type: string;
-  accept: string;
-};
+const { events, args, argTypes, template } = getWcStorybookHelpers('wcds-input');
 
-const meta: Meta<CustomArguments> = {
-  title: "Components/Input",
-  component: "wcds-input",
-  render: ({ label, icon, type, accept }) =>
-    html`
-      <wcds-input
-        id="input-1"
-        label=${label}
-        icon=${icon ? "close" : null}
-        type=${type}
-        accept=${accept}
-      ></wcds-input>
-    `,
+type StoryArgs = WCDSInput & typeof args;
+
+const meta: Meta<WCDSInput> = {
+  title: 'Components/Input',
+  component: 'wcds-input',
+  args,
+  argTypes,
+  parameters: {
+    actions: {
+      handles: events,
+    },
+  },
 };
 
 export default meta;
 
-type Story = StoryObj<CustomArguments>;
+type Story = StoryObj<StoryArgs>;
 
-export const Default: Story = {
+export const Playground: Story = {
+  render: (args) => template(args),
   args: {
-    label: "Input",
-    icon: false,
-    type: "text",
-    accept: "",
+    id: 'wcds-input-1',
+    label: 'Enter text',
+    placeholder: 'Search help articles or tickets',
+    size: 'lg',
+    // icon: 'search',
   },
 };

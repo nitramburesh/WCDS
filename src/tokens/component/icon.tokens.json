@@ -2,10 +2,10 @@
   "icon": {
     "color": {
       "primary": { "$value": "{color.primary.900}", "$type": "color" },
-      "secondary": { "$value": "{color.secondary.700}", "$type": "color" },
-      "success": { "$value": "{color.success.content}", "$type": "color" },
+      "neutral": { "$value": "{color.neutral.700}", "$type": "color" },
+      "subtle": { "$value": "{color.neutral.300}", "$type": "color" },
       "error": { "$value": "{color.error.content}", "$type": "color" },
-      "warning": { "$value": "{color.warning.content}", "$type": "color" }
+      "success": { "$value": "{color.success.content}", "$type": "color" }
     },
     "size": {
       "sm": { "$value": "{size.4}", "$type": "dimension" },

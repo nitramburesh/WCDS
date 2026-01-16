@@ -8,12 +8,12 @@
       },
       "md": {
         "padding": { "$value": "{spacing.sm}", "$type": "dimension" },
-        "radius": { "$value": "{radius.md}", "$type": "dimension" },
+        "radius": { "$value": "{radius.full}", "$type": "dimension" },
         "fontSize": { "$value": "{size.4}", "$type": "dimension" }
       },
       "lg": {
         "padding": { "$value": "{spacing.md}", "$type": "dimension" },
-        "radius": { "$value": "{radius.md}", "$type": "dimension" },
+        "radius": { "$value": "{radius.xl}", "$type": "dimension" },
         "fontSize": { "$value": "{size.5}", "$type": "dimension" }
       }
     },

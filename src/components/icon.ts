@@ -1,42 +1,40 @@
 /** @format */
 
-import { LitElement, html, type TemplateResult } from "lit";
-import { customElement, property } from "lit/decorators.js";
-import { styleMap } from "lit/directives/style-map.js";
-import { type Icon } from "../types";
+import { LitElement, css, html, type TemplateResult } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { styleMap } from 'lit/directives/style-map.js';
+import { Size, type Icon } from '../types';
 
 const ICONS: Record<Icon, TemplateResult> = {
-  "arrow-left": html`<svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-  >
+  'arrow-left': html` <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path
-      fill="currentColor"
-      d="m10 18l-6-6l6-6l1.4 1.45L7.85 11H20v2H7.85l3.55 3.55L10 18Z"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M20 12H4m0 0 6-6m-6 6 6 6"
     />
   </svg>`,
 
-  "arrow-right": html` <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-  >
+  'arrow-right': html` <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <path
-      fill="currentColor"
-      d="m14 18l-1.4-1.45L16.15 13H4v-2h12.15L12.6 7.45L14 6l6 6l-6 6Z"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M5 12h14m0 0-6-6m6 6-6 6"
     />
   </svg>`,
 
   check: html`
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="200"
-      height="200"
-      viewBox="0 0 24 24"
-    >
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
-        fill="currentColor"
-        d="m9.55 18l-5.7-5.7l1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z"
-      />
+        d="M4 12.6111L8.92308 17.5L20 6.5"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></path>
     </svg>
   `,
 
@@ -51,51 +49,63 @@ const ICONS: Record<Icon, TemplateResult> = {
 
   menu: html`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-      <path
-        fill="currentColor"
-        d="M3 18v-2h18v2H3Zm0-5v-2h18v2H3Zm0-5V6h18v2H3Z"
-      />
+      <path fill="currentColor" d="M3 18v-2h18v2H3Zm0-5v-2h18v2H3Zm0-5V6h18v2H3Z" />
     </svg>
   `,
 
   search: html`
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="200"
-      height="200"
-      viewBox="0 0 24 24"
-    >
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
-        fill="currentColor"
-        d="m19.6 21l-6.3-6.3q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5q0-2.725 1.888-4.612T9.5 3q2.725 0 4.612 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l6.3 6.3l-1.4 1.4ZM9.5 14q1.875 0 3.188-1.313T14 9.5q0-1.875-1.313-3.188T9.5 5Q7.625 5 6.312 6.313T5 9.5q0 1.875 1.313 3.188T9.5 14Z"
+        d="M15.7955 15.8111L21 21M18 10.5C18 14.6421 14.6421 18 10.5 18C6.35786 18 3 14.6421 3 10.5C3 6.35786 6.35786 3 10.5 3C14.6421 3 18 6.35786 18 10.5Z"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
     </svg>
   `,
 };
 
-@customElement("wcds-icon")
+@customElement('wcds-icon')
 export class WCDSIcon extends LitElement {
-  @property({ type: String }) icon!: Icon;
-  @property({ type: Number }) size: number = 1.5;
+  @property({ type: String, reflect: true }) icon!: Icon;
+  @property({ type: String }) size: Size = 'md';
 
-  get styles() {
-    return {
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      width: `${this.size}rem`,
-      height: `${this.size}rem`,
-    };
-  }
+  static styles = css`
+    :host {
+      --wcds-icon-size: var(--wcds-icon-size-md);
+      --wcds-icon-color: var(--wcds-icon-color-neutral);
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--wcds-icon-size);
+      height: var(--wcds-icon-size);
+      line-height: 0;
+    }
+
+    .wcds-icon {
+      display: inline-flex;
+      width: 100%;
+      height: 100%;
+    }
+
+    svg path {
+      width: 100%;
+      height: 100%;
+    }
+  `;
 
   render() {
-    return html`<span class="wcds-icon" style=${styleMap(this.styles)}>
-      ${ICONS[this.icon]}
-    </span>`;
+    const svg: TemplateResult | undefined = ICONS[this.icon];
+    if (!svg) return null;
+
+    return html` <span class="wcds-icon" role="img" aria-hidden="true"> ${svg} </span> `;
   }
 }
+
 declare global {
   interface HTMLElementTagNameMap {
-    "wcds-icon": WCDSIcon;
+    'wcds-icon': WCDSIcon;
   }
 }

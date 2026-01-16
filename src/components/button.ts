@@ -1,16 +1,17 @@
 /** @format */
 
-import { LitElement, html, css } from "lit";
-import { customElement, property } from "lit/decorators.js";
-import type { Icon, ButtonType, ButtonVariant, ButtonSize } from "../types";
-import "./icon";
-import "../../src/tokens/generated/design-tokens.css";
+import { LitElement, html, css } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import type { Icon, ButtonType, ButtonVariant, Size } from '../types';
+import './icon';
+import '../../src/tokens/generated/design-tokens.css';
+import { getRandomComponentId } from '../utils';
 
 /**
  * @tagname wcds-button
  * @summary A customizable button component with support for icons and various styles.
  * @slot - The button's label or content.
- * @fires wcds-click - Emitted when the button is clicked.
+ * @fires click - Emitted when the button is clicked.
  * @cssproperty --wcds-button-padding - Padding inside the button.
  * @cssproperty --wcds-button-radius - Border radius of the button.
  * @cssproperty --wcds-button-font-size - Font size of the button label.
@@ -18,18 +19,19 @@ import "../../src/tokens/generated/design-tokens.css";
  * @cssproperty --wcds-button-fg-color - Text color of the button.
  * @cssproperty --wcds-button-border-color - Border color of the button.
  */
-@customElement("wcds-button")
+@customElement('wcds-button')
 export class WCDSButton extends LitElement {
-  @property({ type: String, reflect: true }) size: ButtonSize = "md";
-  @property({ type: String, reflect: true }) variant: ButtonVariant = "primary";
-  @property({ type: String, reflect: true }) type: ButtonType = "button";
+  @property({ type: String, reflect: true }) id: string = getRandomComponentId('button');
+  @property({ type: String, reflect: true }) size: Size = 'md';
+  @property({ type: String, reflect: true }) variant: ButtonVariant = 'primary';
+  @property({ type: String, reflect: true }) type: ButtonType = 'button';
   @property({ type: String }) iconLeft?: Icon;
   @property({ type: String }) iconRight?: Icon;
   @property({ type: Boolean, reflect: true }) disabled = false;
 
   private handleClick(event: MouseEvent) {
     this.dispatchEvent(
-      new CustomEvent("wcds-click", {
+      new CustomEvent('click', {
         detail: event,
         bubbles: true,
         composed: true,
@@ -72,37 +74,39 @@ export class WCDSButton extends LitElement {
     }
 
     :host {
-      --wcds-button-padding: var(--wcds-button-size-md-padding);
+      --wcds-button-padding: var(var(--wcds-button-padding), var(--wcds-button-size-md-padding));
       --wcds-button-radius: var(--wcds-button-size-md-radius);
       --wcds-button-font-size: var(--wcds-button-size-md-font-size);
       --wcds-button-bg-color: var(--wcds-button-variant-primary-default-bg);
       --wcds-button-fg-color: var(--wcds-button-variant-primary-default-fg);
-      --wcds-button-border-color: var(
-        --wcds-button-variant-primary-border-color
-      );
+      --wcds-button-border-color: var(--wcds-button-variant-primary-border-color);
     }
 
-    :host([variant="secondary"]) {
+    :host([variant='secondary']) {
       --wcds-button-bg-color: var(--wcds-button-variant-secondary-default-bg);
       --wcds-button-fg-color: var(--wcds-button-variant-secondary-default-fg);
-      --wcds-button-border-color: var(
-        --wcds-button-variant-secondary-border-color
-      );
+      --wcds-button-border-color: var(--wcds-button-variant-secondary-border-color);
     }
 
-    :host([variant="ghost"]) {
+    :host([variant='ghost']) {
       --wcds-button-bg-color: var(--wcds-button-variant-ghost-default-bg);
       --wcds-button-fg-color: var(--wcds-button-variant-ghost-default-fg);
       --wcds-button-border-color: var(--wcds-button-variant-ghost-border-color);
     }
 
-    :host([size="sm"]) {
+    :host([size='sm']) {
       --wcds-button-padding: var(--wcds-button-size-sm-padding);
       --wcds-button-radius: var(--wcds-button-size-sm-radius);
       --wcds-button-font-size: var(--wcds-button-size-sm-font-size);
     }
 
-    :host([size="lg"]) {
+    :host([size='md']) {
+      --wcds-button-padding: var(--wcds-button-size-md-padding);
+      --wcds-button-radius: var(--wcds-button-size-md-radius);
+      --wcds-button-font-size: var(--wcds-button-size-md-font-size);
+    }
+
+    :host([size='lg']) {
       --wcds-button-padding: var(--wcds-button-size-lg-padding);
       --wcds-button-radius: var(--wcds-button-size-lg-radius);
       --wcds-button-font-size: var(--wcds-button-size-lg-font-size);
@@ -111,11 +115,7 @@ export class WCDSButton extends LitElement {
 
   render() {
     return html`
-      <button
-        @click=${this.handleClick}
-        type=${this.type}
-        ?disabled=${this.disabled}
-      >
+      <button @click=${this.handleClick} type=${this.type} ?disabled=${this.disabled}>
         ${this.iconLeft && html`<wcds-icon .icon=${this.iconLeft} />`}
         <slot></slot>
         ${this.iconRight && html`<wcds-icon .icon=${this.iconRight} />`}
@@ -126,6 +126,6 @@ export class WCDSButton extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    "wcds-button": WCDSButton;
+    'wcds-button': WCDSButton;
   }
 }

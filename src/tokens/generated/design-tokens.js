@@ -12,12 +12,12 @@ export default {
       },
       md: {
         padding: "0.75rem",
-        radius: "0.25rem",
+        radius: "9999px",
         fontSize: "1rem",
       },
       lg: {
         padding: "1rem",
-        radius: "0.25rem",
+        radius: "1rem",
         fontSize: "1.25rem",
       },
     },
@@ -60,16 +60,39 @@ export default {
   icon: {
     color: {
       primary: "oklch(38.502% 0.07804 69.529)",
-      secondary: "oklch(63.669% 0.10373 189.09)",
-      success: "oklch(40% 0.2 140)",
+      neutral: "oklch(44.298% 0.05509 259.35)",
+      subtle: "oklch(78.907% 0.03445 261.01)",
       error: "oklch(40% 0.25 25)",
-      warning: "oklch(45% 0.25 90)",
+      success: "oklch(40% 0.2 140)",
     },
     size: {
       sm: "1rem",
       md: "1.5rem",
       lg: "2rem",
       xl: "2.5rem",
+    },
+  },
+  "input-text": {
+    size: {
+      sm: {
+        padding: "0.5rem",
+        fontSize: "0.75rem",
+      },
+      md: {
+        padding: "0.75rem",
+        fontSize: "1rem",
+      },
+      lg: {
+        padding: "1rem",
+        fontSize: "1.25rem",
+      },
+    },
+    border: {
+      color: {
+        default: "oklch(78.907% 0.03445 261.01)",
+        focus: "oklch(38.502% 0.07804 69.529)",
+      },
+      radius: "9999px",
     },
   },
   color: {
