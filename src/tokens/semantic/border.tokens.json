@@ -7,6 +7,10 @@
     "color": {
       "primary": { "$value": "{color.neutral.900}", "$type": "color" },
       "secondary": { "$value": "{color.neutral.900}", "$type": "color" }
+    },
+    "width": {
+      "default": { "$value": "1px", "$type": "dimension" },
+      "thick": { "$value": "2px", "$type": "dimension" }
     }
   }
 }

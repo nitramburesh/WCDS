@@ -45,6 +45,7 @@
   --wcds-input-text-border-color-default: oklch(78.907% 0.03445 261.01);
   --wcds-input-text-border-color-focus: oklch(38.502% 0.07804 69.529);
   --wcds-input-text-border-radius: 9999px;
+  --wcds-input-text-border-width-default: 1px;
   --wcds-color-primary-100: oklch(90.798% 0.05972 75.995);
   --wcds-color-primary-200: oklch(86.493% 0.09014 75.975);
   --wcds-color-primary-300: oklch(82.27% 0.11657 75.252);
@@ -106,6 +107,8 @@
   --wcds-border-radius-full: 9999px;
   --wcds-border-color-primary: oklch(25.873% 0.02719 259.98);
   --wcds-border-color-secondary: oklch(25.873% 0.02719 259.98);
+  --wcds-border-width-default: 1px;
+  --wcds-border-width-thick: 2px;
   --wcds-spacing-xs: 0.5rem;
   --wcds-spacing-sm: 0.75rem;
   --wcds-spacing-md: 1rem;
@@ -119,4 +122,9 @@
   --wcds-text-color-on-error: oklch(40% 0.25 25);
   --wcds-text-color-on-warning: oklch(45% 0.25 90);
   --wcds-text-color-on-info: oklch(40% 0.2 250);
+  --wcds-text-size-xs: 0.75rem;
+  --wcds-text-size-sm: 0.875rem;
+  --wcds-text-size-md: 1rem;
+  --wcds-text-size-lg: 1.125rem;
+  --wcds-text-size-xl: 1.25rem;
 }

@@ -105,6 +105,9 @@ declare const tokens: {
         focus: DesignToken;
       };
       radius: DesignToken;
+      width: {
+        default: DesignToken;
+      };
     };
   };
   color: {
@@ -197,6 +200,10 @@ declare const tokens: {
       primary: DesignToken;
       secondary: DesignToken;
     };
+    width: {
+      default: DesignToken;
+      thick: DesignToken;
+    };
   };
   spacing: {
     xs: DesignToken;
@@ -217,6 +224,13 @@ declare const tokens: {
         warning: DesignToken;
         info: DesignToken;
       };
+    };
+    size: {
+      xs: DesignToken;
+      sm: DesignToken;
+      md: DesignToken;
+      lg: DesignToken;
+      xl: DesignToken;
     };
   };
 };

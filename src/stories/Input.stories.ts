@@ -5,6 +5,7 @@ import type { Meta, StoryObj } from '@storybook/web-components-vite';
 import type { WCDSInput } from '../components/input';
 import '../components/input';
 import { getWcStorybookHelpers } from 'wc-storybook-helpers';
+import { ICONS, SIZE } from '../constants';
 
 const { events, args, argTypes, template } = getWcStorybookHelpers('wcds-input');
 
@@ -34,5 +35,9 @@ export const Playground: Story = {
     placeholder: 'Search help articles or tickets',
     size: 'lg',
     // icon: 'search',
+  },
+  argTypes: {
+    icon: { control: { type: 'select' }, options: ICONS },
+    size: { control: { type: 'select' }, options: SIZE },
   },
 };

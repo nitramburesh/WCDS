@@ -93,6 +93,9 @@ export default {
         focus: "oklch(38.502% 0.07804 69.529)",
       },
       radius: "9999px",
+      width: {
+        default: "1px",
+      },
     },
   },
   color: {
@@ -185,6 +188,10 @@ export default {
       primary: "oklch(25.873% 0.02719 259.98)",
       secondary: "oklch(25.873% 0.02719 259.98)",
     },
+    width: {
+      default: "1px",
+      thick: "2px",
+    },
   },
   spacing: {
     xs: "0.5rem",
@@ -205,6 +212,13 @@ export default {
         warning: "oklch(45% 0.25 90)",
         info: "oklch(40% 0.2 250)",
       },
+    },
+    size: {
+      xs: "0.75rem",
+      sm: "0.875rem",
+      md: "1rem",
+      lg: "1.125rem",
+      xl: "1.25rem",
     },
   },
 };

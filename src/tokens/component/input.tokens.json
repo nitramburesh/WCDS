@@ -19,7 +19,8 @@
         "default": { "$value": "{color.neutral.300}", "$type": "color" },
         "focus": { "$value": "{color.primary.900}", "$type": "color" }
       },
-      "radius": { "$value": "{radius.full}", "$type": "dimension" }
+      "radius": { "$value": "{radius.full}", "$type": "dimension" },
+      "width": { "default": { "$value": "{border.width.default}", "$type": "dimension" } }
     }
   }
 }
