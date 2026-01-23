@@ -57,6 +57,29 @@ export default {
       },
     },
   },
+  card: {
+    border: {
+      color: {
+        default: "oklch(78.907% 0.03445 261.01)",
+      },
+      radius: {
+        default: "1rem",
+      },
+    },
+    padding: {
+      default: "1rem",
+    },
+    shadow: {
+      plain: "none",
+      elevated:
+        "2px 4px 4px rgba(0, 0, 0, 0.1), 2px 4px 5px rgba(0, 0, 0, 0.06)",
+    },
+    background: {
+      color: {
+        default: "oklch(96.001% 0.00625 255.48)",
+      },
+    },
+  },
   icon: {
     color: {
       primary: "oklch(38.502% 0.07804 69.529)",

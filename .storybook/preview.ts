@@ -1,13 +1,13 @@
 /** @format */
 
-import type { Preview } from "@storybook/web-components-vite";
-import { setCustomElementsManifest } from "@storybook/web-components-vite";
-import customElements from "../dist/custom-elements.json";
+import type { Preview } from '@storybook/web-components-vite';
+import { setCustomElementsManifest } from '@storybook/web-components-vite';
+import customElements from '../custom-elements.json';
 
 setCustomElementsManifest(customElements);
 
 const preview: Preview = {
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   parameters: {
     controls: {
       customElements,
@@ -22,7 +22,7 @@ const preview: Preview = {
       // 'todo' - show a11y violations in the test UI only
       // 'error' - fail CI on a11y violations
       // 'off' - skip a11y checks entirely
-      test: "todo",
+      test: 'todo',
     },
   },
 };

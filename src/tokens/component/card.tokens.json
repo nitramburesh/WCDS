@@ -1,0 +1,25 @@
+{
+  "card": {
+    "border": {
+      "color": {
+        "default": { "$value": "{color.neutral.300}", "$type": "color" }
+      },
+      "radius": {
+        "default": { "$value": "{radius.xl}", "$type": "dimension" }
+      }
+    },
+    "padding": {
+      "default": { "$value": "{spacing.md}", "$type": "dimension" }
+    },
+    "shadow": {
+      "plain": { "$value": "none", "$type": "shadow" },
+      "elevated": {
+        "$value": "2px 4px 4px rgba(0, 0, 0, 0.1), 2px 4px 5px rgba(0, 0, 0, 0.06)",
+        "$type": "shadow"
+      }
+    },
+    "background": {
+      "color": { "default": { "$value": "{color.neutral.100}", "$type": "color" } }
+    }
+  }
+}

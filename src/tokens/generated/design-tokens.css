@@ -27,6 +27,12 @@
   --wcds-button-variant-ghost-hover-bg: oklch(96.001% 0.00625 255.48);
   --wcds-button-variant-ghost-hover-fg: oklch(48.306% 0.10085 68.391);
   --wcds-button-variant-ghost-border-color: rgba(0, 0, 0, 0);
+  --wcds-card-border-color-default: oklch(78.907% 0.03445 261.01);
+  --wcds-card-border-radius-default: 1rem;
+  --wcds-card-padding-default: 1rem;
+  --wcds-card-shadow-plain: none;
+  --wcds-card-shadow-elevated: 2px 4px 4px rgba(0, 0, 0, 0.1), 2px 4px 5px rgba(0, 0, 0, 0.06);
+  --wcds-card-background-color-default: oklch(96.001% 0.00625 255.48);
   --wcds-icon-color-primary: oklch(38.502% 0.07804 69.529);
   --wcds-icon-color-neutral: oklch(44.298% 0.05509 259.35);
   --wcds-icon-color-subtle: oklch(78.907% 0.03445 261.01);

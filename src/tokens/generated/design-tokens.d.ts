@@ -69,6 +69,28 @@ declare const tokens: {
       };
     };
   };
+  card: {
+    border: {
+      color: {
+        default: DesignToken;
+      };
+      radius: {
+        default: DesignToken;
+      };
+    };
+    padding: {
+      default: DesignToken;
+    };
+    shadow: {
+      plain: DesignToken;
+      elevated: DesignToken;
+    };
+    background: {
+      color: {
+        default: DesignToken;
+      };
+    };
+  };
   icon: {
     color: {
       primary: DesignToken;

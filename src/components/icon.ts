@@ -2,7 +2,6 @@
 
 import { LitElement, css, html, type TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { styleMap } from 'lit/directives/style-map.js';
 import { Size, type Icon } from '../types';
 
 const ICONS: Record<Icon, TemplateResult> = {
@@ -64,6 +63,22 @@ const ICONS: Record<Icon, TemplateResult> = {
       />
     </svg>
   `,
+  location: html` <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M12 21c3.5-3.6 7-6.8 7-10.8 0-4-3.1-7.2-7-7.2s-7 3.2-7 7.2 3.5 7.2 7 10.8Z"
+    />
+    <path
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+    />
+  </svg>`,
 };
 
 @customElement('wcds-icon')
