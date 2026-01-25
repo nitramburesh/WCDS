@@ -3,7 +3,32 @@
  */
 
 :root {
-  --wcds-button-size-sm-padding: 0.5rem;
+  --wcds-avatar-size-sm: 2.25rem;
+  --wcds-avatar-size-md: 2.75rem;
+  --wcds-avatar-size-lg: 3.25rem;
+  --wcds-avatar-shape-circular: 9999px;
+  --wcds-avatar-shape-rounded: 0.5rem;
+  --wcds-avatar-shape-square: 0.25rem;
+  --wcds-avatar-font-size-sm: 0.875rem;
+  --wcds-avatar-font-size-md: 1rem;
+  --wcds-avatar-font-size-lg: 1.125rem;
+  --wcds-avatar-bg-default: oklch(87.663% 0.01869 258.36);
+  --wcds-avatar-fg-default: oklch(35.4% 0.04064 259.83);
+  --wcds-badge-appearance-padding-vertical: 0.25rem;
+  --wcds-badge-appearance-padding-horizontal: 0.75rem;
+  --wcds-badge-appearance-radius: 9999px;
+  --wcds-badge-appearance-font-size: 0.75rem;
+  --wcds-badge-variant-neutral-bg: oklch(87.663% 0.01869 258.36);
+  --wcds-badge-variant-neutral-fg: oklch(35.4% 0.04064 259.83);
+  --wcds-badge-variant-success-bg: oklch(85% 0.1 140);
+  --wcds-badge-variant-success-fg: oklch(40% 0.2 140);
+  --wcds-badge-variant-warning-bg: oklch(90% 0.15 90);
+  --wcds-badge-variant-warning-fg: oklch(45% 0.25 90);
+  --wcds-badge-variant-error-bg: oklch(85% 0.15 25);
+  --wcds-badge-variant-error-fg: oklch(40% 0.25 25);
+  --wcds-badge-variant-info-bg: oklch(90% 0.1 250);
+  --wcds-badge-variant-info-fg: oklch(40% 0.2 250);
+  --wcds-button-size-sm-padding: 0.25rem;
   --wcds-button-size-sm-radius: 9999px;
   --wcds-button-size-sm-font-size: 0.75rem;
   --wcds-button-size-md-padding: 0.75rem;
@@ -42,7 +67,7 @@
   --wcds-icon-size-md: 1.5rem;
   --wcds-icon-size-lg: 2rem;
   --wcds-icon-size-xl: 2.5rem;
-  --wcds-input-text-size-sm-padding: 0.5rem;
+  --wcds-input-text-size-sm-padding: 0.25rem;
   --wcds-input-text-size-sm-font-size: 0.75rem;
   --wcds-input-text-size-md-padding: 0.75rem;
   --wcds-input-text-size-md-font-size: 1rem;
@@ -115,7 +140,7 @@
   --wcds-border-color-secondary: oklch(25.873% 0.02719 259.98);
   --wcds-border-width-default: 1px;
   --wcds-border-width-thick: 2px;
-  --wcds-spacing-xs: 0.5rem;
+  --wcds-spacing-xs: 0.25rem;
   --wcds-spacing-sm: 0.75rem;
   --wcds-spacing-md: 1rem;
   --wcds-spacing-lg: 1.5rem;

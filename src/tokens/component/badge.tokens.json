@@ -1,0 +1,34 @@
+{
+  "badge": {
+    "appearance": {
+      "padding": {
+        "vertical": { "$value": "{spacing.xs}", "$type": "dimension" },
+        "horizontal": { "$value": "{spacing.sm}", "$type": "dimension" }
+      },
+      "radius": { "$value": "{radius.full}", "$type": "dimension" },
+      "fontSize": { "$value": "{size.3}", "$type": "dimension" }
+    },
+    "variant": {
+      "neutral": {
+        "bg": { "$value": "{color.neutral.200}", "$type": "color" },
+        "fg": { "$value": "{color.neutral.800}", "$type": "color" }
+      },
+      "success": {
+        "bg": { "$value": "{color.success.background}", "$type": "color" },
+        "fg": { "$value": "{color.success.content}", "$type": "color" }
+      },
+      "warning": {
+        "bg": { "$value": "{color.warning.background}", "$type": "color" },
+        "fg": { "$value": "{color.warning.content}", "$type": "color" }
+      },
+      "error": {
+        "bg": { "$value": "{color.error.background}", "$type": "color" },
+        "fg": { "$value": "{color.error.content}", "$type": "color" }
+      },
+      "info": {
+        "bg": { "$value": "{color.info.background}", "$type": "color" },
+        "fg": { "$value": "{color.info.content}", "$type": "color" }
+      }
+    }
+  }
+}

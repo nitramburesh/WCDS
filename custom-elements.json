@@ -4,53 +4,6 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "dist/wcds.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "w",
-          "default": "class extends h { constructor() { super(...arguments), this.size = \"md\"; } render() { const t = x[this.icon]; return t ? i` <span class=\"wcds-icon\" role=\"img\" aria-hidden=\"true\"> ${t} </span> ` : null; } }"
-        },
-        {
-          "kind": "variable",
-          "name": "l",
-          "default": "class extends h { constructor() { super(...arguments), this.id = f(\"button\"), this.size = \"md\", this.variant = \"primary\", this.type = \"button\", this.disabled = !1; } handleClick(t) { this.dispatchEvent( new CustomEvent(\"click\", { detail: t, bubbles: !0, composed: !0 }) ); } render() { return i` <button @click=${this.handleClick} type=${this.type} ?disabled=${this.disabled}> ${this.iconLeft && i`<wcds-icon .icon=${this.iconLeft} />`} <slot></slot> ${this.iconRight && i`<wcds-icon .icon=${this.iconRight} />`} </button> `; } }"
-        },
-        {
-          "kind": "variable",
-          "name": "a",
-          "default": "class extends h { constructor() { super(...arguments), this.id = f(\"input\"), this.value = \"\", this.size = \"md\", this.disabled = !1; } hasIcon() { return this.icon !== void 0 && !z(this.icon) && S.includes(this.icon); } onInput(t) { const r = t.target; this.value = r.value, this.dispatchEvent( new CustomEvent(\"input\", { detail: { value: this.value }, bubbles: !0, composed: !0 }) ), this.error && this.dispatchEvent(new CustomEvent(\"clear-error\")); } updated(t) { if (super.updated(t), t.has(\"icon\") && this.toggleAttribute(\"has-valid-icon\", this.hasIcon()), t.has(\"error\")) { const r = this.shadowRoot?.querySelector(\"input\"); r && (this.error ? r.setCustomValidity(this.error) : r.setCustomValidity(\"\")); } } render() { console.log(this.hasIcon()); try { return i` <div class=\"field\"> <span class=\"input-wrapper\"> ${this.hasIcon() && this.icon ? i`<span class=\"icon\"><wcds-icon .icon=${this.icon} /></span>` : null} <input @input=${this.onInput} .value=${this.value} ?disabled=${this.disabled} .id=${this.id} .placeholder=${this.placeholder ?? \" \"} aria-invalid=${this.error ? \"true\" : \"false\"} type=\"text\" /> </span> <label for=${this.id}>${this.label}</label> <span class=\"error-text\">${this.error ?? \"\"}</span> </div> `; } catch (t) { return console.error(t), i`<div class=\"error-box\">Error: ${t.message}</div>`; } } }"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "WCDSButton",
-          "declaration": {
-            "name": "l",
-            "module": "dist/wcds.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WCDSIcon",
-          "declaration": {
-            "name": "w",
-            "module": "dist/wcds.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "WCDSInput",
-          "declaration": {
-            "name": "a",
-            "module": "dist/wcds.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/constants.ts",
       "declarations": [
         {
@@ -92,6 +45,14 @@
             "text": "['plain', 'outlined', 'elevated']"
           },
           "default": "['plain', 'outlined', 'elevated']"
+        },
+        {
+          "kind": "variable",
+          "name": "AVATAR_VARIANT",
+          "type": {
+            "text": "['circular', 'rounded', 'square']"
+          },
+          "default": "['circular', 'rounded', 'square']"
         }
       ],
       "exports": [
@@ -134,6 +95,14 @@
             "name": "CARD_VARIANT",
             "module": "src/constants.ts"
           }
+        },
+        {
+          "kind": "js",
+          "name": "AVATAR_VARIANT",
+          "declaration": {
+            "name": "AVATAR_VARIANT",
+            "module": "src/constants.ts"
+          }
         }
       ]
     },
@@ -161,14 +130,260 @@
     {
       "kind": "javascript-module",
       "path": "src/components/avatar.ts",
-      "declarations": [],
-      "exports": []
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WCDSAvatar",
+          "cssProperties": [
+            {
+              "description": "Overall size of the avatar.",
+              "name": "--wcds-avatar-size"
+            },
+            {
+              "description": "Border radius for the avatar shape.",
+              "name": "--wcds-avatar-radius"
+            },
+            {
+              "description": "Background color for fallback initials.",
+              "name": "--wcds-avatar-bg"
+            },
+            {
+              "description": "Text color for fallback initials.",
+              "name": "--wcds-avatar-fg"
+            },
+            {
+              "description": "Font size for fallback initials.",
+              "name": "--wcds-avatar-font-size"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Avatar content (overrides initials fallback when provided).",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "src",
+              "type": {
+                "text": "string | undefined"
+              },
+              "attribute": "src"
+            },
+            {
+              "kind": "field",
+              "name": "alt",
+              "type": {
+                "text": "string | undefined"
+              },
+              "attribute": "alt"
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string | undefined"
+              },
+              "attribute": "name"
+            },
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "AvatarVariant"
+              },
+              "default": "'circular'",
+              "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "size",
+              "type": {
+                "text": "Size"
+              },
+              "default": "'md'",
+              "attribute": "size",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "imageError",
+              "type": {
+                "text": "boolean"
+              },
+              "privacy": "private",
+              "default": "false"
+            },
+            {
+              "kind": "method",
+              "name": "handleError",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "fallbackText",
+              "type": {
+                "text": "string"
+              },
+              "privacy": "private",
+              "readonly": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "src",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "src"
+            },
+            {
+              "name": "alt",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "alt"
+            },
+            {
+              "name": "name",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "name"
+            },
+            {
+              "name": "variant",
+              "type": {
+                "text": "AvatarVariant"
+              },
+              "default": "'circular'",
+              "fieldName": "variant"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "Size"
+              },
+              "default": "'md'",
+              "fieldName": "size"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wcds-avatar",
+          "customElement": true,
+          "summary": "User avatar with image or initials and Material-like shapes."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WCDSAvatar",
+          "declaration": {
+            "name": "WCDSAvatar",
+            "module": "src/components/avatar.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-avatar",
+          "declaration": {
+            "name": "WCDSAvatar",
+            "module": "src/components/avatar.ts"
+          }
+        }
+      ]
     },
     {
       "kind": "javascript-module",
       "path": "src/components/badge.ts",
-      "declarations": [],
-      "exports": []
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "WCDSBadge",
+          "cssProperties": [
+            {
+              "description": "Inner padding.",
+              "name": "--wcds-badge-padding"
+            },
+            {
+              "description": "Border radius.",
+              "name": "--wcds-badge-radius"
+            },
+            {
+              "description": "Font size.",
+              "name": "--wcds-badge-font-size"
+            },
+            {
+              "description": "Background color.",
+              "name": "--wcds-badge-bg"
+            },
+            {
+              "description": "Text color.",
+              "name": "--wcds-badge-fg"
+            }
+          ],
+          "slots": [
+            {
+              "description": "Badge text/content.",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "field",
+              "name": "variant",
+              "type": {
+                "text": "'info' | 'success' | 'warning' | 'error'"
+              },
+              "default": "'info'",
+              "attribute": "variant",
+              "reflects": true
+            }
+          ],
+          "attributes": [
+            {
+              "name": "variant",
+              "type": {
+                "text": "'info' | 'success' | 'warning' | 'error'"
+              },
+              "default": "'info'",
+              "fieldName": "variant"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "wcds-badge",
+          "customElement": true,
+          "summary": "Small status badge with four variants."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "WCDSBadge",
+          "declaration": {
+            "name": "WCDSBadge",
+            "module": "src/components/badge.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-badge",
+          "declaration": {
+            "name": "WCDSBadge",
+            "module": "src/components/badge.ts"
+          }
+        }
+      ]
     },
     {
       "kind": "javascript-module",
@@ -216,7 +431,9 @@
               "name": "id",
               "type": {
                 "text": "string"
-              }
+              },
+              "attribute": "id",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -224,7 +441,9 @@
               "type": {
                 "text": "Size"
               },
-              "default": "'md'"
+              "default": "'md'",
+              "attribute": "size",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -232,7 +451,9 @@
               "type": {
                 "text": "ButtonVariant"
               },
-              "default": "'primary'"
+              "default": "'primary'",
+              "attribute": "variant",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -240,21 +461,25 @@
               "type": {
                 "text": "ButtonType"
               },
-              "default": "'button'"
+              "default": "'button'",
+              "attribute": "type",
+              "reflects": true
             },
             {
               "kind": "field",
               "name": "iconLeft",
               "type": {
                 "text": "Icon | undefined"
-              }
+              },
+              "attribute": "iconLeft"
             },
             {
               "kind": "field",
               "name": "iconRight",
               "type": {
                 "text": "Icon | undefined"
-              }
+              },
+              "attribute": "iconRight"
             },
             {
               "kind": "field",
@@ -262,7 +487,9 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false"
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
             },
             {
               "kind": "method",
@@ -276,16 +503,6 @@
                   }
                 }
               ]
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "static": true,
-              "default": "css` button { display: inline-block; padding: var(--wcds-button-padding); border-radius: var(--wcds-button-radius); font-size: var(--wcds-button-font-size); background-color: var(--wcds-button-bg-color); color: var(--wcds-button-fg-color); border: 1px solid var(--wcds-button-border-color); gap: var(--wcds-spacing-xs); cursor: pointer; transition: all 0.2s ease-in-out; display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; text-transform: uppercase; } button:disabled { cursor: not-allowed; opacity: 0.6; } button:not([disabled]):hover { scale: 1.02; filter: brightness(1.3); box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2); } button:not([disabled]):active { transform: scale(0.96); } :host { --wcds-button-padding: var(var(--wcds-button-padding), var(--wcds-button-size-md-padding)); --wcds-button-radius: var(--wcds-button-size-md-radius); --wcds-button-font-size: var(--wcds-button-size-md-font-size); --wcds-button-bg-color: var(--wcds-button-variant-primary-default-bg); --wcds-button-fg-color: var(--wcds-button-variant-primary-default-fg); --wcds-button-border-color: var(--wcds-button-variant-primary-border-color); } :host([variant='secondary']) { --wcds-button-bg-color: var(--wcds-button-variant-secondary-default-bg); --wcds-button-fg-color: var(--wcds-button-variant-secondary-default-fg); --wcds-button-border-color: var(--wcds-button-variant-secondary-border-color); } :host([variant='ghost']) { --wcds-button-bg-color: var(--wcds-button-variant-ghost-default-bg); --wcds-button-fg-color: var(--wcds-button-variant-ghost-default-fg); --wcds-button-border-color: var(--wcds-button-variant-ghost-border-color); } :host([size='sm']) { --wcds-button-padding: var(--wcds-button-size-sm-padding); --wcds-button-radius: var(--wcds-button-size-sm-radius); --wcds-button-font-size: var(--wcds-button-size-sm-font-size); } :host([size='md']) { --wcds-button-padding: var(--wcds-button-size-md-padding); --wcds-button-radius: var(--wcds-button-size-md-radius); --wcds-button-font-size: var(--wcds-button-size-md-font-size); } :host([size='lg']) { --wcds-button-padding: var(--wcds-button-size-lg-padding); --wcds-button-radius: var(--wcds-button-size-lg-radius); --wcds-button-font-size: var(--wcds-button-size-lg-font-size); } `"
-            },
-            {
-              "kind": "method",
-              "name": "render"
             }
           ],
           "events": [
@@ -295,6 +512,61 @@
                 "text": "CustomEvent"
               },
               "description": "Emitted when the button is clicked."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "id",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "id"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "Size"
+              },
+              "default": "'md'",
+              "fieldName": "size"
+            },
+            {
+              "name": "variant",
+              "type": {
+                "text": "ButtonVariant"
+              },
+              "default": "'primary'",
+              "fieldName": "variant"
+            },
+            {
+              "name": "type",
+              "type": {
+                "text": "ButtonType"
+              },
+              "default": "'button'",
+              "fieldName": "type"
+            },
+            {
+              "name": "iconLeft",
+              "type": {
+                "text": "Icon | undefined"
+              },
+              "fieldName": "iconLeft"
+            },
+            {
+              "name": "iconRight",
+              "type": {
+                "text": "Icon | undefined"
+              },
+              "fieldName": "iconRight"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
             }
           ],
           "superclass": {
@@ -310,6 +582,14 @@
         {
           "kind": "js",
           "name": "WCDSButton",
+          "declaration": {
+            "name": "WCDSButton",
+            "module": "src/components/button.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-button",
           "declaration": {
             "name": "WCDSButton",
             "module": "src/components/button.ts"
@@ -361,18 +641,7 @@
               "name": "footer"
             }
           ],
-          "members": [
-            {
-              "kind": "field",
-              "name": "styles",
-              "static": true,
-              "default": "css` :host { display: block; box-sizing: border-box; transition: box-shadow 0.3s ease-in-out; --wcds-card-padding: var(--wcds-card-padding-default); --wcds-card-radius: var(--wcds-card-border-radius-default); --wcds-card-bg-color: var(--wcds-card-background-color-default); --wcds-card-border-color: var(--wcds-card-border-color-default); --wcds-card-shadow: var(--wcds-card-shadow-plain); } .card { display: flex; align-items: center; gap: var(--wcds-spacing-lg); padding: var(--wcds-card-padding); box-sizing: border-box; background-color: var(--wcds-card-bg-color); border: 1px solid var(--wcds-card-border-color); border-radius: var(--wcds-card-radius); box-shadow: var(--wcds-card-shadow); min-height: 64px; } .header, .footer { display: block; } .content { display: flex; flex: 1; } `"
-            },
-            {
-              "kind": "method",
-              "name": "render"
-            }
-          ],
+          "members": [],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
@@ -386,6 +655,14 @@
         {
           "kind": "js",
           "name": "WCDSCard",
+          "declaration": {
+            "name": "WCDSCard",
+            "module": "src/components/card.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-card",
           "declaration": {
             "name": "WCDSCard",
             "module": "src/components/card.ts"
@@ -407,24 +684,39 @@
               "name": "color",
               "type": {
                 "text": "string"
-              }
+              },
+              "attribute": "color"
             },
             {
               "kind": "field",
               "name": "name",
               "type": {
                 "text": "string"
-              }
+              },
+              "attribute": "name"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "color",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "color"
             },
             {
-              "kind": "method",
-              "name": "render"
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "name"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
+          "tagName": "wcds-color",
           "customElement": true
         }
       ],
@@ -432,6 +724,14 @@
         {
           "kind": "js",
           "name": "WCDSColor",
+          "declaration": {
+            "name": "WCDSColor",
+            "module": "src/components/color.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-color",
           "declaration": {
             "name": "WCDSColor",
             "module": "src/components/color.ts"
@@ -453,7 +753,9 @@
               "name": "icon",
               "type": {
                 "text": "Icon"
-              }
+              },
+              "attribute": "icon",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -461,23 +763,32 @@
               "type": {
                 "text": "Size"
               },
-              "default": "'md'"
+              "default": "'md'",
+              "attribute": "size"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "icon",
+              "type": {
+                "text": "Icon"
+              },
+              "fieldName": "icon"
             },
             {
-              "kind": "field",
-              "name": "styles",
-              "static": true,
-              "default": "css` :host { --wcds-icon-size: var(--wcds-icon-size-md); --wcds-icon-color: var(--wcds-icon-color-neutral); display: inline-flex; align-items: center; justify-content: center; width: var(--wcds-icon-size); height: var(--wcds-icon-size); line-height: 0; } .wcds-icon { display: inline-flex; width: 100%; height: 100%; } svg path { width: 100%; height: 100%; } `"
-            },
-            {
-              "kind": "method",
-              "name": "render"
+              "name": "size",
+              "type": {
+                "text": "Size"
+              },
+              "default": "'md'",
+              "fieldName": "size"
             }
           ],
           "superclass": {
             "name": "LitElement",
             "package": "lit"
           },
+          "tagName": "wcds-icon",
           "customElement": true
         }
       ],
@@ -485,6 +796,14 @@
         {
           "kind": "js",
           "name": "WCDSIcon",
+          "declaration": {
+            "name": "WCDSIcon",
+            "module": "src/components/icon.ts"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "wcds-icon",
           "declaration": {
             "name": "WCDSIcon",
             "module": "src/components/icon.ts"
@@ -528,6 +847,22 @@
             "name": "*",
             "module": "src/components/card"
           }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/badge"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/components/avatar"
+          }
         }
       ]
     },
@@ -567,7 +902,9 @@
               "name": "id",
               "type": {
                 "text": "string"
-              }
+              },
+              "attribute": "id",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -575,7 +912,8 @@
               "type": {
                 "text": "string"
               },
-              "default": "''"
+              "default": "''",
+              "attribute": "value"
             },
             {
               "kind": "field",
@@ -583,28 +921,34 @@
               "type": {
                 "text": "Size"
               },
-              "default": "'md'"
+              "default": "'md'",
+              "attribute": "size",
+              "reflects": true
             },
             {
               "kind": "field",
               "name": "label",
               "type": {
                 "text": "string | undefined"
-              }
+              },
+              "attribute": "label"
             },
             {
               "kind": "field",
               "name": "placeholder",
               "type": {
                 "text": "string | undefined"
-              }
+              },
+              "attribute": "placeholder"
             },
             {
               "kind": "field",
               "name": "icon",
               "type": {
                 "text": "Icon | undefined"
-              }
+              },
+              "attribute": "icon",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -612,14 +956,18 @@
               "type": {
                 "text": "boolean"
               },
-              "default": "false"
+              "default": "false",
+              "attribute": "disabled",
+              "reflects": true
             },
             {
               "kind": "field",
               "name": "error",
               "type": {
                 "text": "string | undefined"
-              }
+              },
+              "attribute": "error",
+              "reflects": true
             },
             {
               "kind": "method",
@@ -638,29 +986,6 @@
                   }
                 }
               ]
-            },
-            {
-              "kind": "method",
-              "name": "updated",
-              "privacy": "protected",
-              "parameters": [
-                {
-                  "name": "changedProperties",
-                  "type": {
-                    "text": "Map<string, any>"
-                  }
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "styles",
-              "static": true,
-              "default": "css` :host { --wcds-input-padding: var(--wcds-input-text-size-md-padding); --wcds-input-border-radius: var(--wcds-input-text-border-radius); --wcds-input-border-color-default: var(--wcds-input-text-border-color-default); --wcds-input-border-color-focus: var(--wcds-input-text-border-color-focus); --wcds-input-box-shadow: 5px 5px 14px #ced8d7, -2px -2px 14px #ffffff; --wcds-icon-size: var(--wcds-icon-size-md); } input { padding: calc(1.2 * var(--wcds-input-padding)); border-radius: var(--wcds-input-border-radius); border: var(--wcds-input-text-border-width-default) solid var(--wcds-input-border-color-default); box-shadow: none; transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out; width: 100%; } input:focus { outline: none; border-color: var(--wcds-input-border-color-focus); box-shadow: var(--wcds-input-box-shadow); transition: box-shadow 0.3s ease-out, border-color 0.3s ease-in-out; } input:invalid { border-color: var(--wcds-color-error-content); } :host([size='sm']) { --wcds-input-padding: var(--wcds-input-text-size-sm-padding); --wcds-icon-size: var(--wcds-icon-size-sm); } :host([size='lg']) { --wcds-input-padding: var(--wcds-input-text-size-lg-padding); --wcds-icon-size: var(--wcds-icon-size-lg); } :host([size='sm']) wcds-icon { --wcds-icon-size: var(--wcds-icon-size-sm); } :host([size='lg']) wcds-icon { --wcds-icon-size: var(--wcds-icon-size-lg); } :host([icon][has-valid-icon]) input { padding-left: calc(2 * var(--wcds-input-padding) + var(--wcds-icon-size)); } label { display: none; } .field { position: relative; display: flex; flex-direction: column; gap: var(--wcds-spacing-xs); width: 100%; } .input-wrapper { position: relative; display: flex; align-items: center; width: 100%; } .error-text { color: var(--wcds-color-error-content); font-size: var(--wcds-text-size-sm); margin-left: var(--wcds-spacing-md); } wcds-icon { position: absolute; top: 50%; left: var(--wcds-input-padding); transform: translateY(-50%); } `"
-            },
-            {
-              "kind": "method",
-              "name": "render"
             }
           ],
           "events": [
@@ -677,6 +1002,67 @@
                 "text": "CustomEvent"
               },
               "description": "Emitted when the user starts typing to clear existing errors."
+            }
+          ],
+          "attributes": [
+            {
+              "name": "id",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "id"
+            },
+            {
+              "name": "value",
+              "type": {
+                "text": "string"
+              },
+              "default": "''",
+              "fieldName": "value"
+            },
+            {
+              "name": "size",
+              "type": {
+                "text": "Size"
+              },
+              "default": "'md'",
+              "fieldName": "size"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "label"
+            },
+            {
+              "name": "placeholder",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "placeholder"
+            },
+            {
+              "name": "icon",
+              "type": {
+                "text": "Icon | undefined"
+              },
+              "fieldName": "icon"
+            },
+            {
+              "name": "disabled",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "disabled"
+            },
+            {
+              "name": "error",
+              "type": {
+                "text": "string | undefined"
+              },
+              "fieldName": "error"
             }
           ],
           "superclass": {
@@ -696,197 +1082,13 @@
             "name": "WCDSInput",
             "module": "src/components/input.ts"
           }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/stories/Button.stories.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "meta",
-          "type": {
-            "text": "Meta<WCDSButton>"
-          },
-          "default": "{ title: 'Components/Button', component: 'wcds-button', args, argTypes, parameters: { actions: { handles: events, }, }, }"
         },
         {
-          "kind": "variable",
-          "name": "Playground",
-          "type": {
-            "text": "Story"
-          },
-          "default": "{ render: (args) => template(args), args: { 'default-slot': 'Button', }, argTypes: { size: { control: { type: 'select' }, options: SIZE, }, variant: { control: { type: 'select' }, options: BUTTON_VARIANT, }, type: { control: { type: 'select' }, options: BUTTON_TYPE, }, iconLeft: { control: { type: 'select' }, options: ICONS }, iconRight: { control: { type: 'select' }, options: ICONS }, }, }"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
+          "kind": "custom-element-definition",
+          "name": "wcds-input",
           "declaration": {
-            "name": "meta",
-            "module": "src/stories/Button.stories.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Playground",
-          "declaration": {
-            "name": "Playground",
-            "module": "src/stories/Button.stories.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/stories/Card.stories.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "meta",
-          "type": {
-            "text": "Meta<WCDSCard>"
-          },
-          "default": "{ title: 'Components/Card', component: 'wcds-card', args, argTypes, parameters: { actions: { handles: events, }, }, }"
-        },
-        {
-          "kind": "variable",
-          "name": "Playground",
-          "type": {
-            "text": "Story"
-          },
-          "default": "{ render: (args) => template(args, html` ${headerExample} ${contentExample} ${footerExample}`), }"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "meta",
-            "module": "src/stories/Card.stories.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Playground",
-          "declaration": {
-            "name": "Playground",
-            "module": "src/stories/Card.stories.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/stories/Colors.stories.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "meta",
-          "type": {
-            "text": "Meta"
-          },
-          "default": "{ title: \"Theme/Colors\", component: \"wcds-color\", }"
-        },
-        {
-          "kind": "function",
-          "name": "Palette"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "meta",
-            "module": "src/stories/Colors.stories.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Palette",
-          "declaration": {
-            "name": "Palette",
-            "module": "src/stories/Colors.stories.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/stories/Icon.stories.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "meta",
-          "type": {
-            "text": "Meta"
-          },
-          "default": "{ title: \"Components/Icon\", component: \"wcds-icon\", }"
-        },
-        {
-          "kind": "function",
-          "name": "Icons"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "meta",
-            "module": "src/stories/Icon.stories.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Icons",
-          "declaration": {
-            "name": "Icons",
-            "module": "src/stories/Icon.stories.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/stories/Input.stories.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "meta",
-          "type": {
-            "text": "Meta<WCDSInput>"
-          },
-          "default": "{ title: 'Components/Input', component: 'wcds-input', args, argTypes, parameters: { actions: { handles: events, }, }, }"
-        },
-        {
-          "kind": "variable",
-          "name": "Playground",
-          "type": {
-            "text": "Story"
-          },
-          "default": "{ render: (args) => template(args), args: { id: 'wcds-input-1', label: 'Insert text', placeholder: 'Insert text...', }, argTypes: { icon: { control: { type: 'select', default: '' }, options: ICONS }, size: { control: { type: 'select' }, options: SIZE }, }, }"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "name": "meta",
-            "module": "src/stories/Input.stories.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Playground",
-          "declaration": {
-            "name": "Playground",
-            "module": "src/stories/Input.stories.ts"
+            "name": "WCDSInput",
+            "module": "src/components/input.ts"
           }
         }
       ]
@@ -1049,1140 +1251,6 @@
           }
         }
       ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/tokens/build-tokens.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "storybook-static/sb-manager/globals-runtime.js",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "Eb",
-          "parameters": [
-            {
-              "name": "a3"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "Fb"
-        },
-        {
-          "kind": "variable",
-          "name": "id",
-          "type": {
-            "text": "null"
-          },
-          "default": "null"
-        },
-        {
-          "kind": "function",
-          "name": "ue",
-          "parameters": [
-            {
-              "name": "a3"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "Db",
-          "parameters": [
-            {
-              "name": "a3"
-            }
-          ]
-        },
-        {
-          "kind": "variable",
-          "name": "value"
-        },
-        {
-          "kind": "variable",
-          "name": "container"
-        },
-        {
-          "kind": "variable",
-          "name": "name"
-        },
-        {
-          "kind": "variable",
-          "name": "cx",
-          "default": "function() { if (hasRendered && isDevelopment3) throw new Error(\"cx can only be used during render\"); for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) args[_key2] = arguments[_key2]; return merge(cache.registered, css3, classnames(args)); }"
-        },
-        {
-          "kind": "variable",
-          "name": "source",
-          "default": "arguments[i]"
-        },
-        {
-          "kind": "variable",
-          "name": "reach"
-        },
-        {
-          "kind": "variable",
-          "name": "message"
-        },
-        {
-          "kind": "variable",
-          "name": "ref"
-        },
-        {
-          "kind": "variable",
-          "name": "path"
-        },
-        {
-          "kind": "variable",
-          "name": "stack"
-        },
-        {
-          "kind": "variable",
-          "name": "role"
-        },
-        {
-          "kind": "variable",
-          "name": "target"
-        },
-        {
-          "kind": "variable",
-          "name": "previousState"
-        },
-        {
-          "kind": "variable",
-          "name": "refs",
-          "type": {
-            "text": "array"
-          },
-          "default": "[]"
-        },
-        {
-          "kind": "variable",
-          "name": "test"
-        },
-        {
-          "kind": "function",
-          "name": "diff",
-          "parameters": [
-            {
-              "name": "a3"
-            },
-            {
-              "name": "b"
-            },
-            {
-              "name": "options"
-            }
-          ]
-        },
-        {
-          "kind": "variable",
-          "name": "payload",
-          "type": {
-            "text": "object"
-          },
-          "default": "{ controlStates: { detached: this.detached, start: !1, back: !1, goto: !1, next: !1, end: !1 }, logItems: [] }"
-        },
-        {
-          "kind": "variable",
-          "name": "storyId"
-        },
-        {
-          "kind": "variable",
-          "name": "AssertionError",
-          "default": "(_a = class extends Error { message; get name() { return \"AssertionError\"; } get ok() { return !1; } constructor(message = \"Unspecified AssertionError\", props, ssf) { super(message), this.message = message, canElideFrames && Error.captureStackTrace(this, ssf || _a); for (let key in props) key in this || (this[key] = props[key]); } toJSON(stack) { return { ...this, name: this.name, message: this.message, ok: !1, stack: stack !== !1 ? this.stack : void 0 }; } }, __name(_a, \"AssertionError\"), _a)"
-        },
-        {
-          "kind": "variable",
-          "name": "expected",
-          "default": "args[3]"
-        },
-        {
-          "kind": "variable",
-          "name": "actual"
-        },
-        {
-          "kind": "variable",
-          "name": "Assertion",
-          "default": "(_a2 = class { /** @type {{}} */ __flags = {}; /** * Creates object for chaining. * `Assertion` objects contain metadata in the form of flags. Three flags can * be assigned during instantiation by passing arguments to this constructor: * * - `object`: This flag contains the target of the assertion. For example, in * the assertion `expect(numKittens).to.equal(7);`, the `object` flag will * contain `numKittens` so that the `equal` assertion can reference it when * needed. * * - `message`: This flag contains an optional custom error message to be * prepended to the error message that's generated by the assertion when it * fails. * * - `ssfi`: This flag stands for \"start stack function indicator\". It * contains a function reference that serves as the starting point for * removing frames from the stack trace of the error that's created by the * assertion when it fails. The goal is to provide a cleaner stack trace to * end users by removing Chai's internal functions. Note that it only works * in environments that support `Error.captureStackTrace`, and only when * `Chai.config.includeStack` hasn't been set to `false`. * * - `lockSsfi`: This flag controls whether or not the given `ssfi` flag * should retain its current value, even as assertions are chained off of * this object. This is usually set to `true` when creating a new assertion * from within another assertion. It's also temporarily set to `true` before * an overwritten assertion gets called by the overwriting assertion. * * - `eql`: This flag contains the deepEqual function to be used by the assertion. * * @param {unknown} obj target of the assertion * @param {string} [msg] (optional) custom error message * @param {Function} [ssfi] (optional) starting point for removing stack frames * @param {boolean} [lockSsfi] (optional) whether or not the ssfi flag is locked */ constructor(obj, msg, ssfi, lockSsfi) { return flag(this, \"ssfi\", ssfi || _a2), flag(this, \"lockSsfi\", lockSsfi), flag(this, \"object\", obj), flag(this, \"message\", msg), flag(this, \"eql\", config2.deepEqual || deep_eql_default), proxify(this); } /** @returns {boolean} */ static get includeStack() { return console.warn( \"Assertion.includeStack is deprecated, use chai.config.includeStack instead.\" ), config2.includeStack; } /** @param {boolean} value */ static set includeStack(value) { console.warn( \"Assertion.includeStack is deprecated, use chai.config.includeStack instead.\" ), config2.includeStack = value; } /** @returns {boolean} */ static get showDiff() { return console.warn( \"Assertion.showDiff is deprecated, use chai.config.showDiff instead.\" ), config2.showDiff; } /** @param {boolean} value */ static set showDiff(value) { console.warn( \"Assertion.showDiff is deprecated, use chai.config.showDiff instead.\" ), config2.showDiff = value; } /** * @param {string} name * @param {Function} fn */ static addProperty(name, fn4) { addProperty(this.prototype, name, fn4); } /** * @param {string} name * @param {Function} fn */ static addMethod(name, fn4) { addMethod(this.prototype, name, fn4); } /** * @param {string} name * @param {Function} fn * @param {Function} chainingBehavior */ static addChainableMethod(name, fn4, chainingBehavior) { addChainableMethod(this.prototype, name, fn4, chainingBehavior); } /** * @param {string} name * @param {Function} fn */ static overwriteProperty(name, fn4) { overwriteProperty(this.prototype, name, fn4); } /** * @param {string} name * @param {Function} fn */ static overwriteMethod(name, fn4) { overwriteMethod(this.prototype, name, fn4); } /** * @param {string} name * @param {Function} fn * @param {Function} chainingBehavior */ static overwriteChainableMethod(name, fn4, chainingBehavior) { overwriteChainableMethod(this.prototype, name, fn4, chainingBehavior); } /** * ### .assert(expression, message, negateMessage, expected, actual, showDiff) * * Executes an expression and check expectations. Throws AssertionError for reporting if test doesn't pass. * * @name assert * @param {unknown} _expr to be tested * @param {string | Function} msg or function that returns message to display if expression fails * @param {string | Function} _negateMsg or function that returns negatedMessage to display if negated expression fails * @param {unknown} expected value (remember to check for negation) * @param {unknown} _actual (optional) will default to `this.obj` * @param {boolean} showDiff (optional) when set to `true`, assert will display a diff in addition to the message if expression fails * @returns {void} */ assert(_expr, msg, _negateMsg, expected, _actual, showDiff) { let ok = test2(this, arguments); if (showDiff !== !1 && (showDiff = !0), expected === void 0 && _actual === void 0 && (showDiff = !1), config2.showDiff !== !0 && (showDiff = !1), !ok) { msg = getMessage2(this, arguments); let assertionErrorObjectProperties = { actual: getActual(this, arguments), expected, showDiff }, operator = getOperator(this, arguments); throw operator && (assertionErrorObjectProperties.operator = operator), new AssertionError( msg, assertionErrorObjectProperties, // @ts-expect-error Not sure what to do about these types yet config2.includeStack ? this.assert : flag(this, \"ssfi\") ); } } /** * Quick reference to stored `actual` value for plugin developers. * * @returns {unknown} */ get _obj() { return flag(this, \"object\"); } /** * Quick reference to stored `actual` value for plugin developers. * * @param {unknown} val */ set _obj(val) { flag(this, \"object\", val); } }, __name(_a2, \"Assertion\"), _a2)"
-        },
-        {
-          "kind": "variable",
-          "name": "showDiff"
-        },
-        {
-          "kind": "function",
-          "name": "expect",
-          "parameters": [
-            {
-              "name": "val"
-            },
-            {
-              "name": "message"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "assert",
-          "parameters": [
-            {
-              "name": "express"
-            },
-            {
-              "name": "errmsg"
-            }
-          ]
-        },
-        {
-          "kind": "variable",
-          "name": "method"
-        },
-        {
-          "kind": "function",
-          "name": "equals",
-          "parameters": [
-            {
-              "name": "a3"
-            },
-            {
-              "name": "b"
-            },
-            {
-              "name": "customTesters"
-            },
-            {
-              "name": "strictCheck"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "iterableEquality",
-          "parameters": [
-            {
-              "name": "a3"
-            },
-            {
-              "name": "b"
-            },
-            {
-              "name": "customTesters",
-              "default": "[]"
-            },
-            {
-              "name": "aStack",
-              "default": "[]"
-            },
-            {
-              "name": "bStack",
-              "default": "[]"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "subsetEquality",
-          "parameters": [
-            {
-              "name": "object"
-            },
-            {
-              "name": "subset"
-            },
-            {
-              "name": "customTesters",
-              "default": "[]"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "debug",
-          "parameters": [
-            {
-              "name": "element"
-            },
-            {
-              "name": "maxLength"
-            },
-            {
-              "name": "options"
-            }
-          ]
-        },
-        {
-          "kind": "variable",
-          "name": "logTestingPlaygroundURL",
-          "default": "function(element) { if (element === void 0 && (element = getDocument().body), !element || !(\"innerHTML\" in element)) { console.log(\"The element you're providing isn't a valid DOM element.\"); return; } if (!element.innerHTML) { console.log(\"The provided element doesn't have any children.\"); return; } let playgroundUrl = getPlaygroundUrl(element.innerHTML); return console.log(`Open this URL in your browser ` + playgroundUrl), playgroundUrl; }"
-        },
-        {
-          "kind": "function",
-          "name": "initUIEventModifiers",
-          "parameters": [
-            {
-              "name": "event"
-            },
-            {
-              "name": "{ altKey, ctrlKey, metaKey, shiftKey, modifierAltGraph, modifierCapsLock, modifierFn, modifierFnLock, modifierNumLock, modifierScrollLock, modifierSymbol, modifierSymbolLock }"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "initMouseEvent",
-          "parameters": [
-            {
-              "name": "event"
-            },
-            {
-              "name": "{ x, y, screenX, screenY, clientX = x, clientY = y, button, buttons, relatedTarget, offsetX, offsetY, pageX, pageY }"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "click",
-          "parameters": [
-            {
-              "name": "element"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "dblClick",
-          "parameters": [
-            {
-              "name": "element"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "tripleClick",
-          "parameters": [
-            {
-              "name": "element"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "hover",
-          "parameters": [
-            {
-              "name": "element"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "unhover",
-          "parameters": [
-            {
-              "name": "element"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "tab",
-          "parameters": [
-            {
-              "name": "{ shift }",
-              "default": "{}"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "keyboard",
-          "parameters": [
-            {
-              "name": "text"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "cut"
-        },
-        {
-          "kind": "function",
-          "name": "paste",
-          "parameters": [
-            {
-              "name": "clipboardData"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "pointer",
-          "parameters": [
-            {
-              "name": "input2"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "clear",
-          "parameters": [
-            {
-              "name": "element"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "selectOptions",
-          "parameters": [
-            {
-              "name": "select"
-            },
-            {
-              "name": "values"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "deselectOptions",
-          "parameters": [
-            {
-              "name": "select"
-            },
-            {
-              "name": "values"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "upload",
-          "parameters": [
-            {
-              "name": "element"
-            },
-            {
-              "name": "fileOrFiles"
-            }
-          ]
-        },
-        {
-          "kind": "variable",
-          "name": "config4"
-        },
-        {
-          "kind": "function",
-          "name": "method",
-          "parameters": [
-            {
-              "name": "args"
-            }
-          ]
-        },
-        {
-          "kind": "variable",
-          "name": "isFocused"
-        },
-        {
-          "kind": "variable",
-          "name": "isHovered"
-        },
-        {
-          "kind": "variable",
-          "name": "navigate"
-        },
-        {
-          "kind": "variable",
-          "name": "navSize"
-        },
-        {
-          "kind": "variable",
-          "name": "bottomPanelHeight"
-        },
-        {
-          "kind": "variable",
-          "name": "rightPanelWidth"
-        },
-        {
-          "kind": "variable",
-          "name": "callback"
-        },
-        {
-          "kind": "variable",
-          "name": "initialState",
-          "type": {
-            "text": "object"
-          },
-          "default": "{ items: { accessibilityTests: { status: \"open\" }, autodocs: { status: \"open\" }, ciTests: { status: \"open\" }, controls: { status: \"open\" }, coverage: { status: \"open\" }, guidedTour: { status: \"open\" }, installA11y: { status: \"open\" }, installChromatic: { status: \"open\" }, installDocs: { status: \"open\" }, installVitest: { status: \"open\" }, mdxDocs: { status: \"open\" }, moreComponents: { status: \"open\" }, moreStories: { status: \"open\" }, onboardingSurvey: { status: \"open\" }, organizeStories: { status: \"open\" }, publishStorybook: { status: \"open\" }, renderComponent: { status: \"open\" }, runTests: { status: \"open\" }, viewports: { status: \"open\" }, visualTests: { status: \"open\" }, whatsNewStorybook10: { status: \"open\" }, writeInteractions: { status: \"open\" } }, widget: {} }"
-        },
-        {
-          "kind": "function",
-          "name": "onBlur",
-          "parameters": [
-            {
-              "name": "e"
-            }
-          ]
-        },
-        {
-          "kind": "variable",
-          "name": "onFocus"
-        },
-        {
-          "kind": "function",
-          "name": "onKeyDown",
-          "parameters": [
-            {
-              "name": "e"
-            }
-          ]
-        },
-        {
-          "kind": "variable",
-          "name": "deps",
-          "type": {
-            "text": "array"
-          },
-          "default": "[ shouldUpdatePosition, placement, overlayRef.current, targetRef.current, arrowRef?.current, scrollRef.current, containerPadding, shouldFlip, boundaryElement, offset3, crossOffset, isOpen, direction, maxHeight, arrowBoundaryOffset, arrowSize ]"
-        },
-        {
-          "kind": "function",
-          "name": "onKeyDown",
-          "parameters": [
-            {
-              "name": "e"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "onFocus",
-          "parameters": [
-            {
-              "name": "e"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "onFocus"
-        },
-        {
-          "kind": "function",
-          "name": "onKeyDown",
-          "parameters": [
-            {
-              "name": "e"
-            }
-          ]
-        },
-        {
-          "kind": "variable",
-          "name": "visibleNodes",
-          "default": "new Set(targets)"
-        },
-        {
-          "kind": "variable",
-          "name": "hiddenNodes",
-          "default": "new Set()"
-        },
-        {
-          "kind": "function",
-          "name": "onKeyDown",
-          "parameters": [
-            {
-              "name": "e"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "onKeyDown",
-          "parameters": [
-            {
-              "name": "e"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "onFocus",
-          "parameters": [
-            {
-              "name": "e"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "onKeyDown",
-          "parameters": [
-            {
-              "name": "e"
-            }
-          ]
-        }
-      ],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "storybook-static/sb-manager/globals.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "globalsNameReferenceMap",
-          "type": {
-            "text": "object"
-          },
-          "default": "{ react: \"__REACT__\", \"react-dom\": \"__REACT_DOM__\", \"react-dom/client\": \"__REACT_DOM_CLIENT__\", \"@storybook/icons\": \"__STORYBOOK_ICONS__\", \"storybook/manager-api\": \"__STORYBOOK_API__\", \"storybook/test\": \"__STORYBOOK_TEST__\", \"storybook/theming\": \"__STORYBOOK_THEMING__\", \"storybook/theming/create\": \"__STORYBOOK_THEMING_CREATE__\", \"storybook/internal/channels\": \"__STORYBOOK_CHANNELS__\", \"storybook/internal/client-logger\": \"__STORYBOOK_CLIENT_LOGGER__\", \"storybook/internal/components\": \"__STORYBOOK_COMPONENTS__\", \"storybook/internal/core-events\": \"__STORYBOOK_CORE_EVENTS__\", \"storybook/internal/manager-errors\": \"__STORYBOOK_CORE_EVENTS_MANAGER_ERRORS__\", \"storybook/internal/router\": \"__STORYBOOK_ROUTER__\", \"storybook/internal/types\": \"__STORYBOOK_TYPES__\" }"
-        },
-        {
-          "kind": "variable",
-          "name": "globalPackages"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "globalPackages",
-          "declaration": {
-            "name": "globalPackages",
-            "module": "storybook-static/sb-manager/globals.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "globalsNameReferenceMap",
-          "declaration": {
-            "name": "globalsNameReferenceMap",
-            "module": "storybook-static/sb-manager/globals.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "storybook-static/sb-manager/manager-stores.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "experimental_getStatusStore",
-          "declaration": {
-            "name": "experimental_getStatusStore",
-            "module": "storybook-static/sb-manager/manager-stores.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "experimental_getTestProviderStore",
-          "declaration": {
-            "name": "experimental_getTestProviderStore",
-            "module": "storybook-static/sb-manager/manager-stores.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "experimental_useStatusStore",
-          "declaration": {
-            "name": "experimental_useStatusStore",
-            "module": "storybook-static/sb-manager/manager-stores.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "experimental_useTestProviderStore",
-          "declaration": {
-            "name": "experimental_useTestProviderStore",
-            "module": "storybook-static/sb-manager/manager-stores.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "internal_checklistStore",
-          "declaration": {
-            "name": "internal_checklistStore",
-            "module": "storybook-static/sb-manager/manager-stores.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "internal_fullStatusStore",
-          "declaration": {
-            "name": "internal_fullStatusStore",
-            "module": "storybook-static/sb-manager/manager-stores.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "internal_fullTestProviderStore",
-          "declaration": {
-            "name": "internal_fullTestProviderStore",
-            "module": "storybook-static/sb-manager/manager-stores.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "internal_universalChecklistStore",
-          "declaration": {
-            "name": "internal_universalChecklistStore",
-            "module": "storybook-static/sb-manager/manager-stores.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "storybook-static/sb-manager/runtime.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "index"
-        },
-        {
-          "kind": "variable",
-          "name": "width",
-          "default": "`${x2}${ux === \"pct\" ? \"%\" : ux || \"px\"}`"
-        },
-        {
-          "kind": "variable",
-          "name": "height",
-          "default": "`${y2}${uy === \"pct\" ? \"%\" : uy || \"px\"}`"
-        },
-        {
-          "kind": "variable",
-          "name": "step"
-        },
-        {
-          "kind": "variable",
-          "name": "tabId"
-        },
-        {
-          "kind": "variable",
-          "name": "size",
-          "default": "void 0"
-        },
-        {
-          "kind": "variable",
-          "name": "display"
-        },
-        {
-          "kind": "variable",
-          "name": "position"
-        }
-      ],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/tokens/generated/design-tokens.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "module": "src/tokens/generated/design-tokens.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "storybook-static/sb-addons/a11y-2/manager-bundle.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "storybook-static/sb-addons/chromatic-com-storybook-1/manager-bundle.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "storybook-static/sb-addons/docs-4/manager-bundle.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "storybook-static/sb-addons/vitest-3/manager-bundle.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "storybook-static/sb-addons/storybook-core-server-presets-0/common-manager-bundle.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "r"
-        },
-        {
-          "kind": "variable",
-          "name": "n",
-          "type": {
-            "text": "object"
-          },
-          "default": "{}"
-        },
-        {
-          "kind": "variable",
-          "name": "o",
-          "type": {
-            "text": "object"
-          },
-          "default": "{rgb:{channels:3,labels:\"rgb\"},hsl:{channels:3,labels:\"hsl\"},hsv:{channels:3,labels:\"hsv\"},hwb:{channels:3,labels:\"hwb\"},cmyk:{channels:4,labels:\"cmyk\"},xyz:{channels:3,labels:\"xyz\"},lab:{channels:3,labels:\"lab\"},lch:{channels:3,labels:\"lch\"},hex:{channels:1,labels:[\"hex\"]},keyword:{channels:1,labels:[\"keyword\"]},ansi16:{channels:1,labels:[\"ansi16\"]},ansi256:{channels:1,labels:[\"ansi256\"]},hcg:{channels:3,labels:[\"h\",\"c\",\"g\"]},apple:{channels:3,labels:[\"r16\",\"g16\",\"b16\"]},gray:{channels:1,labels:[\"gray\"]}}"
-        },
-        {
-          "kind": "function",
-          "name": "n"
-        },
-        {
-          "kind": "function",
-          "name": "o",
-          "parameters": [
-            {
-              "name": "l"
-            }
-          ]
-        },
-        {
-          "kind": "variable",
-          "name": "t"
-        },
-        {
-          "kind": "function",
-          "name": "n"
-        },
-        {
-          "kind": "function",
-          "name": "t",
-          "parameters": [
-            {
-              "name": "r"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "o",
-          "parameters": [
-            {
-              "name": "i"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "n",
-          "parameters": [
-            {
-              "name": "s"
-            },
-            {
-              "name": "d"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "o",
-          "parameters": [
-            {
-              "name": "s"
-            },
-            {
-              "name": "d"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "r",
-          "parameters": [
-            {
-              "name": "x"
-            },
-            {
-              "name": "R"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "n",
-          "parameters": [
-            {
-              "name": "x"
-            },
-            {
-              "name": "R"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "o",
-          "parameters": [
-            {
-              "name": "x"
-            },
-            {
-              "name": "R"
-            },
-            {
-              "name": "F"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "n",
-          "parameters": [
-            {
-              "name": "o"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "r",
-          "parameters": [
-            {
-              "name": "i"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "n",
-          "parameters": [
-            {
-              "name": "i"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "o",
-          "parameters": [
-            {
-              "name": "i"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "n",
-          "parameters": [
-            {
-              "name": "m"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "o",
-          "parameters": [
-            {
-              "name": "m"
-            },
-            {
-              "name": "h"
-            },
-            {
-              "name": "y"
-            },
-            {
-              "name": "E"
-            },
-            {
-              "name": "b"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "o",
-          "parameters": [
-            {
-              "name": "l"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "o",
-          "parameters": [
-            {
-              "name": "p"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "r",
-          "parameters": [
-            {
-              "name": "n"
-            },
-            {
-              "name": "o"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "n",
-          "parameters": [
-            {
-              "name": "c"
-            }
-          ]
-        },
-        {
-          "kind": "class",
-          "description": "",
-          "name": "o",
-          "members": [
-            {
-              "kind": "method",
-              "name": "getToken"
-            },
-            {
-              "kind": "field",
-              "name": "token",
-              "default": "0",
-              "type": {
-                "text": "number"
-              }
-            }
-          ],
-          "superclass": {
-            "name": "Error",
-            "module": "storybook-static/sb-addons/storybook-core-server-presets-0/common-manager-bundle.js"
-          }
-        },
-        {
-          "kind": "variable",
-          "name": "_"
-        },
-        {
-          "kind": "function",
-          "name": "r",
-          "parameters": [
-            {
-              "name": "a"
-            },
-            {
-              "name": "l"
-            },
-            {
-              "name": "s"
-            },
-            {
-              "name": "d"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "r",
-          "parameters": [
-            {
-              "name": "y"
-            },
-            {
-              "name": "E"
-            },
-            {
-              "name": "b"
-            },
-            {
-              "name": "S"
-            },
-            {
-              "name": "g"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "t"
-        },
-        {
-          "kind": "function",
-          "name": "n",
-          "parameters": [
-            {
-              "name": "o"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "n",
-          "parameters": [
-            {
-              "name": "o"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "n",
-          "parameters": [
-            {
-              "name": "i"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "o",
-          "parameters": [
-            {
-              "name": "i"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "r"
-        },
-        {
-          "kind": "function",
-          "name": "o",
-          "parameters": [
-            {
-              "name": "i"
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "n",
-          "parameters": [
-            {
-              "name": "o"
-            }
-          ]
-        }
-      ],
-      "exports": []
     }
   ]
 }

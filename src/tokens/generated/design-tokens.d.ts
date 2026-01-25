@@ -15,6 +15,61 @@ declare interface DesignToken {
 }
 
 declare const tokens: {
+  avatar: {
+    size: {
+      sm: DesignToken;
+      md: DesignToken;
+      lg: DesignToken;
+    };
+    shape: {
+      circular: DesignToken;
+      rounded: DesignToken;
+      square: DesignToken;
+    };
+    fontSize: {
+      sm: DesignToken;
+      md: DesignToken;
+      lg: DesignToken;
+    };
+    bg: {
+      default: DesignToken;
+    };
+    fg: {
+      default: DesignToken;
+    };
+  };
+  badge: {
+    appearance: {
+      padding: {
+        vertical: DesignToken;
+        horizontal: DesignToken;
+      };
+      radius: DesignToken;
+      fontSize: DesignToken;
+    };
+    variant: {
+      neutral: {
+        bg: DesignToken;
+        fg: DesignToken;
+      };
+      success: {
+        bg: DesignToken;
+        fg: DesignToken;
+      };
+      warning: {
+        bg: DesignToken;
+        fg: DesignToken;
+      };
+      error: {
+        bg: DesignToken;
+        fg: DesignToken;
+      };
+      info: {
+        bg: DesignToken;
+        fg: DesignToken;
+      };
+    };
+  };
   button: {
     size: {
       sm: {

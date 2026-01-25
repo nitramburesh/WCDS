@@ -1,0 +1,25 @@
+{
+  "avatar": {
+    "size": {
+      "sm": { "$value": "2.25rem", "$type": "dimension" },
+      "md": { "$value": "2.75rem", "$type": "dimension" },
+      "lg": { "$value": "3.25rem", "$type": "dimension" }
+    },
+    "shape": {
+      "circular": { "$value": "{radius.full}", "$type": "dimension" },
+      "rounded": { "$value": "{radius.lg}", "$type": "dimension" },
+      "square": { "$value": "{radius.md}", "$type": "dimension" }
+    },
+    "fontSize": {
+      "sm": { "$value": "0.875rem", "$type": "dimension" },
+      "md": { "$value": "1rem", "$type": "dimension" },
+      "lg": { "$value": "1.125rem", "$type": "dimension" }
+    },
+    "bg": {
+      "default": { "$value": "{color.neutral.200}", "$type": "color" }
+    },
+    "fg": {
+      "default": { "$value": "{color.neutral.800}", "$type": "color" }
+    }
+  }
+}

@@ -3,10 +3,65 @@
  */
 
 export default {
+  avatar: {
+    size: {
+      sm: "2.25rem",
+      md: "2.75rem",
+      lg: "3.25rem",
+    },
+    shape: {
+      circular: "9999px",
+      rounded: "0.5rem",
+      square: "0.25rem",
+    },
+    fontSize: {
+      sm: "0.875rem",
+      md: "1rem",
+      lg: "1.125rem",
+    },
+    bg: {
+      default: "oklch(87.663% 0.01869 258.36)",
+    },
+    fg: {
+      default: "oklch(35.4% 0.04064 259.83)",
+    },
+  },
+  badge: {
+    appearance: {
+      padding: {
+        vertical: "0.25rem",
+        horizontal: "0.75rem",
+      },
+      radius: "9999px",
+      fontSize: "0.75rem",
+    },
+    variant: {
+      neutral: {
+        bg: "oklch(87.663% 0.01869 258.36)",
+        fg: "oklch(35.4% 0.04064 259.83)",
+      },
+      success: {
+        bg: "oklch(85% 0.1 140)",
+        fg: "oklch(40% 0.2 140)",
+      },
+      warning: {
+        bg: "oklch(90% 0.15 90)",
+        fg: "oklch(45% 0.25 90)",
+      },
+      error: {
+        bg: "oklch(85% 0.15 25)",
+        fg: "oklch(40% 0.25 25)",
+      },
+      info: {
+        bg: "oklch(90% 0.1 250)",
+        fg: "oklch(40% 0.2 250)",
+      },
+    },
+  },
   button: {
     size: {
       sm: {
-        padding: "0.5rem",
+        padding: "0.25rem",
         radius: "9999px",
         fontSize: "0.75rem",
       },
@@ -98,7 +153,7 @@ export default {
   "input-text": {
     size: {
       sm: {
-        padding: "0.5rem",
+        padding: "0.25rem",
         fontSize: "0.75rem",
       },
       md: {
@@ -217,7 +272,7 @@ export default {
     },
   },
   spacing: {
-    xs: "0.5rem",
+    xs: "0.25rem",
     sm: "0.75rem",
     md: "1rem",
     lg: "1.5rem",
