@@ -1,7 +1,7 @@
 /** @format */
 
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
-import { getWcStorybookHelpers } from 'wc-storybook-helpers';
+import { getStorybookHelpers } from '@wc-toolkit/storybook-helpers';
 
 import type { WCDSCard } from '../components/card';
 import '../components/card';
@@ -10,7 +10,7 @@ import '../components/avatar';
 import { CARD_VARIANT, SIZE } from '../constants';
 import { html } from 'lit';
 
-const { events, args, argTypes, template } = getWcStorybookHelpers('wcds-card');
+const { events, args, argTypes, template } = getStorybookHelpers('wcds-card');
 
 type StoryArgs = WCDSCard & typeof args;
 

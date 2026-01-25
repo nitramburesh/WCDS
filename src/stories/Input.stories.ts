@@ -4,10 +4,10 @@ import type { Meta, StoryObj } from '@storybook/web-components-vite';
 
 import type { WCDSInput } from '../components/input';
 import '../components/input';
-import { getWcStorybookHelpers } from 'wc-storybook-helpers';
+import { getStorybookHelpers } from '@wc-toolkit/storybook-helpers';
 import { ICONS, SIZE } from '../constants';
 
-const { events, args, argTypes, template } = getWcStorybookHelpers('wcds-input');
+const { events, args, argTypes, template } = getStorybookHelpers('wcds-input');
 
 type StoryArgs = WCDSInput & typeof args;
 

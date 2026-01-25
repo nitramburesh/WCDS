@@ -1,13 +1,12 @@
 /** @format */
 
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
-import { getWcStorybookHelpers } from 'wc-storybook-helpers';
-
+import { getStorybookHelpers } from '@wc-toolkit/storybook-helpers';
 import type { WCDSAvatar } from '../components/avatar';
 import '../components/avatar';
 import { AVATAR_VARIANT, SIZE } from '../constants';
 
-const { events, args, argTypes, template } = getWcStorybookHelpers('wcds-avatar');
+const { events, args, argTypes, template } = getStorybookHelpers('wcds-avatar');
 
 type StoryArgs = WCDSAvatar & typeof args;
 

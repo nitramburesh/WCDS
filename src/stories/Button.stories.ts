@@ -1,14 +1,14 @@
 /** @format */
 
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
-import { getWcStorybookHelpers } from 'wc-storybook-helpers';
+import { getStorybookHelpers } from '@wc-toolkit/storybook-helpers';
 
 import type { WCDSButton } from '../components/button';
 import { SIZE, BUTTON_TYPE, BUTTON_VARIANT, ICONS } from '../constants';
 
 import '../components/button';
 
-const { events, args, argTypes, template } = getWcStorybookHelpers('wcds-button');
+const { events, args, argTypes, template } = getStorybookHelpers('wcds-button');
 
 type StoryArgs = WCDSButton & typeof args;
 

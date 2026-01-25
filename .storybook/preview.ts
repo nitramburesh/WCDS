@@ -2,9 +2,11 @@
 
 import type { Preview } from '@storybook/web-components-vite';
 import { setCustomElementsManifest } from '@storybook/web-components-vite';
+import { setStorybookHelpersConfig, type Options } from '@wc-toolkit/storybook-helpers';
 import customElements from '../custom-elements.json';
 
 setCustomElementsManifest(customElements);
+setStorybookHelpersConfig({ hideArgRef: true });
 
 const preview: Preview = {
   tags: ['autodocs'],

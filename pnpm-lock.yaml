@@ -7,13 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      storybook:
-        specifier: ^10.2.0
-        version: 10.2.0(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-      wc-storybook-helpers:
-        specifier: ^2.0.4
-        version: 2.0.4(lit@3.3.2)(storybook@10.2.0(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
     devDependencies:
       '@chromatic-com/storybook':
         specifier: ^4.0.1
@@ -42,6 +35,9 @@ importers:
       '@vitest/coverage-v8':
         specifier: ^3.2.4
         version: 3.2.4(@vitest/browser@3.2.4)(vitest@3.2.4)
+      '@wc-toolkit/storybook-helpers':
+        specifier: ^10.0.0
+        version: 10.0.0(lit@3.3.2)(storybook@10.2.0(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
       custom-element-vs-code-integration:
         specifier: ^1.5.0
         version: 1.5.0(prettier@3.8.1)
@@ -51,6 +47,9 @@ importers:
       playwright:
         specifier: ^1.53.2
         version: 1.58.0
+      storybook:
+        specifier: ^10.2.0
+        version: 10.2.0(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       style-dictionary:
         specifier: ^5.1.1
         version: 5.2.0(tslib@2.8.1)
@@ -821,11 +820,6 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@storybook/preview-api@8.6.14':
-    resolution: {integrity: sha512-2GhcCd4dNMrnD7eooEfvbfL4I83qAqEyO0CO7JQAmIO6Rxb9BsOLLI/GD5HkvQB73ArTJ+PT50rfaO820IExOQ==}
-    peerDependencies:
-      storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
-
   '@storybook/react-dom-shim@9.1.17':
     resolution: {integrity: sha512-Ss/lNvAy0Ziynu+KniQIByiNuyPz3dq7tD62hqSC/pHw190X+M7TKU3zcZvXhx2AQx1BYyxtdSHIZapb+P5mxQ==}
     peerDependencies:
@@ -974,6 +968,12 @@ packages:
 
   '@vue/shared@3.5.27':
     resolution: {integrity: sha512-dXr/3CgqXsJkZ0n9F3I4elY8wM9jMJpP3pvRG52r6m0tu/MsAFIe6JpXVGeNMd/D9F4hQynWT8Rfuj0bdm9kFQ==}
+
+  '@wc-toolkit/storybook-helpers@10.0.0':
+    resolution: {integrity: sha512-7S7JMPfXgsSJB/Fnat7FfNM7h3mkth41cvOm45eu6y1tu/P2RyNSJGbgXWEuLiYaTgFqnhFGpWP/bdW1Ibb1FA==}
+    peerDependencies:
+      lit: ^2.0.0 || ^3.0.0
+      storybook: '>=10.0.0-0 <11.0.0-0'
 
   '@web/config-loader@0.1.3':
     resolution: {integrity: sha512-XVKH79pk4d3EHRhofete8eAnqto1e8mCRAqPV00KLNFzCWSe8sWmLnqKCqkPNARC6nksMaGrATnA5sPDRllMpQ==}
@@ -2364,11 +2364,6 @@ packages:
   vscode-uri@3.1.0:
     resolution: {integrity: sha512-/BpdSx+yCQGnCvecbyXdxHDkuk55/G3xwnC0GqY4gmQ3j+A+g8kzzgB4Nk/SINjqn6+waqw3EgbVF2QKExkRxQ==}
 
-  wc-storybook-helpers@2.0.4:
-    resolution: {integrity: sha512-nkW2l8p7NnvC3aum2l44MKWebwBINQLdstlQmEffZ7oof1bdEl7P5PT6O3cqCrUqNvS7J+S8O3m31az4Eom0aA==}
-    peerDependencies:
-      lit: ^2.0.0 || ^3.0.0
-
   web-component-analyzer@2.0.0:
     resolution: {integrity: sha512-UEvwfpD+XQw99sLKiH5B1T4QwpwNyWJxp59cnlRwFfhUW6JsQpw5jMeMwi7580sNou8YL3kYoS7BWLm+yJ/jVQ==}
     hasBin: true
@@ -3092,10 +3087,6 @@ snapshots:
       react: 19.2.3
       react-dom: 19.2.3(react@19.2.3)
 
-  '@storybook/preview-api@8.6.14(storybook@10.2.0(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))':
-    dependencies:
-      storybook: 10.2.0(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
-
   '@storybook/react-dom-shim@9.1.17(react-dom@19.2.3(react@19.2.3))(react@19.2.3)(storybook@10.2.0(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))':
     dependencies:
       react: 19.2.3
@@ -3301,6 +3292,11 @@ snapshots:
       typescript: 5.8.3
 
   '@vue/shared@3.5.27': {}
+
+  '@wc-toolkit/storybook-helpers@10.0.0(lit@3.3.2)(storybook@10.2.0(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))':
+    dependencies:
+      lit: 3.3.2
+      storybook: 10.2.0(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
 
   '@web/config-loader@0.1.3':
     dependencies:
@@ -4687,13 +4683,6 @@ snapshots:
   vscode-uri@2.1.2: {}
 
   vscode-uri@3.1.0: {}
-
-  wc-storybook-helpers@2.0.4(lit@3.3.2)(storybook@10.2.0(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)):
-    dependencies:
-      '@storybook/preview-api': 8.6.14(storybook@10.2.0(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
-      lit: 3.3.2
-    transitivePeerDependencies:
-      - storybook
 
   web-component-analyzer@2.0.0:
     dependencies:
