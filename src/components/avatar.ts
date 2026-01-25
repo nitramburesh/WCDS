@@ -8,6 +8,7 @@ import '../../src/tokens/generated/design-tokens.css';
 /**
  * @tagname wcds-avatar
  * @summary User avatar with image or initials and Material-like shapes.
+ * @slot - Avatar content (overrides initials fallback when provided).
  * @cssproperty --wcds-avatar-size - Overall size of the avatar.
  * @cssproperty --wcds-avatar-radius - Border radius for the avatar shape.
  * @cssproperty --wcds-avatar-bg - Background color for fallback initials.
