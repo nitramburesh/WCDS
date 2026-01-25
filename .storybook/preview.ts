@@ -1,5 +1,6 @@
 /** @format */
 
+import '../src/tokens/generated/design-tokens.css';
 import type { Preview } from '@storybook/web-components-vite';
 import { setCustomElementsManifest } from '@storybook/web-components-vite';
 import { setStorybookHelpersConfig, type Options } from '@wc-toolkit/storybook-helpers';

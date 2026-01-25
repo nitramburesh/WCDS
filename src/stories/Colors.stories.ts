@@ -23,7 +23,7 @@ export const Palette = () => {
           valuesArray,
           ([token, value]) =>
             html` <li style="list-style: none;">
-              <wcds-color color=${value.$value} name=${token}></wcds-color>
+              <wcds-color color=${value} name=${token}></wcds-color>
             </li>`
         )}
       </ul>

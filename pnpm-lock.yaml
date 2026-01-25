@@ -38,6 +38,9 @@ importers:
       '@wc-toolkit/storybook-helpers':
         specifier: ^10.0.0
         version: 10.0.0(lit@3.3.2)(storybook@10.2.0(@testing-library/dom@10.4.1)(prettier@3.8.1)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+      chromatic:
+        specifier: ^13.3.5
+        version: 13.3.5
       custom-element-vs-code-integration:
         specifier: ^1.5.0
         version: 1.5.0(prettier@3.8.1)
