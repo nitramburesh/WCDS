@@ -18,7 +18,7 @@ export const Palette = () => {
     const valuesArray = Object.entries(values);
     return html` <div>
       <h2>${tokenGroup.toUpperCase()}</h2>
-      <ul style="display: flex; gap: 12px;">
+      <ul style="display: flex; gap: 16px;">
         ${repeat(
           valuesArray,
           ([token, value]) =>
