@@ -1,17 +1,163 @@
 # WCDS
 
-## aka Web Component Design System
+## Web Component Design System
 
-This is a design system built with web components, built with the goal of
-providing a consistent and reusable set of components that can be used across
-different projects using different frameworks or languages.
+A framework-agnostic design system built with Web Components. Use it with React, Vue, Svelte, Angular, Elm — or plain HTML.
 
-## Tokens
+---
 
-Tokens exist in `/src/tokens/design.tokens.json` file. These are then processed by `/src/tokens/prepare-tokens.js` script. Prepare tokens then generates content into `/src/tokens/generated/` folder. These files include 1) types in `d.ts.` file, 2) CSS variables in `tokens.css` file and 3) typed TS object in `tokens.ts` file.
+## Philosophy
 
-To prepare (generate) tokens, run:
+**One library, every framework.** Traditional component libraries lock you into a specific framework. WCDS uses native Web Components, which work everywhere — no adapters, no wrappers, no compromises.
+
+**Design tokens as the source of truth.** Every color, spacing value, and radius is defined as a token. Change once, update everywhere.
+
+**Modern by default.** OKLCH colors for perceptually uniform palettes. CSS custom properties for runtime theming. ES modules for tree-shaking.
+
+---
+
+## Tech Stack
+
+<table>
+  <thead>
+    <tr>
+      <th>Layer</th>
+      <th>Technology</th>
+      <th>Why</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Components</strong></td>
+      <td><a href="https://lit.dev">Lit</a></td>
+      <td>Lightweight, fast, standards-based Web Components</td>
+    </tr>
+    <tr>
+      <td><strong>Styling</strong></td>
+      <td>CSS-in-JS via Lit</td>
+      <td>Scoped styles with Shadow DOM, no leaking</td>
+    </tr>
+    <tr>
+      <td><strong>Design Tokens</strong></td>
+      <td><a href="https://amzn.github.io/style-dictionary">Style Dictionary</a></td>
+      <td>Transforms tokens → CSS, JS, TypeScript</td>
+    </tr>
+    <tr>
+      <td><strong>Colors</strong></td>
+      <td>OKLCH color space</td>
+      <td>Perceptually uniform, vibrant, modern</td>
+    </tr>
+    <tr>
+      <td><strong>Typography</strong></td>
+      <td><a href="https://fonts.google.com/specimen/Plus+Jakarta+Sans">Plus Jakarta Sans</a></td>
+      <td>Modern geometric sans-serif</td>
+    </tr>
+    <tr>
+      <td><strong>Documentation</strong></td>
+      <td><a href="https://storybook.js.org">Storybook</a></td>
+      <td>Interactive component playground</td>
+    </tr>
+    <tr>
+      <td><strong>Build</strong></td>
+      <td><a href="https://vite.dev">Vite</a></td>
+      <td>Fast builds, native ES modules</td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## Design Tokens
+
+Tokens are the foundation of WCDS. They live in `src/tokens/` and are organized by purpose:
+
+```
+src/tokens/
+├── core/           # Primitives
+│   ├── color.tokens.json      # Color palettes (primary, secondary, neutral)
+│   ├── size.tokens.json       # Spacing scale (0-10)
+│   ├── radius.tokens.json     # Border radii
+│   └── typography.tokens.json # Font families, weights, sizes
+├── semantic/       # Purpose-driven aliases
+│   ├── background.tokens.json
+│   ├── border.tokens.json
+│   ├── spacing.tokens.json
+│   └── text.tokens.json
+├── component/      # Component-specific tokens
+│   ├── button.tokens.json
+│   ├── input.tokens.json
+│   └── ...
+└── generated/      # Auto-generated (don't edit)
+    ├── design-tokens.css
+    ├── design-tokens.js
+    └── design-tokens.d.ts
+```
+
+### Regenerating Tokens
+
+After editing any `.tokens.json` file:
 
 ```bash
-pnpm run prepare
+pnpm prepare
 ```
+
+This runs Style Dictionary to generate CSS variables, JavaScript exports, and TypeScript types.
+
+---
+
+## Usage
+
+### Installation
+
+```bash
+npm install wcds
+```
+
+### Setup
+
+```js
+// Import components and styles
+import 'wcds'
+import 'wcds/style'
+```
+
+Add the font to your HTML:
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+```
+
+### Using Components
+
+```html
+<wcds-button variant="primary">Click me</wcds-button>
+<wcds-input placeholder="Enter text..." />
+<wcds-badge variant="success">Active</wcds-badge>
+<wcds-card>Card content</wcds-card>
+<wcds-avatar name="John Doe" />
+```
+
+---
+
+## Theming
+
+All design tokens are exposed as CSS custom properties. Override them to theme your app:
+
+```css
+:root {
+  --wcds-color-primary-500: oklch(65% 0.28 200); /* Change primary to teal */
+  --wcds-font-family-sans: 'Your Font', sans-serif;
+}
+```
+
+---
+
+## Browser Support
+
+WCDS targets modern browsers with native Web Component support:
+
+- Chrome/Edge 88+
+- Firefox 78+
+- Safari 14+
+
+No polyfills required.
