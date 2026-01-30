@@ -4,6 +4,7 @@ import { LitElement, html, css } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import type { AvatarVariant, Size } from '../types';
 import '../../src/tokens/generated/design-tokens.css';
+import { baseStyles } from '../styles/base';
 
 /**
  * @tagname wcds-avatar
@@ -44,8 +45,10 @@ export class WCDSAvatar extends LitElement {
     return initials || '?';
   }
 
-  static styles = css`
-    :host {
+  static styles = [
+    baseStyles,
+    css`
+      :host {
       --wcds-avatar-size: var(--wcds-avatar-size-md);
       --wcds-avatar-radius: var(--wcds-avatar-shape-circular);
       --wcds-avatar-bg: var(--wcds-avatar-bg-default);
@@ -113,7 +116,8 @@ export class WCDSAvatar extends LitElement {
       align-items: center;
       justify-content: center;
     }
-  `;
+  `,
+  ];
 
   render() {
     const showImage = Boolean(this.src) && !this.imageError;

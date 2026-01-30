@@ -79,14 +79,14 @@ export default {
     variant: {
       primary: {
         default: {
-          bg: "oklch(38.502% 0.07804 69.529)",
+          bg: "oklch(32% 0.12 350)",
           fg: "oklch(96.001% 0.00625 255.48)",
         },
         hover: {
-          bg: "oklch(48.306% 0.10085 68.391)",
+          bg: "oklch(42% 0.18 350)",
           fg: "oklch(96.001% 0.00625 255.48)",
         },
-        borderColor: "oklch(38.502% 0.07804 69.529)",
+        borderColor: "oklch(32% 0.12 350)",
       },
       secondary: {
         default: {
@@ -102,11 +102,11 @@ export default {
       ghost: {
         default: {
           bg: "#00000000",
-          fg: "oklch(38.502% 0.07804 69.529)",
+          fg: "oklch(32% 0.12 350)",
         },
         hover: {
           bg: "oklch(96.001% 0.00625 255.48)",
-          fg: "oklch(48.306% 0.10085 68.391)",
+          fg: "oklch(42% 0.18 350)",
         },
         borderColor: "#00000000",
       },
@@ -137,7 +137,7 @@ export default {
   },
   icon: {
     color: {
-      primary: "oklch(38.502% 0.07804 69.529)",
+      primary: "oklch(32% 0.12 350)",
       neutral: "oklch(44.298% 0.05509 259.35)",
       subtle: "oklch(78.907% 0.03445 261.01)",
       error: "oklch(40% 0.25 25)",
@@ -168,7 +168,7 @@ export default {
     border: {
       color: {
         default: "oklch(78.907% 0.03445 261.01)",
-        focus: "oklch(38.502% 0.07804 69.529)",
+        focus: "oklch(32% 0.12 350)",
       },
       radius: "9999px",
       width: {
@@ -178,15 +178,15 @@ export default {
   },
   color: {
     primary: {
-      100: "oklch(90.798% 0.05972 75.995)",
-      200: "oklch(86.493% 0.09014 75.975)",
-      300: "oklch(82.27% 0.11657 75.252)",
-      400: "oklch(78.157% 0.13909 72.258)",
-      500: "oklch(74.352% 0.15464 68.811)",
-      600: "oklch(66.918% 0.143 67.302)",
-      700: "oklch(57.642% 0.12203 67.54)",
-      800: "oklch(48.306% 0.10085 68.391)",
-      900: "oklch(38.502% 0.07804 69.529)",
+      100: "oklch(95% 0.04 350)",
+      200: "oklch(90% 0.10 350)",
+      300: "oklch(82% 0.18 350)",
+      400: "oklch(72% 0.24 350)",
+      500: "oklch(65% 0.28 350)",
+      600: "oklch(58% 0.26 350)",
+      700: "oklch(50% 0.22 350)",
+      800: "oklch(42% 0.18 350)",
+      900: "oklch(32% 0.12 350)",
     },
     secondary: {
       100: "oklch(92.667% 0.05011 193.23)",
@@ -247,6 +247,38 @@ export default {
     8: "2rem",
     9: "2.25rem",
     10: "2.5rem",
+  },
+  font: {
+    family: {
+      sans: "'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      mono: "'Geist Mono', 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace",
+    },
+    weight: {
+      regular: "400",
+      medium: "500",
+      semibold: "600",
+      bold: "700",
+    },
+    size: {
+      xs: "0.75rem",
+      sm: "0.875rem",
+      md: "1rem",
+      lg: "1.125rem",
+      xl: "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+    },
+    lineHeight: {
+      tight: "1.25",
+      normal: "1.5",
+      relaxed: "1.75",
+    },
+    letterSpacing: {
+      tight: "-0.025em",
+      normal: "0em",
+      wide: "0.025em",
+    },
   },
   background: {
     color: {

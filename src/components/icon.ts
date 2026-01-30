@@ -3,6 +3,7 @@
 import { LitElement, css, html, type TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { Size, type Icon } from '../types';
+import { baseStyles } from '../styles/base';
 
 const ICONS: Record<Icon, TemplateResult> = {
   'arrow-left': html` <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -86,8 +87,10 @@ export class WCDSIcon extends LitElement {
   @property({ type: String, reflect: true }) icon!: Icon;
   @property({ type: String }) size: Size = 'md';
 
-  static styles = css`
-    :host {
+  static styles = [
+    baseStyles,
+    css`
+      :host {
       --wcds-icon-size: var(--wcds-icon-size-md);
       --wcds-icon-color: var(--wcds-icon-color-neutral);
 
@@ -109,7 +112,8 @@ export class WCDSIcon extends LitElement {
       width: 100%;
       height: 100%;
     }
-  `;
+  `,
+  ];
 
   render() {
     const svg: TemplateResult | undefined = ICONS[this.icon];

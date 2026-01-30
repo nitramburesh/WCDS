@@ -259,6 +259,38 @@ declare const tokens: {
     "9": DesignToken;
     "10": DesignToken;
   };
+  font: {
+    family: {
+      sans: DesignToken;
+      mono: DesignToken;
+    };
+    weight: {
+      regular: DesignToken;
+      medium: DesignToken;
+      semibold: DesignToken;
+      bold: DesignToken;
+    };
+    size: {
+      xs: DesignToken;
+      sm: DesignToken;
+      md: DesignToken;
+      lg: DesignToken;
+      xl: DesignToken;
+      "2xl": DesignToken;
+      "3xl": DesignToken;
+      "4xl": DesignToken;
+    };
+    lineHeight: {
+      tight: DesignToken;
+      normal: DesignToken;
+      relaxed: DesignToken;
+    };
+    letterSpacing: {
+      tight: DesignToken;
+      normal: DesignToken;
+      wide: DesignToken;
+    };
+  };
   background: {
     color: {
       default: DesignToken;

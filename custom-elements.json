@@ -118,6 +118,14 @@
             "name": "*",
             "module": "src/components"
           }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/styles"
+          }
         }
       ]
     },
@@ -1089,6 +1097,43 @@
           "declaration": {
             "name": "WCDSInput",
             "module": "src/components/input.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/styles/base.ts",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "baseStyles",
+          "default": "css` :host { font-family: var( --wcds-font-family-sans, 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif ); font-weight: var(--wcds-font-weight-regular, 400); line-height: var(--wcds-font-line-height-normal, 1.5); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; } *, *::before, *::after { box-sizing: border-box; } `",
+          "description": "Base styles applied to all WCDS components.\nImport and spread into your component's `static styles` array."
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "baseStyles",
+          "declaration": {
+            "name": "baseStyles",
+            "module": "src/styles/base.ts"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/styles/index.ts",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "baseStyles",
+          "declaration": {
+            "name": "baseStyles",
+            "module": "./base"
           }
         }
       ]

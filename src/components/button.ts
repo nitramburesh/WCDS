@@ -6,6 +6,7 @@ import type { Icon, ButtonType, ButtonVariant, Size } from '../types';
 import './icon';
 import '../../src/tokens/generated/design-tokens.css';
 import { getRandomComponentId } from '../utils';
+import { baseStyles } from '../styles/base';
 
 /**
  * @tagname wcds-button
@@ -39,8 +40,10 @@ export class WCDSButton extends LitElement {
     );
   }
 
-  static styles = css`
-    button {
+  static styles = [
+    baseStyles,
+    css`
+      button {
       display: inline-block;
       padding: var(--wcds-button-padding);
       border-radius: var(--wcds-button-radius);
@@ -111,7 +114,8 @@ export class WCDSButton extends LitElement {
       --wcds-button-radius: var(--wcds-button-size-lg-radius);
       --wcds-button-font-size: var(--wcds-button-size-lg-font-size);
     }
-  `;
+  `,
+  ];
 
   render() {
     return html`

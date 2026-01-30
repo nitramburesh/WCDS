@@ -1,14 +1,13 @@
-import { html, LitElement } from "lit";
+import { html, LitElement, css } from "lit";
 import { customElement, property } from "lit/decorators.js";
+import { baseStyles } from '../styles/base';
 
 @customElement("wcds-color")
 export class WCDSColor extends LitElement {
   @property({ type: String }) color!: string;
   @property({ type: String }) name!: string;
 
-  constructor() {
-    super();
-  }
+  static styles = [baseStyles];
 
   render() {
     return html`<div

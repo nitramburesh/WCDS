@@ -3,6 +3,7 @@
 import { LitElement, html, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import '../../src/tokens/generated/design-tokens.css';
+import { baseStyles } from '../styles/base';
 
 /**
  * @tagname wcds-card
@@ -18,8 +19,10 @@ import '../../src/tokens/generated/design-tokens.css';
  */
 @customElement('wcds-card')
 export class WCDSCard extends LitElement {
-  static styles = css`
-    :host {
+  static styles = [
+    baseStyles,
+    css`
+      :host {
       display: block;
       box-sizing: border-box;
       transition: box-shadow 0.3s ease-in-out;
@@ -52,7 +55,8 @@ export class WCDSCard extends LitElement {
       display: flex;
       flex: 1;
     }
-  `;
+  `,
+  ];
 
   render() {
     return html`

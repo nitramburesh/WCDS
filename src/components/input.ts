@@ -3,10 +3,11 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import type { Size, Icon } from '../types';
-import { getRandomComponentId, isInvalidString, throwInvalidAttributeError } from '../utils/';
+import { getRandomComponentId, isInvalidString } from '../utils/';
 import './icon';
 import '../../src/tokens/generated/design-tokens.css';
 import { ICONS } from '../constants';
+import { baseStyles } from '../styles/base';
 
 /**
  * @tagname wcds-input
@@ -84,8 +85,10 @@ export class WCDSInput extends LitElement {
     }
   }
 
-  static styles = css`
-    :host {
+  static styles = [
+    baseStyles,
+    css`
+      :host {
       --wcds-input-padding: var(--wcds-input-text-size-md-padding);
       --wcds-input-border-radius: var(--wcds-input-text-border-radius);
       --wcds-input-border-color-default: var(--wcds-input-text-border-color-default);
@@ -168,7 +171,8 @@ export class WCDSInput extends LitElement {
       left: var(--wcds-input-padding);
       transform: translateY(-50%);
     }
-  `;
+  `,
+  ];
 
   render() {
     console.log(this.hasIcon());

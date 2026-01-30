@@ -3,6 +3,7 @@
 import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import '../../src/tokens/generated/design-tokens.css';
+import { baseStyles } from '../styles/base';
 
 /**
  * @tagname wcds-badge
@@ -19,8 +20,10 @@ export class WCDSBadge extends LitElement {
   @property({ type: String, reflect: true }) variant: 'info' | 'success' | 'warning' | 'error' =
     'info';
 
-  static styles = css`
-    :host {
+  static styles = [
+    baseStyles,
+    css`
+      :host {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -61,7 +64,8 @@ export class WCDSBadge extends LitElement {
       letter-spacing: 0.01em;
       white-space: nowrap;
     }
-  `;
+  `,
+  ];
 
   render() {
     return html` <span class="badge">
