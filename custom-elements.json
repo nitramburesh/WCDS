@@ -26,9 +26,17 @@
           "kind": "variable",
           "name": "BUTTON_VARIANT",
           "type": {
-            "text": "['primary', 'secondary', 'ghost']"
+            "text": "['solid', 'outlined', 'ghost']"
           },
-          "default": "['primary', 'secondary', 'ghost']"
+          "default": "['solid', 'outlined', 'ghost']"
+        },
+        {
+          "kind": "variable",
+          "name": "COLOR_SCHEME",
+          "type": {
+            "text": "['primary', 'secondary', 'neutral']"
+          },
+          "default": "['primary', 'secondary', 'neutral']"
         },
         {
           "kind": "variable",
@@ -77,6 +85,14 @@
           "name": "BUTTON_VARIANT",
           "declaration": {
             "name": "BUTTON_VARIANT",
+            "module": "src/constants.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "COLOR_SCHEME",
+          "declaration": {
+            "name": "COLOR_SCHEME",
             "module": "src/constants.ts"
           }
         },
@@ -425,6 +441,10 @@
             {
               "description": "Border color of the button.",
               "name": "--wcds-button-border-color"
+            },
+            {
+              "description": "Size of icons inside the button.",
+              "name": "--wcds-button-icon-size"
             }
           ],
           "slots": [
@@ -449,7 +469,7 @@
               "type": {
                 "text": "Size"
               },
-              "default": "'md'",
+              "default": "'sm'",
               "attribute": "size",
               "reflects": true
             },
@@ -459,8 +479,18 @@
               "type": {
                 "text": "ButtonVariant"
               },
-              "default": "'primary'",
+              "default": "'solid'",
               "attribute": "variant",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "colorScheme",
+              "type": {
+                "text": "ColorScheme"
+              },
+              "default": "'primary'",
+              "attribute": "color-scheme",
               "reflects": true
             },
             {
@@ -535,7 +565,7 @@
               "type": {
                 "text": "Size"
               },
-              "default": "'md'",
+              "default": "'sm'",
               "fieldName": "size"
             },
             {
@@ -543,8 +573,16 @@
               "type": {
                 "text": "ButtonVariant"
               },
-              "default": "'primary'",
+              "default": "'solid'",
               "fieldName": "variant"
+            },
+            {
+              "name": "color-scheme",
+              "type": {
+                "text": "ColorScheme"
+              },
+              "default": "'primary'",
+              "fieldName": "colorScheme"
             },
             {
               "name": "type",
@@ -902,6 +940,10 @@
             {
               "description": "Box shadow of the input field on focus.",
               "name": "--wcds-input-box-shadow"
+            },
+            {
+              "description": "Color of the input icon (defaults to neutral).",
+              "name": "--wcds-input-icon-color"
             }
           ],
           "members": [

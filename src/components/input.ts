@@ -19,6 +19,7 @@ import { baseStyles } from '../styles/base';
  * @cssproperty --wcds-input-border-color-default - Border color of the input field.
  * @cssproperty --wcds-input-border-color-focus - Outline color of the input field on focus.
  * @cssproperty --wcds-input-box-shadow - Box shadow of the input field on focus.
+ * @cssproperty --wcds-input-icon-color - Color of the input icon (defaults to neutral).
  */
 
 @customElement('wcds-input')
@@ -66,12 +67,8 @@ export class WCDSInput extends LitElement {
     if (this.error) this.dispatchEvent(new CustomEvent('clear-error'));
   }
 
-  protected updated(changedProperties: Map<string, any>) {
+  protected updated(changedProperties: Map<string, unknown>) {
     super.updated(changedProperties);
-
-    if (changedProperties.has('icon')) {
-      this.toggleAttribute('has-valid-icon', this.hasIcon());
-    }
 
     if (changedProperties.has('error')) {
       const input = this.shadowRoot?.querySelector('input');
@@ -89,93 +86,94 @@ export class WCDSInput extends LitElement {
     baseStyles,
     css`
       :host {
-      --wcds-input-padding: var(--wcds-input-text-size-md-padding);
-      --wcds-input-border-radius: var(--wcds-input-text-border-radius);
-      --wcds-input-border-color-default: var(--wcds-input-text-border-color-default);
-      --wcds-input-border-color-focus: var(--wcds-input-text-border-color-focus);
-      --wcds-input-box-shadow: 5px 5px 14px #ced8d7, -2px -2px 14px #ffffff;
-      --wcds-icon-size: var(--wcds-icon-size-md);
-    }
+        --wcds-input-padding: var(--wcds-input-text-size-md-padding);
+        --wcds-input-border-radius: var(--wcds-input-text-border-radius);
+        --wcds-input-border-color-default: var(--wcds-input-text-border-color-default);
+        --wcds-input-border-color-focus: var(--wcds-input-text-border-color-focus);
+        --wcds-input-box-shadow: 5px 5px 14px #ced8d7, -2px -2px 14px #ffffff;
+        --wcds-icon-size: var(--wcds-icon-size-md);
+        --wcds-icon-color: var(--wcds-icon-color-neutral);
+      }
 
-    input {
-      padding: calc(1.2 * var(--wcds-input-padding));
-      border-radius: var(--wcds-input-border-radius);
-      border: var(--wcds-input-text-border-width-default) solid
-        var(--wcds-input-border-color-default);
-      box-shadow: none;
-      transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out;
-      width: 100%;
-    }
+      input {
+        padding: calc(1.2 * var(--wcds-input-padding));
+        border-radius: var(--wcds-input-border-radius);
+        border: var(--wcds-input-text-border-width-default) solid
+          var(--wcds-input-border-color-default);
+        box-shadow: none;
+        transition: box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+        width: 100%;
+      }
 
-    input:focus {
-      outline: none;
-      border-color: var(--wcds-input-border-color-focus);
-      box-shadow: var(--wcds-input-box-shadow);
-      transition: box-shadow 0.3s ease-out, border-color 0.3s ease-in-out;
-    }
+      input:focus {
+        outline: none;
+        border-color: var(--wcds-input-border-color-focus);
+        box-shadow: var(--wcds-input-box-shadow);
+        transition: box-shadow 0.3s ease-out, border-color 0.3s ease-in-out;
+      }
 
-    input:invalid {
-      border-color: var(--wcds-color-error-content);
-    }
+      input:invalid {
+        border-color: var(--wcds-color-error-content);
+      }
 
-    :host([size='sm']) {
-      --wcds-input-padding: var(--wcds-input-text-size-sm-padding);
-      --wcds-icon-size: var(--wcds-icon-size-sm);
-    }
+      :host([size='sm']) {
+        --wcds-input-padding: var(--wcds-input-text-size-sm-padding);
+        --wcds-icon-size: var(--wcds-icon-size-sm);
+      }
 
-    :host([size='lg']) {
-      --wcds-input-padding: var(--wcds-input-text-size-lg-padding);
-      --wcds-icon-size: var(--wcds-icon-size-lg);
-    }
+      :host([size='lg']) {
+        --wcds-input-padding: var(--wcds-input-text-size-lg-padding);
+        --wcds-icon-size: var(--wcds-icon-size-lg);
+      }
 
-    :host([size='sm']) wcds-icon {
-      --wcds-icon-size: var(--wcds-icon-size-sm);
-    }
+      :host([size='sm']) wcds-icon {
+        --wcds-icon-size: var(--wcds-icon-size-sm);
+      }
 
-    :host([size='lg']) wcds-icon {
-      --wcds-icon-size: var(--wcds-icon-size-lg);
-    }
+      :host([size='lg']) wcds-icon {
+        --wcds-icon-size: var(--wcds-icon-size-lg);
+      }
 
-    :host([icon][has-valid-icon]) input {
-      padding-left: calc(2 * var(--wcds-input-padding) + var(--wcds-icon-size));
-    }
+      :host([icon]) input {
+        padding-left: calc(2 * var(--wcds-input-padding) + var(--wcds-icon-size));
+      }
 
-    label {
-      display: none;
-    }
+      label {
+        display: none;
+      }
 
-    .field {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: var(--wcds-spacing-xs);
-      width: 100%;
-    }
+      .field {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: var(--wcds-spacing-xs);
+        width: 100%;
+      }
 
-    .input-wrapper {
-      position: relative;
-      display: flex;
-      align-items: center;
-      width: 100%;
-    }
+      .input-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
 
-    .error-text {
-      color: var(--wcds-color-error-content);
-      font-size: var(--wcds-text-size-sm);
-      margin-left: var(--wcds-spacing-md);
-    }
+      .error-text {
+        color: var(--wcds-color-error-content);
+        font-size: var(--wcds-text-size-sm);
+        margin-left: var(--wcds-spacing-md);
+      }
 
-    wcds-icon {
-      position: absolute;
-      top: 50%;
-      left: var(--wcds-input-padding);
-      transform: translateY(-50%);
-    }
-  `,
+      wcds-icon {
+        position: absolute;
+        top: 50%;
+        left: var(--wcds-input-padding);
+        transform: translateY(-50%);
+        color: var(--wcds-input-icon-color, var(--wcds-icon-color-neutral));
+      }
+    `,
   ];
 
   render() {
-    console.log(this.hasIcon());
     try {
       return html`
         <div class="field">

@@ -76,51 +76,76 @@ declare const tokens: {
         padding: DesignToken;
         radius: DesignToken;
         fontSize: DesignToken;
+        iconSize: DesignToken;
       };
       md: {
         padding: DesignToken;
         radius: DesignToken;
         fontSize: DesignToken;
+        iconSize: DesignToken;
       };
       lg: {
         padding: DesignToken;
         radius: DesignToken;
         fontSize: DesignToken;
+        iconSize: DesignToken;
       };
     };
-    variant: {
+    solid: {
       primary: {
-        default: {
-          bg: DesignToken;
-          fg: DesignToken;
-        };
-        hover: {
-          bg: DesignToken;
-          fg: DesignToken;
-        };
-        borderColor: DesignToken;
+        bg: DesignToken;
+        fg: DesignToken;
+        border: DesignToken;
       };
       secondary: {
-        default: {
-          bg: DesignToken;
-          fg: DesignToken;
-        };
-        hover: {
-          bg: DesignToken;
-          fg: DesignToken;
-        };
-        borderColor: DesignToken;
+        bg: DesignToken;
+        fg: DesignToken;
+        border: DesignToken;
       };
-      ghost: {
-        default: {
-          bg: DesignToken;
-          fg: DesignToken;
-        };
-        hover: {
-          bg: DesignToken;
-          fg: DesignToken;
-        };
-        borderColor: DesignToken;
+      neutral: {
+        bg: DesignToken;
+        fg: DesignToken;
+        border: DesignToken;
+      };
+    };
+    outlined: {
+      primary: {
+        bg: DesignToken;
+        fg: DesignToken;
+        border: DesignToken;
+        bgHover: DesignToken;
+      };
+      secondary: {
+        bg: DesignToken;
+        fg: DesignToken;
+        border: DesignToken;
+        bgHover: DesignToken;
+      };
+      neutral: {
+        bg: DesignToken;
+        fg: DesignToken;
+        border: DesignToken;
+        bgHover: DesignToken;
+      };
+    };
+    ghost: {
+      primary: {
+        bg: DesignToken;
+        fg: DesignToken;
+        border: DesignToken;
+        bgHover: DesignToken;
+      };
+      secondary: {
+        bg: DesignToken;
+        fg: DesignToken;
+        border: DesignToken;
+        bgHover: DesignToken;
+      };
+      neutral: {
+        bg: DesignToken;
+        fg: DesignToken;
+        border: DesignToken;
+        bgHover: DesignToken;
       };
     };
   };

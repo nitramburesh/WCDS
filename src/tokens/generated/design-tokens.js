@@ -63,52 +63,77 @@ export default {
       sm: {
         padding: "0.25rem",
         radius: "9999px",
-        fontSize: "0.75rem",
+        fontSize: "0.625rem",
+        iconSize: "0.875rem",
       },
       md: {
         padding: "0.75rem",
         radius: "9999px",
-        fontSize: "1rem",
+        fontSize: "0.875rem",
+        iconSize: "1rem",
       },
       lg: {
         padding: "1rem",
         radius: "1rem",
-        fontSize: "1.25rem",
+        fontSize: "1rem",
+        iconSize: "1.25rem",
       },
     },
-    variant: {
+    solid: {
       primary: {
-        default: {
-          bg: "oklch(32% 0.12 350)",
-          fg: "oklch(96.001% 0.00625 255.48)",
-        },
-        hover: {
-          bg: "oklch(42% 0.18 350)",
-          fg: "oklch(96.001% 0.00625 255.48)",
-        },
-        borderColor: "oklch(32% 0.12 350)",
+        bg: "oklch(58% 0.26 350)",
+        fg: "oklch(96.001% 0.00625 255.48)",
+        border: "oklch(58% 0.26 350)",
       },
       secondary: {
-        default: {
-          bg: "oklch(96.001% 0.00625 255.48)",
-          fg: "oklch(53.504% 0.08625 189.7)",
-        },
-        hover: {
-          bg: "oklch(96.001% 0.00625 255.48)",
-          fg: "oklch(63.669% 0.10373 189.09)",
-        },
-        borderColor: "oklch(53.504% 0.08625 189.7)",
+        bg: "oklch(73.476% 0.12024 189.36)",
+        fg: "oklch(96.001% 0.00625 255.48)",
+        border: "oklch(73.476% 0.12024 189.36)",
       },
-      ghost: {
-        default: {
-          bg: "#00000000",
-          fg: "oklch(32% 0.12 350)",
-        },
-        hover: {
-          bg: "oklch(96.001% 0.00625 255.48)",
-          fg: "oklch(42% 0.18 350)",
-        },
-        borderColor: "#00000000",
+      neutral: {
+        bg: "oklch(44.298% 0.05509 259.35)",
+        fg: "oklch(96.001% 0.00625 255.48)",
+        border: "oklch(44.298% 0.05509 259.35)",
+      },
+    },
+    outlined: {
+      primary: {
+        bg: "#00000000",
+        fg: "oklch(58% 0.26 350)",
+        border: "oklch(58% 0.26 350)",
+        bgHover: "oklch(95% 0.04 350)",
+      },
+      secondary: {
+        bg: "#00000000",
+        fg: "oklch(73.476% 0.12024 189.36)",
+        border: "oklch(73.476% 0.12024 189.36)",
+        bgHover: "oklch(92.667% 0.05011 193.23)",
+      },
+      neutral: {
+        bg: "#00000000",
+        fg: "oklch(44.298% 0.05509 259.35)",
+        border: "oklch(44.298% 0.05509 259.35)",
+        bgHover: "oklch(87.663% 0.01869 258.36)",
+      },
+    },
+    ghost: {
+      primary: {
+        bg: "#00000000",
+        fg: "oklch(58% 0.26 350)",
+        border: "#00000000",
+        bgHover: "oklch(95% 0.04 350)",
+      },
+      secondary: {
+        bg: "#00000000",
+        fg: "oklch(73.476% 0.12024 189.36)",
+        border: "#00000000",
+        bgHover: "oklch(92.667% 0.05011 193.23)",
+      },
+      neutral: {
+        bg: "#00000000",
+        fg: "oklch(44.298% 0.05509 259.35)",
+        border: "#00000000",
+        bgHover: "oklch(87.663% 0.01869 258.36)",
       },
     },
   },
@@ -260,14 +285,14 @@ export default {
       bold: "700",
     },
     size: {
-      xs: "0.75rem",
-      sm: "0.875rem",
-      md: "1rem",
-      lg: "1.125rem",
-      xl: "1.25rem",
-      "2xl": "1.5rem",
-      "3xl": "1.875rem",
-      "4xl": "2.25rem",
+      xs: "0.625rem",
+      sm: "0.75rem",
+      md: "0.875rem",
+      lg: "1rem",
+      xl: "1.125rem",
+      "2xl": "1.25rem",
+      "3xl": "1.5rem",
+      "4xl": "1.875rem",
     },
     lineHeight: {
       tight: "1.25",

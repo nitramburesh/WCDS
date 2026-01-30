@@ -17,14 +17,14 @@
       "bold": { "$value": "700", "$type": "fontWeight" }
     },
     "size": {
-      "xs": { "$value": "0.75rem", "$type": "dimension" },
-      "sm": { "$value": "0.875rem", "$type": "dimension" },
-      "md": { "$value": "1rem", "$type": "dimension" },
-      "lg": { "$value": "1.125rem", "$type": "dimension" },
-      "xl": { "$value": "1.25rem", "$type": "dimension" },
-      "2xl": { "$value": "1.5rem", "$type": "dimension" },
-      "3xl": { "$value": "1.875rem", "$type": "dimension" },
-      "4xl": { "$value": "2.25rem", "$type": "dimension" }
+      "xs": { "$value": "0.625rem", "$type": "dimension" },
+      "sm": { "$value": "0.75rem", "$type": "dimension" },
+      "md": { "$value": "0.875rem", "$type": "dimension" },
+      "lg": { "$value": "1rem", "$type": "dimension" },
+      "xl": { "$value": "1.125rem", "$type": "dimension" },
+      "2xl": { "$value": "1.25rem", "$type": "dimension" },
+      "3xl": { "$value": "1.5rem", "$type": "dimension" },
+      "4xl": { "$value": "1.875rem", "$type": "dimension" }
     },
     "lineHeight": {
       "tight": { "$value": "1.25", "$type": "number" },
