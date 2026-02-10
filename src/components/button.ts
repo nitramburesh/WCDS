@@ -1,12 +1,12 @@
 /** @format */
 
-import { LitElement, html, css } from 'lit';
+import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import type { Icon, ButtonType, ButtonVariant, Size, ColorScheme } from '../types';
-import './icon';
 import '../../src/tokens/generated/design-tokens.css';
-import { getRandomComponentId } from '../utils';
 import { baseStyles } from '../styles/base';
+import type { ButtonType, ButtonVariant, ColorScheme, Icon, Size } from '../types';
+import { getRandomComponentId } from '../utils';
+import './icon';
 
 /**
  * @tagname wcds-button
@@ -26,7 +26,8 @@ export class WCDSButton extends LitElement {
   @property({ type: String, reflect: true }) id: string = getRandomComponentId('button');
   @property({ type: String, reflect: true }) size: Size = 'sm';
   @property({ type: String, reflect: true }) variant: ButtonVariant = 'solid';
-  @property({ type: String, reflect: true, attribute: 'color-scheme' }) colorScheme: ColorScheme = 'primary';
+  @property({ type: String, reflect: true, attribute: 'color-scheme' }) colorScheme: ColorScheme =
+    'primary';
   @property({ type: String, reflect: true }) type: ButtonType = 'button';
   @property({ type: String }) iconLeft?: Icon;
   @property({ type: String }) iconRight?: Icon;

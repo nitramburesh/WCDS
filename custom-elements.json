@@ -142,6 +142,22 @@
             "name": "*",
             "module": "src/styles"
           }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/types"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
+            "module": "src/constants"
+          }
         }
       ]
     },
@@ -963,7 +979,8 @@
                 "text": "string"
               },
               "default": "''",
-              "attribute": "value"
+              "attribute": "value",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -1036,6 +1053,11 @@
                   }
                 }
               ]
+            },
+            {
+              "kind": "method",
+              "name": "onChange",
+              "privacy": "private"
             }
           ],
           "events": [
@@ -1052,6 +1074,13 @@
                 "text": "CustomEvent"
               },
               "description": "Emitted when the user starts typing to clear existing errors."
+            },
+            {
+              "name": "change",
+              "type": {
+                "text": "CustomEvent"
+              },
+              "description": "Emitted on blur with { value }."
             }
           ],
           "attributes": [

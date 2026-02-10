@@ -13,6 +13,7 @@ import { baseStyles } from '../styles/base';
  * @tagname wcds-input
  * @summary A customizable input component with label, icons, validation, and error display.
  * @fires input - Emitted on input with { value }.
+ * @fires change - Emitted on blur with { value }.
  * @fires clear-error - Emitted when the user starts typing to clear existing errors.
  * @cssproperty --wcds-input-padding - Padding inside the input field.
  * @cssproperty --wcds-input-border-radius - Border radius of the input field.
@@ -27,7 +28,7 @@ export class WCDSInput extends LitElement {
   @property({ type: String, reflect: true })
   id: string = getRandomComponentId('input');
 
-  @property({ type: String })
+  @property({ type: String, reflect: true })
   value = '';
 
   @property({ type: String, reflect: true })
@@ -67,17 +68,33 @@ export class WCDSInput extends LitElement {
     if (this.error) this.dispatchEvent(new CustomEvent('clear-error'));
   }
 
+  private onChange() {
+    this.dispatchEvent(
+      new CustomEvent('change', {
+        detail: { value: this.value },
+        bubbles: true,
+        composed: true,
+      })
+    );
+  }
+
   protected updated(changedProperties: Map<string, unknown>) {
     super.updated(changedProperties);
 
+    const input = this.shadowRoot?.querySelector('input');
+    if (!input) return;
+
+    // Sync value when changed externally
+    if (changedProperties.has('value') && input.value !== this.value) {
+      input.value = this.value;
+    }
+
+    // Sync error state
     if (changedProperties.has('error')) {
-      const input = this.shadowRoot?.querySelector('input');
-      if (input) {
-        if (this.error) {
-          input.setCustomValidity(this.error);
-        } else {
-          input.setCustomValidity('');
-        }
+      if (this.error) {
+        input.setCustomValidity(this.error);
+      } else {
+        input.setCustomValidity('');
       }
     }
   }
@@ -183,6 +200,7 @@ export class WCDSInput extends LitElement {
               : null}
             <input
               @input=${this.onInput}
+              @change=${this.onChange}
               .value=${this.value}
               ?disabled=${this.disabled}
               .id=${this.id}
