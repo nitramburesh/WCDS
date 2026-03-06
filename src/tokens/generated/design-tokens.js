@@ -5,9 +5,9 @@
 export default {
   avatar: {
     size: {
-      sm: "2.25rem",
-      md: "2.75rem",
-      lg: "3.25rem",
+      sm: "1.25rem",
+      md: "2.5rem",
+      lg: "5rem",
     },
     shape: {
       circular: "9999px",
@@ -202,6 +202,7 @@ export default {
     },
   },
   color: {
+    transparent: "#00000000",
     primary: {
       100: "oklch(95% 0.04 350)",
       200: "oklch(90% 0.10 350)",
@@ -272,6 +273,15 @@ export default {
     8: "2rem",
     9: "2.25rem",
     10: "2.5rem",
+    20: "5rem",
+    30: "7.5rem",
+    40: "10rem",
+    50: "12.5rem",
+    60: "15rem",
+    70: "17.5rem",
+    80: "20rem",
+    90: "22.5rem",
+    100: "25rem",
   },
   font: {
     family: {
@@ -349,11 +359,11 @@ export default {
       },
     },
     size: {
-      xs: "0.75rem",
-      sm: "0.875rem",
-      md: "1rem",
-      lg: "1.125rem",
-      xl: "1.25rem",
+      xs: "0.625rem",
+      sm: "0.75rem",
+      md: "0.875rem",
+      lg: "1rem",
+      xl: "1.125rem",
     },
   },
 };

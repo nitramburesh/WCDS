@@ -13,11 +13,11 @@
       }
     },
     "size": {
-      "xs": { "$value": "0.75rem", "$type": "dimension" },
-      "sm": { "$value": "0.875rem", "$type": "dimension" },
-      "md": { "$value": "1rem", "$type": "dimension" },
-      "lg": { "$value": "1.125rem", "$type": "dimension" },
-      "xl": { "$value": "1.25rem", "$type": "dimension" }
+      "xs": { "$value": "{font.size.xs}", "$type": "dimension" },
+      "sm": { "$value": "{font.size.sm}", "$type": "dimension" },
+      "md": { "$value": "{font.size.md}", "$type": "dimension" },
+      "lg": { "$value": "{font.size.lg}", "$type": "dimension" },
+      "xl": { "$value": "{font.size.xl}", "$type": "dimension" }
     }
   }
 }

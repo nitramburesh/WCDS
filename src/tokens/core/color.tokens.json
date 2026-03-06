@@ -1,5 +1,6 @@
 {
   "color": {
+    "transparent": { "$value": "transparent", "$type": "color" },
     "primary": {
       "100": { "$value": "oklch(95% 0.04 350)", "$type": "color" },
       "200": { "$value": "oklch(90% 0.10 350)", "$type": "color" },

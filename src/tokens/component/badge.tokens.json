@@ -6,7 +6,7 @@
         "horizontal": { "$value": "{spacing.sm}", "$type": "dimension" }
       },
       "radius": { "$value": "{radius.full}", "$type": "dimension" },
-      "fontSize": { "$value": "{size.3}", "$type": "dimension" }
+      "fontSize": { "$value": "{font.size.sm}", "$type": "dimension" }
     },
     "variant": {
       "neutral": {

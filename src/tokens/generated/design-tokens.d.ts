@@ -213,6 +213,7 @@ declare const tokens: {
     };
   };
   color: {
+    transparent: DesignToken;
     primary: {
       "100": DesignToken;
       "200": DesignToken;
@@ -283,6 +284,15 @@ declare const tokens: {
     "8": DesignToken;
     "9": DesignToken;
     "10": DesignToken;
+    "20": DesignToken;
+    "30": DesignToken;
+    "40": DesignToken;
+    "50": DesignToken;
+    "60": DesignToken;
+    "70": DesignToken;
+    "80": DesignToken;
+    "90": DesignToken;
+    "100": DesignToken;
   };
   font: {
     family: {

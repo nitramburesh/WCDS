@@ -3,15 +3,15 @@
     "size": {
       "sm": {
         "padding": { "$value": "{spacing.xs}", "$type": "dimension" },
-        "fontSize": { "$value": "{size.3}", "$type": "dimension" }
+        "fontSize": { "$value": "{font.size.sm}", "$type": "dimension" }
       },
       "md": {
         "padding": { "$value": "{spacing.sm}", "$type": "dimension" },
-        "fontSize": { "$value": "{size.4}", "$type": "dimension" }
+        "fontSize": { "$value": "{font.size.lg}", "$type": "dimension" }
       },
       "lg": {
         "padding": { "$value": "{spacing.md}", "$type": "dimension" },
-        "fontSize": { "$value": "{size.5}", "$type": "dimension" }
+        "fontSize": { "$value": "{font.size.2xl}", "$type": "dimension" }
       }
     },
     "border": {

@@ -1,9 +1,9 @@
 {
   "avatar": {
     "size": {
-      "sm": { "$value": "2.25rem", "$type": "dimension" },
-      "md": { "$value": "2.75rem", "$type": "dimension" },
-      "lg": { "$value": "3.25rem", "$type": "dimension" }
+      "sm": { "$value": "{size.5}", "$type": "dimension" },
+      "md": { "$value": "{size.10}", "$type": "dimension" },
+      "lg": { "$value": "{size.20}", "$type": "dimension" }
     },
     "shape": {
       "circular": { "$value": "{radius.full}", "$type": "dimension" },
@@ -11,9 +11,9 @@
       "square": { "$value": "{radius.md}", "$type": "dimension" }
     },
     "fontSize": {
-      "sm": { "$value": "0.875rem", "$type": "dimension" },
-      "md": { "$value": "1rem", "$type": "dimension" },
-      "lg": { "$value": "1.125rem", "$type": "dimension" }
+      "sm": { "$value": "{font.size.md}", "$type": "dimension" },
+      "md": { "$value": "{font.size.lg}", "$type": "dimension" },
+      "lg": { "$value": "{font.size.xl}", "$type": "dimension" }
     },
     "bg": {
       "default": { "$value": "{color.neutral.200}", "$type": "color" }

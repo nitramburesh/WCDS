@@ -1,8 +1,8 @@
 import StyleDictionary from 'style-dictionary';
-import { formats } from 'style-dictionary/enums';
 
 
 const TOKEN_PATH = './src/tokens/generated/';
+
 const sd = new StyleDictionary({
   source: ['./src/tokens/**/*.tokens.json'],
 
@@ -14,6 +14,9 @@ const sd = new StyleDictionary({
         {
           destination: `${TOKEN_PATH}design-tokens.css`,
           format: "css/variables",
+          options:{
+            outputReferences: true
+          }
         },
       ],
     },
@@ -23,6 +26,9 @@ const sd = new StyleDictionary({
         {
           destination: `${TOKEN_PATH}design-tokens.d.ts`,
           format: 'typescript/module-declarations',
+          options: {
+            outputReferences: true
+          }
         },
       ],
     },
@@ -33,6 +39,7 @@ const sd = new StyleDictionary({
           destination: `${TOKEN_PATH}design-tokens.js`,
           format: "javascript/esm",
           options: {
+            outputReferences: true,
             minify: true,
           }
 

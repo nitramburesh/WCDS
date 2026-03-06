@@ -39,19 +39,19 @@
     },
     "outlined": {
       "primary": {
-        "bg": { "$value": "transparent", "$type": "color" },
+        "bg": { "$value": "{color.transparent}", "$type": "color" },
         "fg": { "$value": "{color.primary.600}", "$type": "color" },
         "border": { "$value": "{color.primary.600}", "$type": "color" },
         "bgHover": { "$value": "{color.primary.100}", "$type": "color" }
       },
       "secondary": {
-        "bg": { "$value": "transparent", "$type": "color" },
+        "bg": { "$value": "{color.transparent}", "$type": "color" },
         "fg": { "$value": "{color.secondary.600}", "$type": "color" },
         "border": { "$value": "{color.secondary.600}", "$type": "color" },
         "bgHover": { "$value": "{color.secondary.100}", "$type": "color" }
       },
       "neutral": {
-        "bg": { "$value": "transparent", "$type": "color" },
+        "bg": { "$value": "{color.transparent}", "$type": "color" },
         "fg": { "$value": "{color.neutral.700}", "$type": "color" },
         "border": { "$value": "{color.neutral.700}", "$type": "color" },
         "bgHover": { "$value": "{color.neutral.200}", "$type": "color" }
@@ -59,21 +59,21 @@
     },
     "ghost": {
       "primary": {
-        "bg": { "$value": "transparent", "$type": "color" },
+        "bg": { "$value": "{color.transparent}", "$type": "color" },
         "fg": { "$value": "{color.primary.600}", "$type": "color" },
-        "border": { "$value": "transparent", "$type": "color" },
+        "border": { "$value": "{color.transparent}", "$type": "color" },
         "bgHover": { "$value": "{color.primary.100}", "$type": "color" }
       },
       "secondary": {
-        "bg": { "$value": "transparent", "$type": "color" },
+        "bg": { "$value": "{color.transparent}", "$type": "color" },
         "fg": { "$value": "{color.secondary.600}", "$type": "color" },
-        "border": { "$value": "transparent", "$type": "color" },
+        "border": { "$value": "{color.transparent}", "$type": "color" },
         "bgHover": { "$value": "{color.secondary.100}", "$type": "color" }
       },
       "neutral": {
-        "bg": { "$value": "transparent", "$type": "color" },
+        "bg": { "$value": "{color.transparent}", "$type": "color" },
         "fg": { "$value": "{color.neutral.700}", "$type": "color" },
-        "border": { "$value": "transparent", "$type": "color" },
+        "border": { "$value": "{color.transparent}", "$type": "color" },
         "bgHover": { "$value": "{color.neutral.200}", "$type": "color" }
       }
     }

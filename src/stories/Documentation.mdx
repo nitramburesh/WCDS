@@ -8,11 +8,17 @@ A framework-agnostic design system built with Web Components. Use it with React,
 
 ## Philosophy
 
-**One library, every framework.** Traditional component libraries lock you into a specific framework. WCDS uses native Web Components, which work everywhere — no adapters, no wrappers, no compromises.
+**One library, every framework.** Traditional component libraries lock you into a specific framework. WCDS uses native Web Components, which work everywhere.
 
 **Design tokens as the source of truth.** Every color, spacing value, and radius is defined as a token. Change once, update everywhere.
 
 **Modern by default.** OKLCH colors for perceptually uniform palettes. CSS custom properties for runtime theming. ES modules for tree-shaking.
+
+### Key concepts
+
+- **Web Components** — Custom elements, Shadow DOM, and HTML templates; WCDS uses them so components work in any framework or vanilla JS.
+- **Design tokens** — Named design decisions (colors, spacing, typography) stored as data and output to CSS/JS/TS; single source of truth for theming.
+- **Custom Elements Manifest (CEM)** — JSON schema describing custom elements (attributes, events, slots, CSS properties); used by Storybook, IDEs, and tooling for autodocs and type hints.
 
 ---
 
@@ -55,15 +61,55 @@ A framework-agnostic design system built with Web Components. Use it with React,
     <tr>
       <td><strong>Documentation</strong></td>
       <td><a href="https://storybook.js.org">Storybook</a></td>
-      <td>Interactive component playground</td>
+      <td>Interactive component playground + autodocs from CEM</td>
     </tr>
     <tr>
       <td><strong>Build</strong></td>
       <td><a href="https://vite.dev">Vite</a></td>
-      <td>Fast builds, native ES modules</td>
+      <td>Fast builds, native ES modules, library mode</td>
+    </tr>
+    <tr>
+      <td><strong>API manifest</strong></td>
+      <td><a href="https://custom-elements-manifest.open-wc.org">Custom Elements Manifest (CEM)</a></td>
+      <td>Machine-readable component API for docs, IDE, and tooling</td>
+    </tr>
+    <tr>
+      <td><strong>Testing</strong></td>
+      <td>Vitest + Playwright + Storybook addon-vitest</td>
+      <td>Browser-based tests from Storybook stories</td>
+    </tr>
+    <tr>
+      <td><strong>Visual regression</strong></td>
+      <td><a href="https://www.chromatic.com">Chromatic</a></td>
+      <td>UI snapshot and review in CI</td>
+    </tr>
+    <tr>
+      <td><strong>Accessibility</strong></td>
+      <td>Storybook addon-a11y</td>
+      <td>Accessibility checks in docs</td>
     </tr>
   </tbody>
 </table>
+
+---
+
+## Architecture
+
+### Project structure
+
+- **`src/components/`** — Lit-based Web Components (button, input, icon, card, badge, avatar, color). Each uses Shadow DOM, design tokens, and optional `baseStyles`.
+- **`src/tokens/`** — Design token source (core, semantic, component) and generated output (CSS, JS, TS).
+- **`src/styles/`** — Shared styles: `baseStyles` (font, box-sizing) exported for use inside component `static styles`.
+- **`src/utils/`** — Internal helpers: `validators` (isInvalidString, isInvalidNumber, isInvalidBoolean, throwInvalidAttributeError), `randomators` (getRandomComponentId for stable DOM ids).
+- **`src/types.ts`** — Exported TypeScript types derived from constants (Icon, Size, ButtonVariant, ColorScheme, ButtonType, CardVariant, AvatarVariant).
+- **`src/constants.ts`** — Exported const arrays: ICONS, SIZE, BUTTON_VARIANT, COLOR_SCHEME, BUTTON_TYPE, CARD_VARIANT, AVATAR_VARIANT.
+- **`src/index.ts`** — Main entry: re-exports components, constants, styles, types; imports `index.css` (which pulls in generated design-tokens.css).
+
+### Package exports
+
+- **`wcds`** (default) — Component and type exports; Lit is a peer dependency.
+- **`wcds/style`** — Prebuilt CSS (design tokens). Import once in the app.
+- **`custom-elements.json`** — Shipped for IDE integration and Storybook autodocs.
 
 ---
 
@@ -73,27 +119,32 @@ Tokens are the foundation of WCDS. They live in `src/tokens/` and are organized 
 
 ```
 src/tokens/
-├── core/           # Primitives
-│   ├── color.tokens.json      # Color palettes (primary, secondary, neutral)
-│   ├── size.tokens.json       # Spacing scale (0-10)
-│   ├── radius.tokens.json     # Border radii
-│   └── typography.tokens.json # Font families, weights, sizes
-├── semantic/       # Purpose-driven aliases
-│   ├── background.tokens.json
+├── core/                      # Primitives
+│   ├── color.tokens.json      # Color palettes (primary, secondary, neutral, success/error/warning/info)
+│   ├── size.tokens.json       # Spacing scale (0–10, rem)
+│   ├── radius.tokens.json     # Border radii (none, sm, md, lg, xl, full)
+│   ├── typography.tokens.json # Font families (sans, mono), weights, sizes, line-height, letter-spacing
+├── semantic/                  # Purpose-driven aliases
+│   ├── background.tokens.json # default, success, error, warning, info
 │   ├── border.tokens.json
 │   ├── spacing.tokens.json
 │   └── text.tokens.json
-├── component/      # Component-specific tokens
-│   ├── button.tokens.json
+├── component/                 # Component-specific tokens
+│   ├── button.tokens.json     # sizes (sm/md/lg), solid/outlined/ghost × primary/secondary/neutral
 │   ├── input.tokens.json
-│   └── ...
-└── generated/      # Auto-generated (don't edit)
-    ├── design-tokens.css
-    ├── design-tokens.js
-    └── design-tokens.d.ts
+│   ├── badge.tokens.json
+│   ├── card.tokens.json
+│   ├── avatar.tokens.json
+│   └── icon.tokens.json
+└── generated/                 # Auto-generated (don't edit)
+    ├── design-tokens.css      # :root { --wcds-* } variables
+    ├── design-tokens.js       # ESM export of token values (minified)
+    └── design-tokens.d.ts     # TypeScript declarations
 ```
 
-### Regenerating Tokens
+Token **references** in JSON use `{group.name.path}` (e.g. `{color.primary.600}`, `{spacing.xs}`). Style Dictionary resolves these and outputs with the `wcds` prefix.
+
+### Regenerating tokens
 
 After editing any `.tokens.json` file:
 
@@ -101,7 +152,89 @@ After editing any `.tokens.json` file:
 pnpm prepare
 ```
 
-This runs Style Dictionary to generate CSS variables, JavaScript exports, and TypeScript types.
+This runs `build-tokens.js` (Style Dictionary) to generate CSS variables, JavaScript ESM, and TypeScript types. The build pipeline runs `pnpm prepare` before dev and pack.
+
+---
+
+## Components reference
+
+All components are custom elements with a `wcds-` prefix, use Shadow DOM, and expose CSS custom properties for theming. Attributes use kebab-case in HTML (e.g. `color-scheme`).
+
+<table>
+  <thead>
+    <tr>
+      <th>Component</th>
+      <th>Summary</th>
+      <th>Key attributes</th>
+      <th>Events / slots</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>wcds-button</strong></td>
+      <td>Button with icons and variants</td>
+      <td><code>size</code>, <code>variant</code> (solid/outlined/ghost), <code>color-scheme</code>, <code>type</code>, <code>icon-left</code>, <code>icon-right</code>, <code>disabled</code></td>
+      <td>Slot: default. Event: <code>click</code></td>
+    </tr>
+    <tr>
+      <td><strong>wcds-input</strong></td>
+      <td>Text input with label, icon, error</td>
+      <td><code>value</code>, <code>size</code>, <code>label</code>, <code>placeholder</code>, <code>icon</code>, <code>disabled</code>, <code>error</code></td>
+      <td>Events: <code>input</code> (detail.value), <code>change</code>, <code>clear-error</code></td>
+    </tr>
+    <tr>
+      <td><strong>wcds-icon</strong></td>
+      <td>Inline icon from fixed set</td>
+      <td><code>icon</code> (arrow-left, arrow-right, check, close, menu, search, location), <code>size</code></td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><strong>wcds-card</strong></td>
+      <td>Container with header/body/footer</td>
+      <td>—</td>
+      <td>Slots: <code>header</code>, default, <code>footer</code></td>
+    </tr>
+    <tr>
+      <td><strong>wcds-badge</strong></td>
+      <td>Small status badge</td>
+      <td><code>variant</code> (info/success/warning/error)</td>
+      <td>Slot: default</td>
+    </tr>
+    <tr>
+      <td><strong>wcds-avatar</strong></td>
+      <td>Image or initials, shape variants</td>
+      <td><code>src</code>, <code>alt</code>, <code>name</code>, <code>variant</code> (circular/rounded/square), <code>size</code></td>
+      <td>Slot: default (overrides initials)</td>
+    </tr>
+    <tr>
+      <td><strong>wcds-color</strong></td>
+      <td>Token swatch for docs</td>
+      <td><code>color</code>, <code>name</code></td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+Each component documents its CSS custom properties (e.g. `--wcds-button-padding`, `--wcds-input-border-color-focus`) in the Storybook docs panel via Custom Elements Manifest.
+
+---
+
+## Types and constants
+
+For TypeScript and programmatic use, WCDS exports:
+
+- **Types:** `Icon`, `Size`, `ButtonVariant`, `ColorScheme`, `ButtonType`, `CardVariant`, `AvatarVariant` (from `src/types.ts`).
+- **Constants:** `ICONS`, `SIZE`, `BUTTON_VARIANT`, `COLOR_SCHEME`, `BUTTON_TYPE`, `CARD_VARIANT`, `AVATAR_VARIANT` (from `src/constants.ts`).
+
+Use these to constrain props or generate options in docs and tooling.
+
+---
+
+## Styles
+
+- **`baseStyles`** — Lit `css` template applied in each component’s `static styles`. Sets font-family (Plus Jakarta Sans + fallbacks), font-weight, line-height, box-sizing. Tokens: `--wcds-font-family-sans`, `--wcds-font-weight-regular`, `--wcds-font-line-height-normal`.
+- **`wcds/style`** — Entry for the built CSS file; includes generated design tokens. Import once in the app root.
+- **Scoping:** Component styles live in Shadow DOM and do not leak; theming is done by overriding `:root` (or host) CSS custom properties.
 
 ---
 
@@ -111,7 +244,11 @@ This runs Style Dictionary to generate CSS variables, JavaScript exports, and Ty
 
 ```bash
 npm install wcds
+# or
+pnpm add wcds
 ```
+
+Lit is a **peer dependency** (`^3.3.1`); ensure it is installed in the host app when using the component bundle.
 
 ### Setup
 
@@ -121,20 +258,46 @@ import 'wcds'
 import 'wcds/style'
 ```
 
-Add the font to your HTML:
+**Font (recommended).** Option A — Google Fonts:
 
 ```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 ```
 
-### Using Components
+Option B — Self-hosted (e.g. Fontsource):
+
+```bash
+npm install @fontsource-variable/plus-jakarta-sans
+```
+
+```js
+import '@fontsource-variable/plus-jakarta-sans'
+```
+
+If the font is not loaded, components fall back to `system-ui` and generic sans-serif via `baseStyles`.
+
+### Using components (framework-agnostic)
 
 ```html
-<wcds-button variant="primary">Click me</wcds-button>
-<wcds-input placeholder="Enter text..." />
+<wcds-button variant="solid" color-scheme="primary">Click me</wcds-button>
+<wcds-button variant="outlined" icon-left="search">Search</wcds-button>
+<wcds-input placeholder="Enter text..." label="Name" />
+<wcds-input icon="search" error="Invalid value" />
 <wcds-badge variant="success">Active</wcds-badge>
-<wcds-card>Card content</wcds-card>
+<wcds-card>
+  <span slot="header">Title</span>
+  Card body
+  <span slot="footer">
+    <wcds-button>
+      Action
+    </wcds-button>
+  </span>
+</wcds-card>
 <wcds-avatar name="John Doe" />
+<wcds-avatar src="/photo.jpg" alt="Jane" variant="rounded" size="lg" />
+<wcds-icon icon="check" size="sm" />
 ```
 
 ---
@@ -152,7 +315,16 @@ All design tokens are exposed as CSS custom properties. Override them to theme y
 
 ---
 
-## Browser Support
+## Build and tooling
+
+- **Library build:** `pnpm build` → Vite library mode (ESM only), entry `src/index.ts`, Lit externalized; `vite-plugin-dts` emits TypeScript declarations; then `cem analyze` produces `custom-elements.json`.
+- **Tokens:** `pnpm generate-tokens` (or `pnpm prepare`) runs Style Dictionary → `design-tokens.css`, `design-tokens.js`, `design-tokens.d.ts`.
+- **Storybook:** `pnpm dev` runs Storybook on port 6060; `pnpm build-storybook` for static export. CEM is loaded via `setCustomElementsManifest(customElements)` so docs and controls are generated from the manifest. Addons: **addon-docs** (autodocs), **addon-a11y** (accessibility), **addon-vitest** (run stories as tests), **Chromatic** (visual regression).
+- **Tests:** Vitest project "storybook" with Playwright (Chromium), `storybookTest` plugin, and `.storybook/vitest.setup.ts` for project annotations. Stories serve as test cases.
+
+---
+
+## Browser support
 
 WCDS targets modern browsers with native Web Component support:
 
