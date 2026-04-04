@@ -26,15 +26,6 @@ export class WCDSCard extends LitElement {
         display: block;
         box-sizing: border-box;
         transition: box-shadow 0.3s ease-in-out;
-
-        --wcds-card-padding: var(--wcds-card-padding-default);
-        --wcds-card-radius: var(--wcds-card-border-radius-default);
-        --wcds-card-bg-color: var(--wcds-card-background-color-default);
-        --wcds-card-border-color: var(--wcds-card-border-color-default);
-        --wcds-card-shadow: var(--wcds-card-shadow-plain);
-      }
-
-      .card {
         display: flex;
         align-items: center;
         gap: var(--wcds-spacing-lg);
@@ -45,6 +36,12 @@ export class WCDSCard extends LitElement {
         border-radius: var(--wcds-card-radius);
         box-shadow: var(--wcds-card-shadow);
         min-height: 64px;
+
+        --wcds-card-padding: var(--wcds-card-padding-default);
+        --wcds-card-radius: var(--wcds-card-border-radius-default);
+        --wcds-card-bg-color: var(--wcds-card-background-color-default);
+        --wcds-card-border-color: var(--wcds-card-border-color-default);
+        --wcds-card-shadow: var(--wcds-card-shadow-plain);
       }
 
       slot[name='header'],
@@ -61,11 +58,9 @@ export class WCDSCard extends LitElement {
 
   render() {
     return html`
-      <div class="card">
-        <slot name="header"></slot>
-        <slot></slot>
-        <slot name="footer"></slot>
-      </div>
+      <slot name="header"></slot>
+      <slot></slot>
+      <slot name="footer"></slot>
     `;
   }
 }
