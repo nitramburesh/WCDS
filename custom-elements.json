@@ -140,6 +140,14 @@
           "name": "*",
           "declaration": {
             "name": "*",
+            "module": "src/constants"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "*",
+          "declaration": {
+            "name": "*",
             "module": "src/styles"
           }
         },
@@ -149,14 +157,6 @@
           "declaration": {
             "name": "*",
             "module": "src/types"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "module": "src/constants"
           }
         }
       ]

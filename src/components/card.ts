@@ -23,47 +23,48 @@ export class WCDSCard extends LitElement {
     baseStyles,
     css`
       :host {
-      display: block;
-      box-sizing: border-box;
-      transition: box-shadow 0.3s ease-in-out;
+        display: block;
+        box-sizing: border-box;
+        transition: box-shadow 0.3s ease-in-out;
 
-      --wcds-card-padding: var(--wcds-card-padding-default);
-      --wcds-card-radius: var(--wcds-card-border-radius-default);
-      --wcds-card-bg-color: var(--wcds-card-background-color-default);
-      --wcds-card-border-color: var(--wcds-card-border-color-default);
-      --wcds-card-shadow: var(--wcds-card-shadow-plain);
-    }
+        --wcds-card-padding: var(--wcds-card-padding-default);
+        --wcds-card-radius: var(--wcds-card-border-radius-default);
+        --wcds-card-bg-color: var(--wcds-card-background-color-default);
+        --wcds-card-border-color: var(--wcds-card-border-color-default);
+        --wcds-card-shadow: var(--wcds-card-shadow-plain);
+      }
 
-    .card {
-      display: flex;
-      align-items: center;
-      gap: var(--wcds-spacing-lg);
-      padding: var(--wcds-card-padding);
-      box-sizing: border-box;
-      background-color: var(--wcds-card-bg-color);
-      border: 1px solid var(--wcds-card-border-color);
-      border-radius: var(--wcds-card-radius);
-      box-shadow: var(--wcds-card-shadow);
-      min-height: 64px;
-    }
+      .card {
+        display: flex;
+        align-items: center;
+        gap: var(--wcds-spacing-lg);
+        padding: var(--wcds-card-padding);
+        box-sizing: border-box;
+        background-color: var(--wcds-card-bg-color);
+        border: 1px solid var(--wcds-card-border-color);
+        border-radius: var(--wcds-card-radius);
+        box-shadow: var(--wcds-card-shadow);
+        min-height: 64px;
+      }
 
-    .header,
-    .footer {
-      display: block;
-    }
-    .content {
-      display: flex;
-      flex: 1;
-    }
-  `,
+      slot[name='header'],
+      slot[name='footer'] {
+        display: block;
+      }
+
+      slot:not([name]) {
+        display: flex;
+        flex: 1;
+      }
+    `,
   ];
 
   render() {
     return html`
       <div class="card">
-        <slot name="header" class="header"></slot>
-        <slot class="content"></slot>
-        <slot name="footer" class="footer"></slot>
+        <slot name="header"></slot>
+        <slot></slot>
+        <slot name="footer"></slot>
       </div>
     `;
   }
