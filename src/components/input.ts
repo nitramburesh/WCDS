@@ -49,11 +49,11 @@ export class WCDSInput extends LitElement {
   @property({ type: String, reflect: true })
   error?: string;
 
-  private hasIcon() {
+  private _hasIcon() {
     return this.icon !== undefined && !isInvalidString(this.icon) && ICONS.includes(this.icon);
   }
 
-  private onInput(event: Event) {
+  private _onInput(event: Event) {
     const target = event.target as HTMLInputElement;
     this.value = target.value;
 
@@ -68,7 +68,7 @@ export class WCDSInput extends LitElement {
     if (this.error) this.dispatchEvent(new CustomEvent('clear-error'));
   }
 
-  private onChange() {
+  private _onChange() {
     this.dispatchEvent(
       new CustomEvent('change', {
         detail: { value: this.value },
@@ -107,7 +107,7 @@ export class WCDSInput extends LitElement {
         --wcds-input-border-radius: var(--wcds-input-text-border-radius);
         --wcds-input-border-color-default: var(--wcds-input-text-border-color-default);
         --wcds-input-border-color-focus: var(--wcds-input-text-border-color-focus);
-        --wcds-input-box-shadow: 5px 5px 14px #ced8d7, -2px -2px 14px #ffffff;
+        --wcds-input-box-shadow: 5px 5px 14px #ced8d7, -2px -2px 14px white;
         --wcds-icon-size: var(--wcds-icon-size-md);
         --wcds-icon-color: var(--wcds-icon-color-neutral);
       }
@@ -195,12 +195,12 @@ export class WCDSInput extends LitElement {
       return html`
         <div class="field">
           <span class="input-wrapper">
-            ${this.hasIcon() && this.icon
+            ${this._hasIcon() && this.icon
               ? html`<span class="icon"><wcds-icon .icon=${this.icon} /></span>`
               : null}
             <input
-              @input=${this.onInput}
-              @change=${this.onChange}
+              @input=${this._onInput}
+              @change=${this._onChange}
               .value=${this.value}
               ?disabled=${this.disabled}
               .id=${this.id}
