@@ -6,14 +6,15 @@
   "module": "./dist/wcds.js",
   "type": "module",
   "types": "./dist/index.d.ts",
+  "sideEffects": true,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/wcds.js",
-      "require": "./dist/wcds.js"
+      "import": "./dist/wcds.js"
     },
     "./style": "./dist/wcds.css",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./custom-elements.json": "./custom-elements.json"
   },
   "files": [
     "dist/**/*",
@@ -25,7 +26,7 @@
     "generate-tokens": "node src/tokens/build-tokens.js",
     "manifest": "pnpm cem analyze",
     "dev": "pnpm prepare && storybook dev -p 6060",
-    "build": "vite build && tsc -p tsconfig.build.json && cem analyze",
+    "build": "pnpm prepare && vite build",
     "preview": "vite preview",
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --auto-accept-changes --force-rebuild",

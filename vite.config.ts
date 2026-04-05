@@ -1,40 +1,38 @@
 /** @format */
 
 /// <reference types="vitest/config" />
-import { defineConfig } from "vite";
-import path from "path";
-import { fileURLToPath } from "url";
-import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
-import dts from "vite-plugin-dts";
+import { defineConfig } from 'vite';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
+import dts from 'vite-plugin-dts';
 
 const dirname =
-  typeof __dirname !== "undefined"
-    ? __dirname
-    : path.dirname(fileURLToPath(import.meta.url));
+  typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [
     dts({
-      entryRoot: "src",
-      outDir: "dist",
-      include: ["src/**/*.ts"],
-      tsconfigPath: "tsconfig.build.json",
+      entryRoot: 'src',
+      outDir: 'dist',
+      include: ['src/**/*.ts'],
+      tsconfigPath: 'tsconfig.build.json',
       insertTypesEntry: true,
     }),
   ],
   build: {
     lib: {
-      entry: "src/index.ts",
-      name: "wcds",
-      formats: ["es"],
-      fileName: "wcds",
+      entry: path.resolve(__dirname, 'src/index.ts'),
+      name: 'wcds',
+      formats: ['es'],
+      fileName: 'wcds',
     },
     rollupOptions: {
       // doesn't bundle LIT related things
-      external: [/^@?lit(-\w+)?($|\/.+)/],
+      external: ['lit'],
       output: {
         globals: {
-          lit: "lit",
+          lit: 'lit',
         },
       },
     },
@@ -46,22 +44,22 @@ export default defineConfig({
         extends: true,
         plugins: [
           storybookTest({
-            configDir: path.join(dirname, ".storybook"),
+            configDir: path.join(dirname, '.storybook'),
           }),
         ],
         test: {
-          name: "storybook",
+          name: 'storybook',
           browser: {
             enabled: true,
             headless: true,
-            provider: "playwright",
+            provider: 'playwright',
             instances: [
               {
-                browser: "chromium",
+                browser: 'chromium',
               },
             ],
           },
-          setupFiles: [".storybook/vitest.setup.ts"],
+          setupFiles: ['.storybook/vitest.setup.ts'],
         },
       },
     ],

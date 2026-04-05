@@ -1110,12 +1110,12 @@
             },
             {
               "kind": "method",
-              "name": "hasIcon",
+              "name": "_hasIcon",
               "privacy": "private"
             },
             {
               "kind": "method",
-              "name": "onInput",
+              "name": "_onInput",
               "privacy": "private",
               "parameters": [
                 {
@@ -1128,7 +1128,7 @@
             },
             {
               "kind": "method",
-              "name": "onChange",
+              "name": "_onChange",
               "privacy": "private"
             }
           ],
