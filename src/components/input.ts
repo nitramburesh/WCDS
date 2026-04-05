@@ -1,13 +1,13 @@
 /** @format */
 
-import { LitElement, html, css } from 'lit';
+import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import type { Size, Icon } from '../types';
-import { getRandomComponentId, isInvalidString } from '../utils/';
-import './icon';
 import '../../src/tokens/generated/design-tokens.css';
 import { ICONS } from '../constants';
 import { baseStyles } from '../styles/base';
+import type { Icon, Size } from '../types';
+import { getRandomComponentId, isInvalidString } from '../utils/';
+import './icon';
 
 /**
  * @tagname wcds-input
@@ -227,3 +227,7 @@ declare global {
     'wcds-input': WCDSInput;
   }
 }
+
+export type { Icon, Size } from '../types';
+
+

@@ -219,3 +219,6 @@ declare global {
     'wcds-button': WCDSButton;
   }
 }
+
+export type { ButtonType, ButtonVariant, ColorScheme, Icon, Size } from '../types';
+

@@ -1,10 +1,10 @@
 /** @format */
 
-import { LitElement, html, css } from 'lit';
+import { LitElement, css, html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
-import type { AvatarVariant, Size } from '../types';
 import '../../src/tokens/generated/design-tokens.css';
 import { baseStyles } from '../styles/base';
+import type { AvatarVariant, Size } from '../types';
 
 /**
  * @tagname wcds-avatar
@@ -138,3 +138,5 @@ declare global {
     'wcds-avatar': WCDSAvatar;
   }
 }
+
+export type { AvatarVariant, Size } from '../types';

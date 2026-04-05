@@ -2,8 +2,8 @@
 
 import { LitElement, css, html, type TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { Size, type Icon } from '../types';
 import { baseStyles } from '../styles/base';
+import { Icon, Size } from '../types';
 
 const ICONS: Record<Icon, TemplateResult> = {
   'arrow-left': html` <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -128,3 +128,6 @@ declare global {
     'wcds-icon': WCDSIcon;
   }
 }
+
+export type { Icon, Size } from '../types';
+

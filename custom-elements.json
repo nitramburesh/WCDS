@@ -1,6 +1,6 @@
 {
-  "schemaVersion": "1.0.0",
-  "readme": "",
+  "schemaVersion": "2.1.0",
+  "readme": "./README.md",
   "modules": [
     {
       "kind": "javascript-module",
@@ -336,6 +336,22 @@
             "name": "WCDSAvatar",
             "module": "src/components/avatar.ts"
           }
+        },
+        {
+          "kind": "js",
+          "name": "AvatarVariant",
+          "declaration": {
+            "name": "AvatarVariant",
+            "module": "../types"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Size",
+          "declaration": {
+            "name": "Size",
+            "module": "../types"
+          }
         }
       ]
     },
@@ -656,6 +672,46 @@
             "name": "WCDSButton",
             "module": "src/components/button.ts"
           }
+        },
+        {
+          "kind": "js",
+          "name": "ButtonType",
+          "declaration": {
+            "name": "ButtonType",
+            "module": "../types"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ButtonVariant",
+          "declaration": {
+            "name": "ButtonVariant",
+            "module": "../types"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ColorScheme",
+          "declaration": {
+            "name": "ColorScheme",
+            "module": "../types"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Icon",
+          "declaration": {
+            "name": "Icon",
+            "module": "../types"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Size",
+          "declaration": {
+            "name": "Size",
+            "module": "../types"
+          }
         }
       ]
     },
@@ -869,6 +925,22 @@
           "declaration": {
             "name": "WCDSIcon",
             "module": "src/components/icon.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Icon",
+          "declaration": {
+            "name": "Icon",
+            "module": "../types"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Size",
+          "declaration": {
+            "name": "Size",
+            "module": "../types"
           }
         }
       ]
@@ -1168,6 +1240,22 @@
           "declaration": {
             "name": "WCDSInput",
             "module": "src/components/input.ts"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Icon",
+          "declaration": {
+            "name": "Icon",
+            "module": "../types"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Size",
+          "declaration": {
+            "name": "Size",
+            "module": "../types"
           }
         }
       ]
