@@ -1,16 +1,10 @@
 import { cemValidatorPlugin } from "@wc-toolkit/cem-validator";
+import { modulePathResolverPlugin } from "@wc-toolkit/module-path-resolver";
 
-
+// custom-elements-manifest.config.mjs
 export default {
-  /** Globs to analyze: Look for TS files in src */
-  globs: ['src/**/*.ts'],
-
-  /** Exclude test/stories to keep the output clean */
-  exclude: ['src/**/*.test.ts', 'src/**/*.stories.ts'],
-
-  /** Enable Lit specific analysis */
+  globs: ['src/components/**/*.ts'],
   litelement: true,
-
   plugins: [
     {
       name: 'readme',
@@ -24,7 +18,12 @@ export default {
         customElementsManifest.schemaVersion = '2.1.0';
       },
     },
+    modulePathResolverPlugin({
+      modulePathTemplate: () => './dist/wcds.js',
+      definitionPathTemplate: () => './dist/wcds.js',
+    }),
     cemValidatorPlugin({
       logErrors: true,
     }),
-  ],};
+  ],
+};

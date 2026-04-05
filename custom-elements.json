@@ -4,172 +4,7 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "src/constants.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "ICONS",
-          "type": {
-            "text": "[\n  'arrow-left',\n  'arrow-right',\n  'check',\n  'close',\n  'menu',\n  'search',\n  'location',\n]"
-          },
-          "default": "[ 'arrow-left', 'arrow-right', 'check', 'close', 'menu', 'search', 'location', ]"
-        },
-        {
-          "kind": "variable",
-          "name": "SIZE",
-          "type": {
-            "text": "['sm', 'md', 'lg']"
-          },
-          "default": "['sm', 'md', 'lg']"
-        },
-        {
-          "kind": "variable",
-          "name": "BUTTON_VARIANT",
-          "type": {
-            "text": "['solid', 'outlined', 'ghost']"
-          },
-          "default": "['solid', 'outlined', 'ghost']"
-        },
-        {
-          "kind": "variable",
-          "name": "COLOR_SCHEME",
-          "type": {
-            "text": "['primary', 'secondary', 'neutral']"
-          },
-          "default": "['primary', 'secondary', 'neutral']"
-        },
-        {
-          "kind": "variable",
-          "name": "BUTTON_TYPE",
-          "type": {
-            "text": "['button', 'submit', 'reset']"
-          },
-          "default": "['button', 'submit', 'reset']"
-        },
-        {
-          "kind": "variable",
-          "name": "CARD_VARIANT",
-          "type": {
-            "text": "['plain', 'outlined', 'elevated']"
-          },
-          "default": "['plain', 'outlined', 'elevated']"
-        },
-        {
-          "kind": "variable",
-          "name": "AVATAR_VARIANT",
-          "type": {
-            "text": "['circular', 'rounded', 'square']"
-          },
-          "default": "['circular', 'rounded', 'square']"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "ICONS",
-          "declaration": {
-            "name": "ICONS",
-            "module": "src/constants.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "SIZE",
-          "declaration": {
-            "name": "SIZE",
-            "module": "src/constants.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "BUTTON_VARIANT",
-          "declaration": {
-            "name": "BUTTON_VARIANT",
-            "module": "src/constants.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "COLOR_SCHEME",
-          "declaration": {
-            "name": "COLOR_SCHEME",
-            "module": "src/constants.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "BUTTON_TYPE",
-          "declaration": {
-            "name": "BUTTON_TYPE",
-            "module": "src/constants.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "CARD_VARIANT",
-          "declaration": {
-            "name": "CARD_VARIANT",
-            "module": "src/constants.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "AVATAR_VARIANT",
-          "declaration": {
-            "name": "AVATAR_VARIANT",
-            "module": "src/constants.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/index.ts",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "module": "src/components"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "module": "src/constants"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "module": "src/styles"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "module": "src/types"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/types.ts",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/avatar.ts",
+      "path": "./dist/wcds.js",
       "declarations": [
         {
           "kind": "class",
@@ -357,7 +192,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/badge.ts",
+      "path": "./dist/wcds.js",
       "declarations": [
         {
           "kind": "class",
@@ -443,7 +278,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/button.ts",
+      "path": "./dist/wcds.js",
       "declarations": [
         {
           "kind": "class",
@@ -717,7 +552,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/card.ts",
+      "path": "./dist/wcds.js",
       "declarations": [
         {
           "kind": "class",
@@ -790,7 +625,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/color.ts",
+      "path": "./dist/wcds.js",
       "declarations": [
         {
           "kind": "class",
@@ -859,7 +694,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/icon.ts",
+      "path": "./dist/wcds.js",
       "declarations": [
         {
           "kind": "class",
@@ -1002,7 +837,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/input.ts",
+      "path": "./dist/wcds.js",
       "declarations": [
         {
           "kind": "class",
@@ -1262,196 +1097,112 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/styles/base.ts",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "baseStyles",
-          "default": "css` :host { font-family: var( --wcds-font-family-sans, 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif ); font-weight: var(--wcds-font-weight-regular, 400); line-height: var(--wcds-font-line-height-normal, 1.5); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; } *, *::before, *::after { box-sizing: border-box; } `",
-          "description": "Base styles applied to all WCDS components.\nImport and spread into your component's `static styles` array."
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "baseStyles",
-          "declaration": {
-            "name": "baseStyles",
-            "module": "src/styles/base.ts"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/styles/index.ts",
+      "path": "./dist/wcds.js",
+      "deprecated": false,
       "declarations": [],
       "exports": [
         {
-          "kind": "js",
-          "name": "baseStyles",
+          "kind": "custom-element-definition",
+          "name": "wcds-avatar",
           "declaration": {
-            "name": "baseStyles",
-            "module": "./base"
+            "name": "WCDSAvatar",
+            "module": "./dist/wcds.js"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/utils/index.ts",
+      "path": "./dist/wcds.js",
+      "deprecated": false,
       "declarations": [],
       "exports": [
         {
-          "kind": "js",
-          "name": "*",
+          "kind": "custom-element-definition",
+          "name": "wcds-badge",
           "declaration": {
-            "name": "*",
-            "module": "src/utils/validators"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "*",
-          "declaration": {
-            "name": "*",
-            "module": "src/utils/randomators"
+            "name": "WCDSBadge",
+            "module": "./dist/wcds.js"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/utils/randomators.ts",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "getRandomComponentId",
-          "parameters": [
-            {
-              "name": "componentString",
-              "type": {
-                "text": "string"
-              }
-            }
-          ]
-        }
-      ],
+      "path": "./dist/wcds.js",
+      "deprecated": false,
+      "declarations": [],
       "exports": [
         {
-          "kind": "js",
-          "name": "getRandomComponentId",
+          "kind": "custom-element-definition",
+          "name": "wcds-button",
           "declaration": {
-            "name": "getRandomComponentId",
-            "module": "src/utils/randomators.ts"
+            "name": "WCDSButton",
+            "module": "./dist/wcds.js"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "src/utils/validators.ts",
-      "declarations": [
-        {
-          "kind": "function",
-          "name": "throwInvalidAttributeError",
-          "parameters": [
-            {
-              "name": "attribute",
-              "type": {
-                "text": "string"
-              }
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "throwCustomError",
-          "parameters": [
-            {
-              "name": "message",
-              "type": {
-                "text": "string"
-              }
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "isInvalidString",
-          "parameters": [
-            {
-              "name": "value",
-              "type": {
-                "text": "unknown"
-              }
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "isInvalidNumber",
-          "parameters": [
-            {
-              "name": "value",
-              "type": {
-                "text": "unknown"
-              }
-            }
-          ]
-        },
-        {
-          "kind": "function",
-          "name": "isInvalidBoolean",
-          "parameters": [
-            {
-              "name": "value",
-              "type": {
-                "text": "unknown"
-              }
-            }
-          ]
-        }
-      ],
+      "path": "./dist/wcds.js",
+      "deprecated": false,
+      "declarations": [],
       "exports": [
         {
-          "kind": "js",
-          "name": "throwInvalidAttributeError",
+          "kind": "custom-element-definition",
+          "name": "wcds-card",
           "declaration": {
-            "name": "throwInvalidAttributeError",
-            "module": "src/utils/validators.ts"
+            "name": "WCDSCard",
+            "module": "./dist/wcds.js"
           }
-        },
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "./dist/wcds.js",
+      "deprecated": false,
+      "declarations": [],
+      "exports": [
         {
-          "kind": "js",
-          "name": "throwCustomError",
+          "kind": "custom-element-definition",
+          "name": "wcds-color",
           "declaration": {
-            "name": "throwCustomError",
-            "module": "src/utils/validators.ts"
+            "name": "WCDSColor",
+            "module": "./dist/wcds.js"
           }
-        },
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "./dist/wcds.js",
+      "deprecated": false,
+      "declarations": [],
+      "exports": [
         {
-          "kind": "js",
-          "name": "isInvalidString",
+          "kind": "custom-element-definition",
+          "name": "wcds-icon",
           "declaration": {
-            "name": "isInvalidString",
-            "module": "src/utils/validators.ts"
+            "name": "WCDSIcon",
+            "module": "./dist/wcds.js"
           }
-        },
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "./dist/wcds.js",
+      "deprecated": false,
+      "declarations": [],
+      "exports": [
         {
-          "kind": "js",
-          "name": "isInvalidNumber",
+          "kind": "custom-element-definition",
+          "name": "wcds-input",
           "declaration": {
-            "name": "isInvalidNumber",
-            "module": "src/utils/validators.ts"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "isInvalidBoolean",
-          "declaration": {
-            "name": "isInvalidBoolean",
-            "module": "src/utils/validators.ts"
+            "name": "WCDSInput",
+            "module": "./dist/wcds.js"
           }
         }
       ]
