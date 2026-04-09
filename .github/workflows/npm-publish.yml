@@ -21,6 +21,11 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.19.0
+
       - name: Setup Node + pnpm
         uses: actions/setup-node@v4
         with:
@@ -29,7 +34,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: corepack enable && pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Verify tag matches package version
         run: |
