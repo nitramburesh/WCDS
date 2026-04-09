@@ -4,15 +4,43 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
-BUMP="${1:-patch}"
-YES_FLAG="${2:-}"
+BUMP="patch"
+YES_FLAG=""
+LOCAL_PUBLISH="false"
 
-if [[ "$BUMP" == "--yes" ]]; then
-  YES_FLAG="$BUMP"
-  BUMP="patch"
-fi
+for arg in "$@"; do
+  case "$arg" in
+    --yes)
+      YES_FLAG="--yes"
+      ;;
+    --local-publish)
+      LOCAL_PUBLISH="true"
+      ;;
+    patch|minor|major|prerelease|prepatch|preminor|premajor)
+      BUMP="$arg"
+      ;;
+    [0-9]*.[0-9]*.[0-9]*|[0-9]*.[0-9]*.[0-9]*-*)
+      BUMP="$arg"
+      ;;
+    *)
+      echo "❌ Unknown argument: $arg"
+      echo "   Usage: ./scripts/release-npm.sh [patch|minor|major|prerelease|prepatch|preminor|premajor|x.y.z] [--yes] [--local-publish]"
+      exit 1
+      ;;
+  esac
+done
 
 echo "📦 WCDS npm release pipeline"
+
+if ! command -v git >/dev/null 2>&1; then
+  echo "❌ git is required for release automation."
+  exit 1
+fi
+
+if [[ -n "$(git status --porcelain)" ]]; then
+  echo "❌ Working tree is not clean. Commit or stash changes before releasing."
+  exit 1
+fi
 
 echo "→ Pre-condition: checking token source files"
 if ! find src/tokens -type f -name '*.tokens.json' | grep -q .; then
@@ -40,9 +68,9 @@ fi
 
 echo "→ Step 6: version bump"
 if [[ "$BUMP" =~ ^(patch|minor|major|prerelease|prepatch|preminor|premajor)$ ]]; then
-  pnpm version "$BUMP" --no-git-tag-version
+  pnpm version "$BUMP"
 elif [[ "$BUMP" =~ ^[0-9]+\.[0-9]+\.[0-9]+([-.][0-9A-Za-z.-]+)?$ ]]; then
-  pnpm version "$BUMP" --no-git-tag-version
+  pnpm version "$BUMP"
 else
   echo "❌ Invalid version bump '$BUMP'."
   echo "   Use one of: patch | minor | major | prerelease | prepatch | preminor | premajor | x.y.z"
@@ -50,17 +78,27 @@ else
 fi
 
 NEW_VERSION="$(node -p "require('./package.json').version")"
-echo "✅ Version updated to $NEW_VERSION"
+echo "✅ Version updated to $NEW_VERSION (git commit + tag created)"
 
-echo "→ Step 7: publish to npm"
-if [[ "$YES_FLAG" != "--yes" ]]; then
-  read -r -p "Publish wcds@$NEW_VERSION to npm now? [y/N] " confirm
-  if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
-    echo "ℹ️ Publish cancelled."
-    exit 0
+if [[ "$LOCAL_PUBLISH" == "true" ]]; then
+  echo "→ Step 7: publish to npm (local mode)"
+  if [[ "$YES_FLAG" != "--yes" ]]; then
+    read -r -p "Publish wcds@$NEW_VERSION to npm now? [y/N] " confirm
+    if [[ ! "$confirm" =~ ^[Yy]$ ]]; then
+      echo "ℹ️ Publish cancelled."
+      exit 0
+    fi
   fi
+
+  pnpm publish
+
+  echo "→ Step 8: push release commit and tag"
+  git push --follow-tags
+
+  echo "🎉 Local publish completed for wcds@$NEW_VERSION"
+else
+  echo "→ Step 7: push release commit and tag (CI will publish)"
+  git push --follow-tags
+
+  echo "🎉 Release prepared for wcds@$NEW_VERSION (waiting for GitHub Actions publish job)"
 fi
-
-pnpm publish
-
-echo "🎉 Release completed for wcds@$NEW_VERSION"

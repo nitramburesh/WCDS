@@ -1,6 +1,6 @@
 {
   "name": "wcds",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Web component design system",
   "main": "./dist/wcds.js",
   "module": "./dist/wcds.js",
@@ -38,6 +38,7 @@
     "chromatic": "npx chromatic --force-rebuild",
     "prepack": "pnpm run build",
     "release:npm": "bash ./scripts/release-npm.sh",
+    "release:npm:local": "bash ./scripts/release-npm.sh --local-publish",
     "pack": "npm pack",
     "prepare": "pnpm generate-tokens && pnpm manifest"
   },
