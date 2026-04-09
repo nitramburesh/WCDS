@@ -16,6 +16,7 @@ export default defineConfig({
       entryRoot: 'src',
       outDir: 'dist',
       include: ['src/**/*.ts'],
+      exclude: ['src/**/*.test.ts', 'src/tests/**', 'src/**/*.stories.ts'],
       tsconfigPath: 'tsconfig.build.json',
       insertTypesEntry: true,
     }),
@@ -29,7 +30,7 @@ export default defineConfig({
     },
     rollupOptions: {
       // doesn't bundle LIT related things
-      external: ['lit'],
+      external: [/^lit(\/|$)/, /^@lit\//],
       output: {
         globals: {
           lit: 'lit',
@@ -40,6 +41,23 @@ export default defineConfig({
   },
   test: {
     projects: [
+      {
+        extends: true,
+        test: {
+          name: 'browser',
+          include: ['src/tests/**/*.test.ts'],
+          browser: {
+            enabled: true,
+            headless: true,
+            provider: 'playwright',
+            instances: [
+              {
+                browser: 'chromium',
+              },
+            ],
+          },
+        },
+      },
       {
         extends: true,
         plugins: [
