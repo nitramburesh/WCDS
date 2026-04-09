@@ -24,9 +24,9 @@ import './icon';
 @customElement('wcds-button')
 export class WCDSButton extends LitElement {
   @property({ type: String, reflect: true }) id: string = getRandomComponentId('button');
-  @property({ type: String, reflect: true }) size: Size = 'sm';
+  @property({ type: String, reflect: true }) size: Size = 'md';
   @property({ type: String, reflect: true }) variant: ButtonVariant = 'solid';
-  @property({ type: String, reflect: true, attribute: 'color-scheme' }) colorScheme: ColorScheme =
+  @property({ type: String, reflect: true, attribute: 'colorScheme' }) colorScheme: ColorScheme =
     'primary';
   @property({ type: String, reflect: true }) type: ButtonType = 'button';
   @property({ type: String }) iconLeft?: Icon;
@@ -81,92 +81,92 @@ export class WCDSButton extends LitElement {
       }
 
       /* Solid variant */
-      :host([variant='solid'][color-scheme='primary']),
-      :host([variant='solid']:not([color-scheme])),
-      :host(:not([variant])[color-scheme='primary']),
-      :host(:not([variant]):not([color-scheme])) {
+      :host([variant='solid'][colorScheme='primary']),
+      :host([variant='solid']:not([colorScheme])),
+      :host(:not([variant])[colorScheme='primary']),
+      :host(:not([variant]):not([colorScheme])) {
         --wcds-button-bg-color: var(--wcds-button-solid-primary-bg);
         --wcds-button-fg-color: var(--wcds-button-solid-primary-fg);
         --wcds-button-border-color: var(--wcds-button-solid-primary-border);
       }
 
-      :host([variant='solid'][color-scheme='secondary']),
-      :host(:not([variant])[color-scheme='secondary']) {
+      :host([variant='solid'][colorScheme='secondary']),
+      :host(:not([variant])[colorScheme='secondary']) {
         --wcds-button-bg-color: var(--wcds-button-solid-secondary-bg);
         --wcds-button-fg-color: var(--wcds-button-solid-secondary-fg);
         --wcds-button-border-color: var(--wcds-button-solid-secondary-border);
       }
 
-      :host([variant='solid'][color-scheme='neutral']),
-      :host(:not([variant])[color-scheme='neutral']) {
+      :host([variant='solid'][colorScheme='neutral']),
+      :host(:not([variant])[colorScheme='neutral']) {
         --wcds-button-bg-color: var(--wcds-button-solid-neutral-bg);
         --wcds-button-fg-color: var(--wcds-button-solid-neutral-fg);
         --wcds-button-border-color: var(--wcds-button-solid-neutral-border);
       }
 
       /* Outlined variant */
-      :host([variant='outlined'][color-scheme='primary']),
-      :host([variant='outlined']:not([color-scheme])) {
+      :host([variant='outlined'][colorScheme='primary']),
+      :host([variant='outlined']:not([colorScheme])) {
         --wcds-button-bg-color: var(--wcds-button-outlined-primary-bg);
         --wcds-button-fg-color: var(--wcds-button-outlined-primary-fg);
         --wcds-button-border-color: var(--wcds-button-outlined-primary-border);
       }
 
-      :host([variant='outlined'][color-scheme='primary']) button:not([disabled]):hover,
-      :host([variant='outlined']:not([color-scheme])) button:not([disabled]):hover {
+      :host([variant='outlined'][colorScheme='primary']) button:not([disabled]):hover,
+      :host([variant='outlined']:not([colorScheme])) button:not([disabled]):hover {
         background-color: var(--wcds-button-outlined-primary-bg-hover);
       }
 
-      :host([variant='outlined'][color-scheme='secondary']) {
+      :host([variant='outlined'][colorScheme='secondary']) {
         --wcds-button-bg-color: var(--wcds-button-outlined-secondary-bg);
         --wcds-button-fg-color: var(--wcds-button-outlined-secondary-fg);
         --wcds-button-border-color: var(--wcds-button-outlined-secondary-border);
       }
 
-      :host([variant='outlined'][color-scheme='secondary']) button:not([disabled]):hover {
+      :host([variant='outlined'][colorScheme='secondary']) button:not([disabled]):hover {
         background-color: var(--wcds-button-outlined-secondary-bg-hover);
       }
 
-      :host([variant='outlined'][color-scheme='neutral']) {
+      :host([variant='outlined'][colorScheme='neutral']) {
         --wcds-button-bg-color: var(--wcds-button-outlined-neutral-bg);
         --wcds-button-fg-color: var(--wcds-button-outlined-neutral-fg);
         --wcds-button-border-color: var(--wcds-button-outlined-neutral-border);
       }
 
-      :host([variant='outlined'][color-scheme='neutral']) button:not([disabled]):hover {
+      :host([variant='outlined'][colorScheme='neutral']) button:not([disabled]):hover {
         background-color: var(--wcds-button-outlined-neutral-bg-hover);
       }
 
       /* Ghost variant */
-      :host([variant='ghost'][color-scheme='primary']),
-      :host([variant='ghost']:not([color-scheme])) {
+      :host([variant='ghost'][colorScheme='primary']),
+      :host([variant='ghost']:not([colorScheme])) {
         --wcds-button-bg-color: var(--wcds-button-ghost-primary-bg);
         --wcds-button-fg-color: var(--wcds-button-ghost-primary-fg);
         --wcds-button-border-color: var(--wcds-button-ghost-primary-border);
       }
 
-      :host([variant='ghost'][color-scheme='primary']) button:not([disabled]):hover,
-      :host([variant='ghost']:not([color-scheme])) button:not([disabled]):hover {
+      :host([variant='ghost'][colorScheme='primary']) button:not([disabled]):hover,
+      :host([variant='ghost']:not([colorScheme])) button:not([disabled]):hover {
         background-color: var(--wcds-button-ghost-primary-bg-hover);
       }
 
-      :host([variant='ghost'][color-scheme='secondary']) {
+      :host([variant='ghost'][colorScheme='secondary']) {
         --wcds-button-bg-color: var(--wcds-button-ghost-secondary-bg);
         --wcds-button-fg-color: var(--wcds-button-ghost-secondary-fg);
         --wcds-button-border-color: var(--wcds-button-ghost-secondary-border);
       }
 
-      :host([variant='ghost'][color-scheme='secondary']) button:not([disabled]):hover {
+      :host([variant='ghost'][colorScheme='secondary']) button:not([disabled]):hover {
         background-color: var(--wcds-button-ghost-secondary-bg-hover);
       }
 
-      :host([variant='ghost'][color-scheme='neutral']) {
+      :host([variant='ghost'][colorScheme='neutral']) {
         --wcds-button-bg-color: var(--wcds-button-ghost-neutral-bg);
         --wcds-button-fg-color: var(--wcds-button-ghost-neutral-fg);
         --wcds-button-border-color: var(--wcds-button-ghost-neutral-border);
       }
 
-      :host([variant='ghost'][color-scheme='neutral']) button:not([disabled]):hover {
+      :host([variant='ghost'][colorScheme='neutral']) button:not([disabled]):hover {
         background-color: var(--wcds-button-ghost-neutral-bg-hover);
       }
 
@@ -221,4 +221,3 @@ declare global {
 }
 
 export type { ButtonType, ButtonVariant, ColorScheme, Icon, Size } from '../types';
-

@@ -22,14 +22,14 @@
     },
     "solid": {
       "primary": {
-        "bg": { "$value": "{color.primary.600}", "$type": "color" },
+        "bg": { "$value": "{color.primary.800}", "$type": "color" },
         "fg": { "$value": "{color.neutral.100}", "$type": "color" },
-        "border": { "$value": "{color.primary.600}", "$type": "color" }
+        "border": { "$value": "{color.primary.800}", "$type": "color" }
       },
       "secondary": {
-        "bg": { "$value": "{color.secondary.600}", "$type": "color" },
+        "bg": { "$value": "{color.secondary.900}", "$type": "color" },
         "fg": { "$value": "{color.neutral.100}", "$type": "color" },
-        "border": { "$value": "{color.secondary.600}", "$type": "color" }
+        "border": { "$value": "{color.secondary.900}", "$type": "color" }
       },
       "neutral": {
         "bg": { "$value": "{color.neutral.700}", "$type": "color" },
@@ -40,14 +40,14 @@
     "outlined": {
       "primary": {
         "bg": { "$value": "{color.transparent}", "$type": "color" },
-        "fg": { "$value": "{color.primary.600}", "$type": "color" },
-        "border": { "$value": "{color.primary.600}", "$type": "color" },
+        "fg": { "$value": "{color.primary.800}", "$type": "color" },
+        "border": { "$value": "{color.primary.800}", "$type": "color" },
         "bgHover": { "$value": "{color.primary.100}", "$type": "color" }
       },
       "secondary": {
         "bg": { "$value": "{color.transparent}", "$type": "color" },
-        "fg": { "$value": "{color.secondary.600}", "$type": "color" },
-        "border": { "$value": "{color.secondary.600}", "$type": "color" },
+        "fg": { "$value": "{color.secondary.900}", "$type": "color" },
+        "border": { "$value": "{color.secondary.900}", "$type": "color" },
         "bgHover": { "$value": "{color.secondary.100}", "$type": "color" }
       },
       "neutral": {
@@ -60,13 +60,13 @@
     "ghost": {
       "primary": {
         "bg": { "$value": "{color.transparent}", "$type": "color" },
-        "fg": { "$value": "{color.primary.600}", "$type": "color" },
+        "fg": { "$value": "{color.primary.800}", "$type": "color" },
         "border": { "$value": "{color.transparent}", "$type": "color" },
         "bgHover": { "$value": "{color.primary.100}", "$type": "color" }
       },
       "secondary": {
         "bg": { "$value": "{color.transparent}", "$type": "color" },
-        "fg": { "$value": "{color.secondary.600}", "$type": "color" },
+        "fg": { "$value": "{color.secondary.900}", "$type": "color" },
         "border": { "$value": "{color.transparent}", "$type": "color" },
         "bgHover": { "$value": "{color.secondary.100}", "$type": "color" }
       },

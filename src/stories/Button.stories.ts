@@ -41,7 +41,7 @@ export const Playground: Story = {
       control: { type: 'select' },
       options: BUTTON_VARIANT,
     },
-    'color-scheme': {
+    colorScheme: {
       control: { type: 'select' },
       options: COLOR_SCHEME,
     },

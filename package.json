@@ -29,7 +29,7 @@
     "build": "pnpm prepare && vite build",
     "preview": "vite preview",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --auto-accept-changes --force-rebuild",
+    "chromatic": "npx chromatic --force-rebuild",
     "prepack": "pnpm run build",
     "pack": "npm pack",
     "prepare": "pnpm generate-tokens && pnpm manifest"

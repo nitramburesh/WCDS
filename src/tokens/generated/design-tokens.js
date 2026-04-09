@@ -81,14 +81,14 @@ export default {
     },
     solid: {
       primary: {
-        bg: "oklch(58% 0.26 350)",
+        bg: "oklch(42% 0.18 350)",
         fg: "oklch(96.001% 0.00625 255.48)",
-        border: "oklch(58% 0.26 350)",
+        border: "oklch(42% 0.18 350)",
       },
       secondary: {
-        bg: "oklch(73.476% 0.12024 189.36)",
+        bg: "oklch(42.795% 0.068 189.35)",
         fg: "oklch(96.001% 0.00625 255.48)",
-        border: "oklch(73.476% 0.12024 189.36)",
+        border: "oklch(42.795% 0.068 189.35)",
       },
       neutral: {
         bg: "oklch(44.298% 0.05509 259.35)",
@@ -99,14 +99,14 @@ export default {
     outlined: {
       primary: {
         bg: "#00000000",
-        fg: "oklch(58% 0.26 350)",
-        border: "oklch(58% 0.26 350)",
+        fg: "oklch(42% 0.18 350)",
+        border: "oklch(42% 0.18 350)",
         bgHover: "oklch(95% 0.04 350)",
       },
       secondary: {
         bg: "#00000000",
-        fg: "oklch(73.476% 0.12024 189.36)",
-        border: "oklch(73.476% 0.12024 189.36)",
+        fg: "oklch(42.795% 0.068 189.35)",
+        border: "oklch(42.795% 0.068 189.35)",
         bgHover: "oklch(92.667% 0.05011 193.23)",
       },
       neutral: {
@@ -119,13 +119,13 @@ export default {
     ghost: {
       primary: {
         bg: "#00000000",
-        fg: "oklch(58% 0.26 350)",
+        fg: "oklch(42% 0.18 350)",
         border: "#00000000",
         bgHover: "oklch(95% 0.04 350)",
       },
       secondary: {
         bg: "#00000000",
-        fg: "oklch(73.476% 0.12024 189.36)",
+        fg: "oklch(42.795% 0.068 189.35)",
         border: "#00000000",
         bgHover: "oklch(92.667% 0.05011 193.23)",
       },

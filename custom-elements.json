@@ -336,7 +336,7 @@
               "type": {
                 "text": "Size"
               },
-              "default": "'sm'",
+              "default": "'md'",
               "attribute": "size",
               "reflects": true
             },
@@ -357,7 +357,7 @@
                 "text": "ColorScheme"
               },
               "default": "'primary'",
-              "attribute": "color-scheme",
+              "attribute": "colorScheme",
               "reflects": true
             },
             {
@@ -432,7 +432,7 @@
               "type": {
                 "text": "Size"
               },
-              "default": "'sm'",
+              "default": "'md'",
               "fieldName": "size"
             },
             {
@@ -444,7 +444,7 @@
               "fieldName": "variant"
             },
             {
-              "name": "color-scheme",
+              "name": "colorScheme",
               "type": {
                 "text": "ColorScheme"
               },

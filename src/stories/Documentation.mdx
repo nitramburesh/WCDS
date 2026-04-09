@@ -34,57 +34,93 @@ A framework-agnostic design system built with Web Components. Use it with React,
   </thead>
   <tbody>
     <tr>
-      <td><strong>Components</strong></td>
-      <td><a href="https://lit.dev">Lit</a></td>
+      <td>
+        <strong>Components</strong>
+      </td>
+      <td>
+        <a href="https://lit.dev">Lit</a>
+      </td>
       <td>Lightweight, fast, standards-based Web Components</td>
     </tr>
     <tr>
-      <td><strong>Styling</strong></td>
+      <td>
+        <strong>Styling</strong>
+      </td>
       <td>CSS-in-JS via Lit</td>
       <td>Scoped styles with Shadow DOM, no leaking</td>
     </tr>
     <tr>
-      <td><strong>Design Tokens</strong></td>
-      <td><a href="https://amzn.github.io/style-dictionary">Style Dictionary</a></td>
+      <td>
+        <strong>Design Tokens</strong>
+      </td>
+      <td>
+        <a href="https://amzn.github.io/style-dictionary">Style Dictionary</a>
+      </td>
       <td>Transforms tokens → CSS, JS, TypeScript</td>
     </tr>
     <tr>
-      <td><strong>Colors</strong></td>
+      <td>
+        <strong>Colors</strong>
+      </td>
       <td>OKLCH color space</td>
       <td>Perceptually uniform, vibrant, modern</td>
     </tr>
     <tr>
-      <td><strong>Typography</strong></td>
-      <td><a href="https://fonts.google.com/specimen/Plus+Jakarta+Sans">Plus Jakarta Sans</a></td>
+      <td>
+        <strong>Typography</strong>
+      </td>
+      <td>
+        <a href="https://fonts.google.com/specimen/Plus+Jakarta+Sans">Plus Jakarta Sans</a>
+      </td>
       <td>Modern geometric sans-serif</td>
     </tr>
     <tr>
-      <td><strong>Documentation</strong></td>
-      <td><a href="https://storybook.js.org">Storybook</a></td>
+      <td>
+        <strong>Documentation</strong>
+      </td>
+      <td>
+        <a href="https://storybook.js.org">Storybook</a>
+      </td>
       <td>Interactive component playground + autodocs from CEM</td>
     </tr>
     <tr>
-      <td><strong>Build</strong></td>
-      <td><a href="https://vite.dev">Vite</a></td>
+      <td>
+        <strong>Build</strong>
+      </td>
+      <td>
+        <a href="https://vite.dev">Vite</a>
+      </td>
       <td>Fast builds, native ES modules, library mode</td>
     </tr>
     <tr>
-      <td><strong>API manifest</strong></td>
-      <td><a href="https://custom-elements-manifest.open-wc.org">Custom Elements Manifest (CEM)</a></td>
+      <td>
+        <strong>API manifest</strong>
+      </td>
+      <td>
+        <a href="https://custom-elements-manifest.open-wc.org">Custom Elements Manifest (CEM)</a>
+      </td>
       <td>Machine-readable component API for docs, IDE, and tooling</td>
     </tr>
     <tr>
-      <td><strong>Testing</strong></td>
+      <td>
+        <strong>Testing</strong>
+      </td>
       <td>Vitest + Playwright + Storybook addon-vitest</td>
       <td>Browser-based tests from Storybook stories</td>
     </tr>
     <tr>
-      <td><strong>Visual regression</strong></td>
-      <td><a href="https://www.chromatic.com">Chromatic</a></td>
+      <td>
+        <strong>Visual regression</strong>
+      </td>
+      <td>
+        <a href="https://www.chromatic.com">Chromatic</a>
+      </td>
       <td>UI snapshot and review in CI</td>
     </tr>
     <tr>
-      <td><strong>Accessibility</strong></td>
+      <td>
+        <strong>Accessibility</strong>
+      </td>
       <td>Storybook addon-a11y</td>
       <td>Accessibility checks in docs</td>
     </tr>
@@ -171,45 +207,81 @@ All components are custom elements with a `wcds-` prefix, use Shadow DOM, and ex
   </thead>
   <tbody>
     <tr>
-      <td><strong>wcds-button</strong></td>
+      <td>
+        <strong>wcds-button</strong>
+      </td>
       <td>Button with icons and variants</td>
-      <td><code>size</code>, <code>variant</code> (solid/outlined/ghost), <code>color-scheme</code>, <code>type</code>, <code>icon-left</code>, <code>icon-right</code>, <code>disabled</code></td>
-      <td>Slot: default. Event: <code>click</code></td>
+      <td>
+        <code>size</code>, <code>variant</code> (solid/outlined/ghost), <code>color-scheme</code>,{' '}
+        <code>type</code>, <code>icon-left</code>, <code>icon-right</code>, <code>disabled</code>
+      </td>
+      <td>
+        Slot: default. Event: <code>click</code>
+      </td>
     </tr>
     <tr>
-      <td><strong>wcds-input</strong></td>
+      <td>
+        <strong>wcds-input</strong>
+      </td>
       <td>Text input with label, icon, error</td>
-      <td><code>value</code>, <code>size</code>, <code>label</code>, <code>placeholder</code>, <code>icon</code>, <code>disabled</code>, <code>error</code></td>
-      <td>Events: <code>input</code> (detail.value), <code>change</code>, <code>clear-error</code></td>
+      <td>
+        <code>value</code>, <code>size</code>, <code>label</code>, <code>placeholder</code>,{' '}
+        <code>icon</code>, <code>disabled</code>, <code>error</code>
+      </td>
+      <td>
+        Events: <code>input</code> (detail.value), <code>change</code>, <code>clear-error</code>
+      </td>
     </tr>
     <tr>
-      <td><strong>wcds-icon</strong></td>
+      <td>
+        <strong>wcds-icon</strong>
+      </td>
       <td>Inline icon from fixed set</td>
-      <td><code>icon</code> (arrow-left, arrow-right, check, close, menu, search, location), <code>size</code></td>
+      <td>
+        <code>icon</code> (arrow-left, arrow-right, check, close, menu, search, location),{' '}
+        <code>size</code>
+      </td>
       <td>—</td>
     </tr>
     <tr>
-      <td><strong>wcds-card</strong></td>
+      <td>
+        <strong>wcds-card</strong>
+      </td>
       <td>Container with header/body/footer</td>
       <td>—</td>
-      <td>Slots: <code>header</code>, default, <code>footer</code></td>
+      <td>
+        Slots: <code>header</code>, default, <code>footer</code>
+      </td>
     </tr>
     <tr>
-      <td><strong>wcds-badge</strong></td>
+      <td>
+        <strong>wcds-badge</strong>
+      </td>
       <td>Small status badge</td>
-      <td><code>variant</code> (info/success/warning/error)</td>
+      <td>
+        <code>variant</code> (info/success/warning/error)
+      </td>
       <td>Slot: default</td>
     </tr>
     <tr>
-      <td><strong>wcds-avatar</strong></td>
+      <td>
+        <strong>wcds-avatar</strong>
+      </td>
       <td>Image or initials, shape variants</td>
-      <td><code>src</code>, <code>alt</code>, <code>name</code>, <code>variant</code> (circular/rounded/square), <code>size</code></td>
+      <td>
+        <code>src</code>, <code>alt</code>, <code>name</code>, <code>variant</code>{' '}
+        (circular/rounded/square), <code>size</code>
+      </td>
       <td>Slot: default (overrides initials)</td>
     </tr>
     <tr>
-      <td><strong>wcds-color</strong></td>
+      <td>
+        <strong>wcds-color</strong>
+      </td>
       <td>Token swatch for docs</td>
-      <td><code>color</code>, <code>name</code></td>
+      <td>
+        <code>color</code>, <code>name</code>
+      </td>
       <td>—</td>
     </tr>
   </tbody>
@@ -254,16 +326,19 @@ Lit is a **peer dependency** (`^3.3.1`); ensure it is installed in the host app 
 
 ```js
 // Import components and styles
-import 'wcds'
-import 'wcds/style'
+import 'wcds';
+import 'wcds/style';
 ```
 
 **Font (recommended).** Option A — Google Fonts:
 
 ```html
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+/>
 ```
 
 Option B — Self-hosted (e.g. Fontsource):
@@ -273,7 +348,7 @@ npm install @fontsource-variable/plus-jakarta-sans
 ```
 
 ```js
-import '@fontsource-variable/plus-jakarta-sans'
+import '@fontsource-variable/plus-jakarta-sans';
 ```
 
 If the font is not loaded, components fall back to `system-ui` and generic sans-serif via `baseStyles`.
@@ -290,9 +365,7 @@ If the font is not loaded, components fall back to `system-ui` and generic sans-
   <span slot="header">Title</span>
   Card body
   <span slot="footer">
-    <wcds-button>
-      Action
-    </wcds-button>
+    <wcds-button> Action </wcds-button>
   </span>
 </wcds-card>
 <wcds-avatar name="John Doe" />
