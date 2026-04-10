@@ -1,5 +1,5 @@
 {
-  "name": "wcds",
+  "name": "@nitramburesh/wcds",
   "version": "0.3.8",
   "description": "Web component design system",
   "main": "./dist/wcds.js",
