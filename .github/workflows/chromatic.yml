@@ -1,7 +1,11 @@
 name: 'Chromatic'
 
-# 👇🏽 Reaguje na každý push do repozitáře
-on: push
+# 👇🏽 Reakce pouze na tagy, které začínají 'v' následované verzí, např. 'v1.0.0'
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
 
 jobs:
   chromatic:
