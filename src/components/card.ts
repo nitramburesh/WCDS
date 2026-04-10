@@ -1,6 +1,6 @@
 /** @format */
 
-import { LitElement, html, css } from 'lit';
+import { LitElement, css, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import '../../src/tokens/generated/design-tokens.css';
 import { baseStyles } from '../styles/base';
@@ -22,7 +22,14 @@ export class WCDSCard extends LitElement {
   static styles = [
     baseStyles,
     css`
-      :host {
+      :host{
+        --wcds-card-padding: var(--wcds-card-padding-default);
+        --wcds-card-radius: var(--wcds-card-border-radius-default);
+        --wcds-card-bg-color: var(--wcds-card-background-color-default);
+        --wcds-card-border-color: var(--wcds-card-border-color-default);
+        --wcds-card-shadow: var(--wcds-card-shadow-plain);
+      }
+      .wcds-card {
         display: block;
         box-sizing: border-box;
         transition: box-shadow 0.3s ease-in-out;
@@ -30,18 +37,11 @@ export class WCDSCard extends LitElement {
         align-items: center;
         gap: var(--wcds-spacing-lg);
         padding: var(--wcds-card-padding);
-        box-sizing: border-box;
         background-color: var(--wcds-card-bg-color);
         border: 1px solid var(--wcds-card-border-color);
         border-radius: var(--wcds-card-radius);
         box-shadow: var(--wcds-card-shadow);
         min-height: 64px;
-
-        --wcds-card-padding: var(--wcds-card-padding-default);
-        --wcds-card-radius: var(--wcds-card-border-radius-default);
-        --wcds-card-bg-color: var(--wcds-card-background-color-default);
-        --wcds-card-border-color: var(--wcds-card-border-color-default);
-        --wcds-card-shadow: var(--wcds-card-shadow-plain);
       }
 
       slot[name='header'],
@@ -58,9 +58,11 @@ export class WCDSCard extends LitElement {
 
   render() {
     return html`
+    <div class="wcds-card">
       <slot name="header"></slot>
       <slot></slot>
       <slot name="footer"></slot>
+    </div>
     `;
   }
 }
