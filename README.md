@@ -5,9 +5,9 @@ A design system built with Lit web components.
 ## Installation
 
 ```bash
-npm install wcds
+npm install @nitramburesh/wcds
 # or
-pnpm add wcds
+pnpm add @nitramburesh/wcds
 ```
 
 ## Setup
@@ -15,8 +15,8 @@ pnpm add wcds
 ### 1. Import the library
 
 ```js
-import 'wcds';
-import 'wcds/style';
+import '@nitramburesh/wcds';
+import '@nitramburesh/wcds/style';
 ```
 
 ### 2. Add the Plus Jakarta Sans font (recommended)
@@ -51,7 +51,6 @@ import '@fontsource-variable/plus-jakarta-sans';
 ```html
 <wcds-button variant="primary">Click me</wcds-button>
 <wcds-input placeholder="Enter text..."></wcds-input>
-<wcds-badge variant="success">Active</wcds-badge>
 ```
 
 ## Development
