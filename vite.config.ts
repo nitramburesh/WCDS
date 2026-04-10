@@ -29,7 +29,6 @@ export default defineConfig({
       fileName: 'wcds',
     },
     rollupOptions: {
-      // doesn't bundle LIT related things
       external: [/^lit(\/|$)/, /^@lit\//],
       output: {
         globals: {
