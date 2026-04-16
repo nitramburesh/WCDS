@@ -12,9 +12,9 @@ import './icon';
 /**
  * @tagname wcds-input
  * @summary A customizable input component with label, icons, validation, and error display.
- * @fires input - Emitted on input with { value }.
- * @fires change - Emitted on blur with { value }.
- * @fires clear-error - Emitted when the user starts typing to clear existing errors.
+ * @fires wcds-input - Emitted on input with { value }.
+ * @fires wcds-change - Emitted on blur with { value }.
+ * @fires wcds-clear-error - Emitted when the user starts typing to clear existing errors.
  * @cssproperty --wcds-input-padding - Padding inside the input field.
  * @cssproperty --wcds-input-border-radius - Border radius of the input field.
  * @cssproperty --wcds-input-border-color-default - Border color of the input field.
@@ -58,19 +58,19 @@ export class WCDSInput extends LitElement {
     this.value = target.value;
 
     this.dispatchEvent(
-      new CustomEvent('input', {
+      new CustomEvent('wcds-input', {
         detail: { value: this.value },
         bubbles: true,
         composed: true,
       })
     );
 
-    if (this.error) this.dispatchEvent(new CustomEvent('clear-error'));
+    if (this.error) this.dispatchEvent(new CustomEvent('wcds-clear-error'));
   }
 
   private _onChange() {
     this.dispatchEvent(
-      new CustomEvent('change', {
+      new CustomEvent('wcds-change', {
         detail: { value: this.value },
         bubbles: true,
         composed: true,
@@ -229,5 +229,3 @@ declare global {
 }
 
 export type { Icon, Size } from '../types';
-
-
