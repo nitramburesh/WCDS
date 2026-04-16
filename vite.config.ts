@@ -23,10 +23,19 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
+      entry: {
+        wcds: path.resolve(__dirname, 'src/index.ts'),
+        button: path.resolve(__dirname, 'src/components/button.ts'),
+        input: path.resolve(__dirname, 'src/components/input.ts'),
+        icon: path.resolve(__dirname, 'src/components/icon.ts'),
+        card: path.resolve(__dirname, 'src/components/card.ts'),
+        badge: path.resolve(__dirname, 'src/components/badge.ts'),
+        avatar: path.resolve(__dirname, 'src/components/avatar.ts'),
+        color: path.resolve(__dirname, 'src/components/color.ts'),
+      },
       name: 'wcds',
       formats: ['es'],
-      fileName: 'wcds',
+      fileName: (_format, entryName) => `${entryName}.js`,
     },
     rollupOptions: {
       external: [/^lit(\/|$)/, /^@lit\//],

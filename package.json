@@ -12,6 +12,34 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/wcds.js"
     },
+    "./button": {
+      "types": "./dist/components/button.d.ts",
+      "import": "./dist/button.js"
+    },
+    "./input": {
+      "types": "./dist/components/input.d.ts",
+      "import": "./dist/input.js"
+    },
+    "./icon": {
+      "types": "./dist/components/icon.d.ts",
+      "import": "./dist/icon.js"
+    },
+    "./card": {
+      "types": "./dist/components/card.d.ts",
+      "import": "./dist/card.js"
+    },
+    "./badge": {
+      "types": "./dist/components/badge.d.ts",
+      "import": "./dist/badge.js"
+    },
+    "./avatar": {
+      "types": "./dist/components/avatar.d.ts",
+      "import": "./dist/avatar.js"
+    },
+    "./color": {
+      "types": "./dist/components/color.d.ts",
+      "import": "./dist/color.js"
+    },
     "./style": "./dist/wcds.css",
     "./package.json": "./package.json",
     "./custom-elements.json": "./custom-elements.json"

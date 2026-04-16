@@ -4,7 +4,7 @@
   "modules": [
     {
       "kind": "javascript-module",
-      "path": "./dist/wcds.js",
+      "path": "./dist/avatar.js",
       "declarations": [
         {
           "kind": "class",
@@ -188,11 +188,12 @@
             "module": "../types"
           }
         }
-      ]
+      ],
+      "typeDefinitionPath": "./dist/components/avatar.d.ts"
     },
     {
       "kind": "javascript-module",
-      "path": "./dist/wcds.js",
+      "path": "./dist/badge.js",
       "declarations": [
         {
           "kind": "class",
@@ -274,11 +275,12 @@
             "module": "src/components/badge.ts"
           }
         }
-      ]
+      ],
+      "typeDefinitionPath": "./dist/components/badge.d.ts"
     },
     {
       "kind": "javascript-module",
-      "path": "./dist/wcds.js",
+      "path": "./dist/button.js",
       "declarations": [
         {
           "kind": "class",
@@ -548,11 +550,12 @@
             "module": "../types"
           }
         }
-      ]
+      ],
+      "typeDefinitionPath": "./dist/components/button.d.ts"
     },
     {
       "kind": "javascript-module",
-      "path": "./dist/wcds.js",
+      "path": "./dist/card.js",
       "declarations": [
         {
           "kind": "class",
@@ -621,11 +624,12 @@
             "module": "src/components/card.ts"
           }
         }
-      ]
+      ],
+      "typeDefinitionPath": "./dist/components/card.d.ts"
     },
     {
       "kind": "javascript-module",
-      "path": "./dist/wcds.js",
+      "path": "./dist/color.js",
       "declarations": [
         {
           "kind": "class",
@@ -690,11 +694,12 @@
             "module": "src/components/color.ts"
           }
         }
-      ]
+      ],
+      "typeDefinitionPath": "./dist/components/color.d.ts"
     },
     {
       "kind": "javascript-module",
-      "path": "./dist/wcds.js",
+      "path": "./dist/icon.js",
       "declarations": [
         {
           "kind": "class",
@@ -778,7 +783,8 @@
             "module": "../types"
           }
         }
-      ]
+      ],
+      "typeDefinitionPath": "./dist/components/icon.d.ts"
     },
     {
       "kind": "javascript-module",
@@ -837,7 +843,7 @@
     },
     {
       "kind": "javascript-module",
-      "path": "./dist/wcds.js",
+      "path": "./dist/input.js",
       "declarations": [
         {
           "kind": "class",
@@ -1093,11 +1099,12 @@
             "module": "../types"
           }
         }
-      ]
+      ],
+      "typeDefinitionPath": "./dist/components/input.d.ts"
     },
     {
       "kind": "javascript-module",
-      "path": "./dist/wcds.js",
+      "path": "./dist/avatar.js",
       "deprecated": false,
       "declarations": [],
       "exports": [
@@ -1106,14 +1113,14 @@
           "name": "wcds-avatar",
           "declaration": {
             "name": "WCDSAvatar",
-            "module": "./dist/wcds.js"
+            "module": "./dist/avatar.js"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "./dist/wcds.js",
+      "path": "./dist/badge.js",
       "deprecated": false,
       "declarations": [],
       "exports": [
@@ -1122,14 +1129,14 @@
           "name": "wcds-badge",
           "declaration": {
             "name": "WCDSBadge",
-            "module": "./dist/wcds.js"
+            "module": "./dist/badge.js"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "./dist/wcds.js",
+      "path": "./dist/button.js",
       "deprecated": false,
       "declarations": [],
       "exports": [
@@ -1138,14 +1145,14 @@
           "name": "wcds-button",
           "declaration": {
             "name": "WCDSButton",
-            "module": "./dist/wcds.js"
+            "module": "./dist/button.js"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "./dist/wcds.js",
+      "path": "./dist/card.js",
       "deprecated": false,
       "declarations": [],
       "exports": [
@@ -1154,14 +1161,14 @@
           "name": "wcds-card",
           "declaration": {
             "name": "WCDSCard",
-            "module": "./dist/wcds.js"
+            "module": "./dist/card.js"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "./dist/wcds.js",
+      "path": "./dist/color.js",
       "deprecated": false,
       "declarations": [],
       "exports": [
@@ -1170,14 +1177,14 @@
           "name": "wcds-color",
           "declaration": {
             "name": "WCDSColor",
-            "module": "./dist/wcds.js"
+            "module": "./dist/color.js"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "./dist/wcds.js",
+      "path": "./dist/icon.js",
       "deprecated": false,
       "declarations": [],
       "exports": [
@@ -1186,14 +1193,14 @@
           "name": "wcds-icon",
           "declaration": {
             "name": "WCDSIcon",
-            "module": "./dist/wcds.js"
+            "module": "./dist/icon.js"
           }
         }
       ]
     },
     {
       "kind": "javascript-module",
-      "path": "./dist/wcds.js",
+      "path": "./dist/input.js",
       "deprecated": false,
       "declarations": [],
       "exports": [
@@ -1202,7 +1209,7 @@
           "name": "wcds-input",
           "declaration": {
             "name": "WCDSInput",
-            "module": "./dist/wcds.js"
+            "module": "./dist/input.js"
           }
         }
       ]
