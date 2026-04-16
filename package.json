@@ -1,6 +1,6 @@
 {
   "name": "@nitramburesh/wcds",
-  "version": "0.3.16",
+  "version": "0.3.17",
   "description": "Web component design system",
   "main": "./dist/wcds.js",
   "module": "./dist/wcds.js",
