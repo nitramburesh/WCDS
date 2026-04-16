@@ -12,8 +12,8 @@ import './icon';
 /**
  * @tagname wcds-input
  * @summary A customizable input component with label, icons, validation, and error display.
- * @fires wcds-input - Emitted on input with { value }.
- * @fires wcds-change - Emitted on blur with { value }.
+ * @fires wcds-on-input - Emitted on input with { value }.
+ * @fires wcds-on-change - Emitted on blur with { value }.
  * @fires wcds-clear-error - Emitted when the user starts typing to clear existing errors.
  * @cssproperty --wcds-input-padding - Padding inside the input field.
  * @cssproperty --wcds-input-border-radius - Border radius of the input field.
@@ -58,7 +58,7 @@ export class WCDSInput extends LitElement {
     this.value = target.value;
 
     this.dispatchEvent(
-      new CustomEvent('wcds-input', {
+      new CustomEvent('wcds-on-input', {
         detail: { value: this.value },
         bubbles: true,
         composed: true,
@@ -70,7 +70,7 @@ export class WCDSInput extends LitElement {
 
   private _onChange() {
     this.dispatchEvent(
-      new CustomEvent('wcds-change', {
+      new CustomEvent('wcds-on-change', {
         detail: { value: this.value },
         bubbles: true,
         composed: true,

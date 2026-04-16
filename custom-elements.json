@@ -414,7 +414,7 @@
           ],
           "events": [
             {
-              "name": "click",
+              "name": "wcds-on-click",
               "type": {
                 "text": "CustomEvent"
               },
@@ -975,21 +975,21 @@
           ],
           "events": [
             {
-              "name": "input",
+              "name": "wcds-on-input",
               "type": {
                 "text": "CustomEvent"
               },
               "description": "Emitted on input with { value }."
             },
             {
-              "name": "clear-error",
+              "name": "wcds-clear-error",
               "type": {
                 "text": "CustomEvent"
               },
               "description": "Emitted when the user starts typing to clear existing errors."
             },
             {
-              "name": "change",
+              "name": "wcds-on-change",
               "type": {
                 "text": "CustomEvent"
               },

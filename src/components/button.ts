@@ -12,7 +12,7 @@ import './icon';
  * @tagname wcds-button
  * @summary A customizable button component with support for icons and various styles.
  * @slot - The button's label or content.
- * @fires wcds-click - Emitted when the button is clicked.
+ * @fires wcds-on-click - Emitted when the button is clicked.
  * @cssproperty --wcds-button-padding - Padding inside the button.
  * @cssproperty --wcds-button-radius - Border radius of the button.
  * @cssproperty --wcds-button-font-size - Font size of the button label.
@@ -35,7 +35,7 @@ export class WCDSButton extends LitElement {
 
   private handleClick(event: MouseEvent) {
     this.dispatchEvent(
-      new CustomEvent('wcds-click', {
+      new CustomEvent('wcds-on-click', {
         detail: { originalEvent: event },
         bubbles: true,
         composed: true,
